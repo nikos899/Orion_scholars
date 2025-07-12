@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-content {
+    width: 100%;
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 90px;
+    font-weight: bold;
+}
+
+.navbar {
+    position: absolute;
+    /* αντί για sticky */
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 150px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /*border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 5px;
+    border-bottom-color: #7300ff;
+    */
+
+    margin-top: 60px;
+    background-color: rgba(31, 31, 31, 0);
+    transition: transform 0.4s ease-inrgb(9, 9, 9) opacity 0.3s ease;
+    opacity: 1;
+
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.logo a {
+    font-family: 'Griffy';
+    font-size: 80px;
+    color: #00eeff;
+    text-decoration: none;
+    letter-spacing: 5px;
+    text-shadow: 0px 0px 40px #00eeff;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo a:hover {
+    color: #50f3ff;
+    text-shadow: 0px 0px 40px #50f3ff;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin-left: 10px;
+}
+
+.navbar button {
+    font-size: 24px;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 4px;
+    height: 100px;
+    width: 300px;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: transparent;
+    transition: font-size, color, background-color, text-decoration-color, 0.3s;
+}
+
+.navbar button:hover {
+    color: #00f0ff;
+    font-size: 30px;
+    text-decoration-color: rgb(0, 247, 255);
+    text-underline-offset: 10px;
+    cursor: pointer;
+}
+
+header {
+    text-align: center;
+    font-size: 32px;
+    font-family: "Raleway", sans-serif;
+    ;
+    color: rgb(104, 0, 189);
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.contact-info .email,
+.contact-info .phone {
+    color: rgb(0, 247, 255);
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+.enrollment-cards-section h2:hover {
+    color: rgb(0, 247, 255);
+}
+
+p {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 1.5%;
+    padding-bottom: 0.5%;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-family: "Raleway", sans-serif;
+    line-height: 60px;
+    color: rgb(237, 237, 237);
+    border-color: black;
+    transition: color, text-shadow, 0.3s;
+}
+
+p:hover,
+.offer-card price:hover,
+.offer-card details:hover {
+    text-shadow: 0px 0px 5px rgba(242, 0, 255, 0.350);
+    color: rgb(255, 255, 255);
+}
+
+#main-content {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 1000;
+    font-size: 48px;
+    color: rgb(0, 247, 255);
+    letter-spacing: 2px;
+    transition: color, 0.3s;
+    text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+    transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+    padding-top: 25px;
+    transition: border-bottom-colo, color, 0.3s
+}
+
+footer {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 3px;
+    padding-top: 10px;
+
+    background-color: rgb(26, 26, 26);
+    color: rgb(230, 230, 230);
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+    border-top-width: 4px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-top-color: rgb(140, 0, 255);
+    border-style: solid;
+    transition: background-color, color, 0.3s;
+}
+
+footer:hover {
+    border-top-color: rgb(208, 0, 255);
+    color: rgb(231, 231, 231);
+}
+
+.contact-info {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 1000;
+    font-size: 48px;
+    color: rgb(0, 247, 255);
+    letter-spacing: 2px;
+    transition: color, 0.15s;
+    text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+    transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+    padding-top: 25px;
+    transition: border-bottom-colo, color, 0.3s
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-weight: bold;
+}
+
+.phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.contact-info .email h1,
+.contact-info .phone h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.contact-info .phone p,
+.contact-info .email p {
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: normal;
+}
+
+.social {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 70px 80px 80px 80px 80px;
+    justify-content: center;
+    height: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 50px;
+    margin-bottom: 30px;
+    transition: margin-right, margin-left, transform 0.3s
+}
+
+.icon_selection:hover {
+    cursor: pointer;
+    transform: translateY(-20px);
+}
+
+#button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.program {
+    position: relative;
+    z-index: 1;
+    width: 290px;
+    height: 100px;
+    background-color: rgba(0, 200, 225, 0.1);
+    color: rgb(0, 204, 231);
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(0, 170, 192);
+    font-size: 24px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 60px;
+    transition: color, border-color, background-color, 0.3s;
+}
+
+.program:hover {
+    color: rgb(90, 255, 255);
+    border-color: rgb(90, 255, 255);
+    background-color: rgba(0, 255, 255, 0.3);
+}
+
+.enrollment-cards-section {
+    margin: 60px 10%;
+    padding: 40px;
+    border-radius: 16px;
+    background-color: rgba(16, 16, 16, 0.5);
+    border: 2px solid rgb(104, 0, 189);
+    box-shadow: 0 0 20px rgba(104, 0, 189, 0.2);
+    font-family: "Raleway", sans-serif;
+    color: white;
+    letter-spacing: 3px;
+    z-index: 1;
+    transition: box-shadow 0.3s ease;
+}
+
+.enrollment-cards-section h2 {
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: rgb(0, 247, 255);
+    text-shadow: 0 0 5px rgb(0, 247, 255, 0.35);
+}
+
+.enrollment-description {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.offer-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgb(140, 0, 255);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(140, 0, 255, 0.2);
+    transition: box-shadow, 0.3s;
+}
+
+.offer-card:hover,
+.enrollment-cards-section:hover {
+    box-shadow: 0 0 30px rgba(140, 0, 255, 0.5);
+}
+
+.offer-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: rgb(0, 255, 255);
+}
+
+.offer-card .price {
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.offer-card .details img {
+    filter: brightness(0) invert(1);
+    width: 80px;
+    margin: 10%;
+}
+
+.enrollment-warning {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+    line-height: 1.6;
+}
+
+.cta-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.cta-button {
+    font-size: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(to right, rgb(104, 0, 189), rgb(0, 204, 255));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 20px rgba(0, 204, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background: linear-gradient(to right, rgb(140, 0, 255), rgb(0, 247, 255));
+    transform: scale(1.05);
+    box-shadow: 0px 6px 25px rgba(0, 255, 255, 0.5);
+}
+
+.stem-feature-grid {
+    margin: 60px 5%;
+    padding: 40px;
+    border-radius: 16px;
+    background-color: rgba(16, 16, 16, 0.5);
+    border: 2px solid rgb(140, 0, 255);
+    box-shadow: 0 0 20px rgba(140, 0, 255, 0.2);
+    font-family: "Raleway", sans-serif;
+    color: white;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.stem-feature-grid:hover {
+    box-shadow: 0 0 30px rgba(140, 0, 255, 0.5);
+}
+
+.stem-feature-grid h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: rgb(0, 247, 255);
+    text-shadow: 0 0 30px rgba(77, 249, 255, 0.67);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.grid-item {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgb(104, 0, 189);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(104, 0, 189, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 275px;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(104, 0, 189, 0.4);
+}
+
+.grid-item img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 50px cyan);
+    filter: brightness(0) invert(1);
+}
+
+.grid-item h3 {
+    font-size: 22px;
+    color: rgb(0, 255, 255);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.grid-item p {
+    font-size: 20px;
+    color: rgb(225, 225, 225);
+    line-height: 1.4;
+    letter-spacing: 3px;
+}
+
+.details p {
+    margin-bottom: 0px;
+}
+
+#frequency {
+    font-size: 18px;
+}
+
+/* PHONE SCREEN SIZE */
+
+@media screen and (max-width: 900px) {
+
+    h1 {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .logo {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .navbar button {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+/* LAPTOP SCREEN SIZE */
+
+@media screen and (min-width: 900px) and (max-width: 1500px) {
+    .navbar button {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}

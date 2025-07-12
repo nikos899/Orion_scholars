@@ -1,653 +1,243 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <Title>Orion Scholars</Title>
-    <style>
 
-      @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-      
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <Title>Orion Scholars</Title>
+  <link rel="stylesheet" type="text/css" href="styles/core.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-      .navbar {
-        position: absolute; /* αντί για sticky */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 150px;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        /*border-style: solid;
-        border-width: 0px;
-        border-bottom-width: 5px;
-        border-bottom-color: #7300ff;
-        */
+<body style="background-image: url(assets/intro.png); background-size: contain; width: 100% !important;">
 
-        margin-top: 20px;
-        background-color:rgba(31, 31, 31, 0);
-        transition: transform 0.4s ease-inrgb(9, 9, 9) opacity 0.3s ease;
-        opacity: 1;
-      }
-
-      .navbar.hidden {
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
-      }
-
-      .logo a {
-        font-family: 'Griffy';
-        font-size: 80px;
-        color: #00eeff;
-        text-decoration: none;
-        letter-spacing: 5px;
-        text-shadow: 0px 0px 40px #00eeff;
-        transition: color 0.3s ease, text-shadow 0.3s ease;
-      }
-
-      .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0px 0px 40px #50f3ff;
-      }
-
-      .navbar ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .navbar li {
-        margin-left: 15px;
-      }
-
-      .navbar button {
-        font-size: 24px;
-        font-size: 'Raleway';
-        border-radius: 4px;
-        height: 100px;
-        width: 300px;
-        color: rgb(255, 255, 255);
-        background: transparent;
-        border: none;
-        font-weight : bold;
-        letter-spacing: 3px;
-        text-decoration: underline;
-        text-underline-offset: 10px;
-        text-decoration-color:transparent;
-        transition: font-size, color, background-color, text-decoration-color, 0.3s;
-      }
-
-      .navbar button:hover {
-        color: #00f0ff;
-        font-size: 30px;
-        text-decoration-color: rgb(0, 247, 255);
-        text-underline-offset: 10px;
-        cursor: pointer;
-      }
-
-      header{
-        text-align: center;
-        font-size: 32px;
-        font-family: "Raleway", sans-serif;;
-        color: rgb(104, 0, 189);
-      }
-      
-      #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        top: 0;
-        left: 0;
-      }
-
-      .contact-info .email, .contact-info .phone{
-        color: rgb(0, 247, 255);
-        font-weight:normal;
-        letter-spacing: 3px;
-      }
-
-      .enrollment-cards-section h2:hover{
-        color:rgb(0, 247, 255);
-      }
-
-      p{
-        text-align: center;
-        margin-bottom: 50px ;
-        margin-left: 10%;
-        margin-right:10%;
-        padding-top: 1.5%;
-        padding-bottom: 0.5%;
-        font-size: 24px;
-        letter-spacing: 3px;
-        font-family: "Raleway", sans-serif;
-        line-height: 60px;
-        color: rgb(237, 237, 237);
-        border-color : black;
-        transition: color, text-shadow, 0.3s;
-      }
-
-      p:hover, .offer-card price:hover, .offer-card details:hover {
-        text-shadow: 0px 0px 5px rgba(242, 0, 255, 0.350);
-        color: rgb(255, 255, 255);
-      }
-
-      h1{
-        text-align: center;
-        font-family: "Raleway", sans-serif;
-        font-weight: 1000;
-        font-size: 48px;
-        color: rgb(0, 247, 255);
-        letter-spacing: 2px;
-        transition: color,0.3s;
-        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
-        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
-        padding-top: 25px;
-        transition: border-bottom-colo, color, 0.3s
-      }
-
-      footer{
-        justify-content: space-between;
-        align-items: center;
-        font-size: 24px;
-        border-radius: 3px;
-        padding-top: 10px;
-
-        background-color: rgb(26, 26, 26);
-        color: rgb(230, 230, 230);
-        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
-        border-top-width: 4px; 
-        border-left-width: 0px;
-        border-right-width: 0px;
-        border-bottom-width: 0px;
-        border-top-color: rgb(140, 0, 255);
-        border-style: solid;
-        transition: background-color, color, 0.3s;
-      }
-
-      footer:hover{
-        border-top-color:rgb(208, 0, 255);
-        color: rgb(231, 231, 231);
-      }
-
-      .contact-info{
-        text-align: center;
-        font-family: "Raleway", sans-serif;
-        font-weight: 1000;
-        font-size: 48px;
-        color: rgb(0, 247, 255);
-        letter-spacing: 2px;
-        transition: color,0.15s;
-        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
-        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
-        padding-top: 25px;
-        transition: border-bottom-colo, color, 0.3s
-      }
-
-      .email{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-weight: bold;
-      }
-
-      .phone{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 20px;
-        font-weight: bold;
-      }
-
-      .contact-info .email h1, .contact-info .phone h1{
-        font-size: 24px;
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-weight: bold;
-        padding-right: 20px;
-      }
-
-      .contact-info .phone p, .contact-info .email p{
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-weight: normal;
-      }
-
-      .social{
-        display:grid;
-        align-items: center;
-        grid-template-columns: 70px 80px 80px 80px 80px;
-        justify-content: center;
-        height : 100px;
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-top: 50px;
-        margin-bottom: 30px;
-        transition: margin-right, margin-left,transform 0.3s
-      }
-
-      .icon_selection:hover{
-        cursor: pointer;
-        transform: translateY(-20px);
-      }
-
-      .program {
-        position: relative;
-        z-index: 1;
-        margin-left: 44%;
-        width: 290px;
-        height: 100px;
-        background-color: rgba(0, 200, 225, 0.1);
-        color: rgb(0, 204, 231);
-        border-style: solid;
-        border-width: 3px;
-        border-color:  rgb(0, 170, 192);
-        font-size: 24px;
-        padding-left: 25px;
-        padding-right: 25px;
-        font-weight:bold;
-        cursor: pointer;
-        border-radius: 60px;
-        transition: color, border-color, background-color, 0.3s;
-      }
-
-      .program:hover{
-        color: rgb(90, 255, 255);
-        border-color:rgb(90, 255, 255);
-        background-color:rgba(0, 255, 255, 0.3);
-      }
-
-      .enrollment-cards-section {
-        margin: 60px 10%;
-        padding: 40px;
-        border-radius: 16px;
-        background-color: rgba(16, 16, 16, 0.5);
-        border: 2px solid rgb(104, 0, 189);
-        box-shadow: 0 0 20px rgba(104, 0, 189, 0.2);
-        font-family: "Raleway", sans-serif;
-        color: white;
-        letter-spacing: 3px;
-        z-index:1;
-        transition: box-shadow 0.3s ease;
-      }
-
-      .enrollment-cards-section h2 {
-        font-size: 32px;
-        text-align: center;
-        letter-spacing: 3px;
-        margin-bottom: 20px;
-        color: rgb(0, 247, 255);
-        text-shadow: 0 0 5px rgb(0, 247, 255,0.35);
-      }
-
-      .enrollment-description {
-        font-size: 28px;
-        text-align: center;
-        margin-bottom: 40px;
-        line-height: 1.6;
-      }
-
-      .card-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-      }
-
-      .offer-card{
-        background-color: rgba(0, 0, 0, 0.5);
-        border: 2px solid rgb(140, 0, 255);
-        border-radius: 12px;
-        padding: 25px;
-        text-align: center;
-        box-shadow: 0 0 15px rgba(140, 0, 255, 0.2);
-        transition: box-shadow, 0.3s ;
-      }
-
-      .offer-card:hover, .enrollment-cards-section:hover {
-        box-shadow: 0 0 30px rgba(140, 0, 255, 0.5);
-      }
-
-      .offer-card h3 {
-        font-size: 22px;
-        margin-bottom: 15px;
-        color: rgb(0, 255, 255);
-      }
-
-      .offer-card .price {
-        font-size: 26px;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-        margin-bottom: 10px;
-      }
-
-      .offer-card .details img{
-        filter: brightness(0) invert(1);
-        width: 80px;
-        margin: 10%;
-      }
-
-      .enrollment-warning {
-        text-align: center;
-        font-size: 20px;
-        margin-top: 40px;
-        line-height: 1.6;
-      }
-
-      .cta-button-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 50px;
-      }
-
-      .cta-button {
-        font-size: 20px;
-        padding: 15px 30px;
-        background: linear-gradient(to right, rgb(104, 0, 189), rgb(0, 204, 255));
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0px 4px 20px rgba(0, 204, 255, 0.4);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .cta-button:hover {
-        background: linear-gradient(to right, rgb(140, 0, 255), rgb(0, 247, 255));
-        transform: scale(1.05);
-        box-shadow: 0px 6px 25px rgba(0, 255, 255, 0.5);
-      }
-
-      .stem-feature-grid {
-        margin: 60px 10%;
-        padding: 40px;
-        border-radius: 16px;
-        background-color: rgba(16, 16, 16, 0.5);
-        border: 2px solid rgb(140, 0, 255);
-        box-shadow: 0 0 20px rgba(140, 0, 255, 0.2);
-        font-family: "Raleway", sans-serif;
-        color: white;
-        text-align: center;
-        transition: box-shadow 0.3s ease;
-      }
-
-      .stem-feature-grid:hover {
-        box-shadow: 0 0 30px rgba(140, 0, 255, 0.5);
-      }
-
-      .stem-feature-grid h2 {
-        font-size: 32px;
-        text-align: center;
-        margin-bottom: 40px;
-        color: rgb(0, 247, 255);
-        text-shadow: 0 0 30px rgba(77, 249, 255, 0.67);
-      }
-
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 30px;
-      }
-
-      .grid-item {
-        background-color: rgba(0, 0, 0, 0.5);
-        border: 2px solid rgb(104, 0, 189);
-        border-radius: 12px;
-        padding: 25px;
-        text-align: center;
-        box-shadow: 0 0 15px rgba(104, 0, 189, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 275px;
-      }
-
-      .grid-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 25px rgba(104, 0, 189, 0.4);
-      }
-
-      .grid-item img {
-        width: 75px;
-        height: 75px;
-        margin-bottom: 15px;
-        filter: drop-shadow(0 0 50px cyan);
-        filter: brightness(0) invert(1);
-      }
-
-      .grid-item h3 {
-        font-size: 22px;
-        color: rgb(0, 255, 255);
-        margin-bottom: 20px;
-        letter-spacing : 3px;
-      }
-
-      .grid-item p {
-        font-size: 20px;
-        color: rgb(225, 225, 225);
-        line-height: 1.4;
-        letter-spacing: 3px;
-      }
-
-      .details p{
-        margin-bottom:0px;
-      }
-    
-    </style>
-  </head>
-
-  <body style = "background-image: url(intro.png); background-size: contain;">
-
-    <div class="background-img">
-      <nav class="navbar">
-        <div class="logo">
-          <a href="index.html">Orion Scholars</a>
-        </div>
-        <ul>
-          <li><a href="index.html" class="active"><button>Αρχική</button></a></li>
-          <li><a href="Μαθήματα.html" class="active"><button>Μαθήματα</button></a></li>
-          <li><a href="φιλοσοφία.html" class="active"><button>Φιλοσοφία</button></a></li>
-          <li><a href="Σχετικά.html" class="active"><button>Σχετικά</button></a></li>
-          <li><a href="Συχνές_Ερωτήσεις.html" class="active"><button>Συχνές Ερωτήσεις</button></a></li>
-          <li><a href="Επικοινωνία.html" class="active"><button>Επικοινωνία</button></a></li>
-        </ul>
-      </nav>
+  <div class="background-img">
+    <div class="logo-container">
+      <div class="logo">
+        <a href="index.html">Orion Scholars</a>
+      </div>
     </div>
 
-      <div id="particles-js"></div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html" class="active"><button>Αρχική</button></a></li>
+        <li><a href="Μαθήματα.html" class="active"><button>Μαθήματα</button></a></li>
+        <li><a href="φιλοσοφία.html" class="active"><button>Φιλοσοφία</button></a></li>
+        <li><a href="Σχετικά.html" class="active"><button>Σχετικά</button></a></li>
+        <li><a href="Συχνές_Ερωτήσεις.html" class="active"><button>Συχνές Ερωτήσεις</button></a></li>
+        <li><a href="Επικοινωνία.html" class="active"><button>Επικοινωνία</button></a></li>
+      </ul>
+    </nav>
+  </div>
 
-      <div>
-      <h1 style = "font-size: 36px; padding-top : 300px; font-weight: bold;">Με μια ματιά...</h1>
+  <div id="particles-js"></div>
+
+  <div id="main-content-wrapper">
+    <div id="main-content">
+      <h1 id="main-title">Με μια ματιά...</h1>
       <p>
-        Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής 
-        σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα Μαθηματικά, η Φυσική, 
-        η Πληροφορική και η Ηλεκτρονική. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και 
-        διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω προσωπικών εργασιών( δηλ. project ). 
-        Το πρόγραμμα απευθύνεται σε μαθητές Γυμνασίου & Λυκείου που θέλουν να εξερευνήσουν την επιστήμη, πρόσφατους αποφοίτους 
-        Λυκείου που θέλουν να προετοιμαστούν καλύτερα πριν την έναρξη των μαθημάτων τους στην σχολή τους, αλλά και σε ενήλικες που 
-        επιθυμούν να αξιοποιήσουν παραγωγικά τον ελεύθερο τους χρόνο μαθαίνοντας νέα πράγματα και αποκτώντας νέες ικανότητες. 
-        Προσφέρει ευέλικτη συμμετοχή χωρίς εξετάσεις ή υποχρεωτικές ασκήσεις, εστιάζοντας στην προσωπική ανάπτυξη και την 
+        Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας,
+        της κριτικής
+        σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα Μαθηματικά,
+        η Φυσική,
+        η Πληροφορική και η Ηλεκτρονική. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά
+        και
+        διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω προσωπικών εργασιών( δηλ. project ).
+        Το πρόγραμμα απευθύνεται σε μαθητές Γυμνασίου & Λυκείου που θέλουν να εξερευνήσουν την επιστήμη, πρόσφατους
+        αποφοίτους
+        Λυκείου που θέλουν να προετοιμαστούν καλύτερα πριν την έναρξη των μαθημάτων τους στην σχολή τους, αλλά και σε
+        ενήλικες που
+        επιθυμούν να αξιοποιήσουν παραγωγικά τον ελεύθερο τους χρόνο μαθαίνοντας νέα πράγματα και αποκτώντας νέες
+        ικανότητες.
+        Προσφέρει ευέλικτη συμμετοχή χωρίς εξετάσεις ή υποχρεωτικές ασκήσεις, εστιάζοντας στην προσωπική ανάπτυξη και
+        την
         προετοιμασία για μελλοντικές σπουδές ή επαγγελματική πορεία, και όλα αυτά σε μια αρκετά οικονομική τιμή.
       </p>
+    </div>
+  </div>
+
+  <div id="button-wrapper">
+    <a href="φιλοσοφία.html"><button class="program">Μάθε Περισσότερα !</button></a>
+  </div>
+
+  <section class="stem-feature-grid">
+
+    <h2>Τι Προσφέρει το Πρόγραμμα STEM;</h2>
+
+    <div class="grid-container">
+      <div class="grid-item">
+        <img src="assets/sand-clock-half-line-icon.svg" alt="calendar icon" />
+        <h3>Διάρκεια</h3>
+        <p>9 Μήνες</p>
       </div>
 
-      <a href="φιλοσοφία.html"><button class ="program">Μάθε Περισσότερα !</button></a>
+      <div class="grid-item">
+        <img src="assets/working-on-office-icon.svg" alt="online icon" />
+        <h3>Διεξαγωγή</h3>
+        <p>Online</p>
+      </div>
 
-      <section class="stem-feature-grid">
+      <div class="grid-item">
+        <img src="assets/slow-icon.svg" alt="clock icon" />
+        <h3>Συχνότητα</h3>
+        <p id="frequency">Μια φορά την εβδομάδα για κάθε μάθημα</p>
+      </div>
 
-        <h2>Τι Προσφέρει το Πρόγραμμα STEM;</h2>
+      <div class="grid-item">
+        <img src="assets/referral-customer-icon.svg" alt="group icon" />
+        <h3>Τμήματα</h3>
+        <p>Μέχρι 20 άτομα</p>
+      </div>
 
-        <div class="grid-container">
-          <div class="grid-item">
-            <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
-            <h3>Διάρκεια</h3>
-            <p>9 Μήνες</p>
+      <div class="grid-item">
+        <img src="assets/age-icon.svg" alt="age icon" />
+        <h3>Ηλικίες</h3>
+        <p>13+ ετών</p>
+      </div>
+
+      <div class="grid-item">
+        <img src="assets/time-limit-icon.png" alt="duration icon" />
+        <h3>Διδακτική ώρα</h3>
+        <p>75 λεπτά</p>
+      </div>
+
+    </div>
+
+    <div class="cta-button-container">
+      <a href="Μαθήματα.html">
+        <button class="cta-button">Δες τα μαθήματα !</button>
+      </a>
+    </div>
+  </section>
+
+  <section class="enrollment-cards-section">
+    <h2>ΕΓΓΡΑΦΗ</h2>
+    <p class="enrollment-description">
+      Το κόστος συμμετοχής ανέρχεται στα <strong>20€ τον μήνα</strong> για κάθε μάθημα.
+      Παρακάτω μπορείτε να δείτε τις διαθέσιμες προσφορές :
+    </p>
+
+    <div class="card-container">
+
+      <div class="offer-card">
+        <h3>Πακέτο Τριών Μαθημάτων</h3>
+        <div class="details">
+          <img src="assets/buy-book-icon.svg">
+          <p class="price">50€ / μήνα</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
+        <div class="details" style="margin-top: 30px;">
+          <img src="assets/surprise-icon.svg">
+          <p class="price">60€ / μήνα</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="details">
+          <h3>Οικογενειακό Πακέτο</h3>
+          <img src="assets/teamwork-together-icon.svg">
+          <p>Μία συνδρομή για όλα τα αδέλφια !</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <div class="details">
+          <h3>Δωρεάν Δοκιμή</h3>
+          <img src="assets/one-free-icon.svg">
+          <p>Η πρώτη εβδομάδα δωρεάν!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-button-container">
+      <a href="Φορμα_Επικοινωνίας.html"><button class="cta-button">Συμπλήρωσε Φόρμα Ενδιαφέροντος</button></a>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="contact-info">
+        <div class="title">Βρείτε Μας Στα Social !</div>
+        <div class=social>
+          <div class=icon_selection
+            style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;"
+            icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+            <img src="assets/LinkedIn_icon.png" , width=100%>
           </div>
 
-          <div class="grid-item">
-            <img src="working-on-office-icon.svg" alt="online icon" />
-            <h3>Διεξαγωγή</h3>
-            <p>Online</p>
+          <div class=icon_selection
+            style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;"
+            icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+            <img src="assets/YouTube_icon.png" , width=100%>
           </div>
 
-          <div class="grid-item">
-            <img src="slow-icon.svg" alt="clock icon" />
-            <h3>Συχνότητα</h3>
-            <p>Μια φορά την εβδομάδα για κάθε μάθημα</p>
+          <div class=icon_selection
+            style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;"
+            icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+            <img src="assets/fb_icon.png" , width=100%>
           </div>
 
-          <div class="grid-item">
-            <img src="referral-customer-icon.svg" alt="group icon" />
-            <h3>Τμήματα</h3>
-            <p>Μέχρι 20 άτομα</p>
+          <div class=icon_selection
+            style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;"
+            icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+            <img src="assets/Instagram_icon.png" , width=100%>
           </div>
 
-          <div class="grid-item">
-            <img src="age-icon.svg" alt="age icon" />
-            <h3>Ηλικίες</h3>
-            <p>13+ ετών</p>
+          <div class=icon_selection
+            style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;"
+            icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+            <img src="assets/Threads_icon.png" , width=100%>
           </div>
-
-          <div class="grid-item">
-            <img src="time-limit-icon.png" alt="duration icon" />
-            <h3>Διδακτική ώρα</h3>
-            <p>75 λεπτά</p>
-          </div>
-
+          <div style="margin-top:30px;margin-bottom:30px;"></div>
         </div>
 
-        <div class="cta-button-container">
-          <a href="Μαθήματα.html">
-            <button class="cta-button">Δες τα μαθήματα !</button>
-          </a>
-        </div>
-      </section>
-
-      <section class="enrollment-cards-section">
-        <h2>ΕΓΓΡΑΦΗ</h2>
-        <p class="enrollment-description">
-          Το κόστος συμμετοχής ανέρχεται στα <strong>20€ τον μήνα</strong> για κάθε μάθημα. 
-          Παρακάτω μπορείτε να δείτε τις διαθέσιμες προσφορές :
-        </p>
-
-        <div class="card-container">
-
-          <div class="offer-card">
-            <h3>Πακέτο Τριών Μαθημάτων</h3>
-            <div class="details">
-              <img src = "buy-book-icon.svg">
-              <p class="price">50€ / μήνα</p>
-            </div>
-          </div>
-
-          <div class="offer-card">
-            <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
-            <div class="details" style ="margin-top: 30px;">
-              <img src = "surprise-icon.svg">
-              <p class="price">60€ / μήνα</p>
-            </div>
-          </div>
-
-          <div class="offer-card">
-            <div class="details">
-              <h3>Οικογενειακό Πακέτο</h3>
-              <img src = "teamwork-together-icon.svg">
-              <p >Μία συνδρομή για όλα τα αδέλφια !</p>
-            </div>
-          </div>
-
-          <div class="offer-card">
-            <div class="details">
-            <h3>Δωρεάν Δοκιμή</h3>
-              <img src = "one-free-icon.svg">
-              <p >Η πρώτη εβδομάδα δωρεάν!</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-button-container">
-          <a href="Φορμα_Επικοινωνίας.html"><button class="cta-button">Συμπλήρωσε Φόρμα Ενδιαφέροντος</button></a>
-        </div>
-      </section>
-
-      <footer>
         <div>
-          <div class = "contact-info">
-            <div class = "title">Βρείτε Μας Στα Social !</div>
-              <div class = social>
-                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
-                  <img src="LinkedIn_icon.png", width = 100%>
-                </div>
 
-                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
-                  <img src="YouTube_icon.png", width = 100%>
-                </div>
-
-                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
-                  <img src="fb_icon.png", width = 100%>
-                </div>
-
-                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
-                  <img src="Instagram_icon.png", width = 100%>
-                </div>
-
-                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
-                  <img src="Threads_icon.png", width = 100%>
-                </div>
-                <div style="margin-top:30px;margin-bottom:30px;"></div>
-              </div>
-              
-              <div>
-
-                <div class = "email">
-                  <h1>email :</h1>
-                  <p>orion@scholars.com</p>
-                </div>
-
-                <div class = "phone">
-                  <h1>Τηλ. :</h1>
-                  <p>69xxxxxxxx</p>
-                </div>
-
-              </div>
-
-            </div>
-
+          <div class="email">
+            <h1>email :</h1>
+            <p>orion@scholars.com</p>
           </div>
 
-          <div style ="font-size: 32px; color:rgb(255, 255, 255); letter-spacing : 2px; text-align: center; margin-top:20px; padding-bottom:50px;">
-            © 2025 Orion Scholars All Rights Reserved
+          <div class="phone">
+            <h1>Τηλ. :</h1>
+            <p>69xxxxxxxx</p>
           </div>
 
         </div>
-        
-    </footer>
-    <script src = "particles.js"></script>
-    <script src = "app.js"></script>
-    <script>
-      let lastScrollTop = 0;
-      const navbar = document.querySelector('.navbar');
 
-      window.addEventListener('scroll', function () {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      </div>
 
-        if (scrollTop > lastScrollTop) {
-          // Scroll down – hide navbar
-          navbar.classList.add('hidden');
-        } else {
-          // Scroll up – show navbar
-          navbar.classList.remove('hidden');
-        }
+    </div>
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-    </script>
-  </body>
+    <div
+      style="font-size: 32px; color:rgb(255, 255, 255); letter-spacing : 2px; text-align: center; margin-top:20px; padding-bottom:50px;">
+      © 2025 Orion Scholars All Rights Reserved
+    </div>
+
+    </div>
+
+  </footer>
+  <script src="particles.js"></script>
+  <script src="app.js"></script>
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        // Scroll down – hide navbar
+        navbar.classList.add('hidden');
+      } else {
+        // Scroll up – show navbar
+        navbar.classList.remove('hidden');
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
+</body>
+
 </html>
