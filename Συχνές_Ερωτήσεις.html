@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8">
+    <title>Συχνές Ερωτήσεις | Orion Scholars</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .navbar {
+          position: absolute; /* αντί για sticky */
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 150px;
+          z-index: 1;
+          margin-bottom: -200px;
+          margin-top: -200px;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          /*border-style: solid;
+          border-width: 0px;
+          border-bottom-width: 5px;
+          border-bottom-color: #7300ff;
+          */
+
+          background-color:rgba(31, 31, 31, 0);
+          transition: transform 0.4s ease-inrgb(9, 9, 9) opacity 0.3s ease;
+          opacity: 1;
+
+        }
+
+        .navbar.hidden {
+          transform: translateY(-100%);
+          transition: transform 0.3s ease;
+        }
+
+        .logo a {
+          font-family: 'Griffy';
+          font-size: 80px;
+          color: #00eeff;
+          text-decoration: none;
+          letter-spacing: 5px;
+          text-shadow: 0px 0px 40px #00eeff;
+          transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .logo a:hover {
+          color: #50f3ff;
+          text-shadow: 0px 0px 40px #50f3ff;
+        }
+
+        .navbar ul {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .navbar li {
+          margin-left: 15px;
+        }
+
+        .navbar button {
+          font-size: 24px;
+          font-size: 'Raleway';
+          border-radius: 4px;
+          height: 100px;
+          width: 300px;
+          color: rgb(255, 255, 255);
+          background: transparent;
+          border: none;
+          font-weight : bold;
+          letter-spacing: 3px;
+          text-decoration: underline;
+          text-underline-offset: 10px;
+          text-decoration-color:transparent;
+          transition: font-size, color, background-color, text-decoration-color, 0.3s;
+        }
+
+        .navbar button:hover {
+          color: #00f0ff;
+          font-size: 30px;
+          text-decoration-color: rgb(0, 247, 255);
+          text-underline-offset: 10px;
+          cursor: pointer
+        }
+
+      body {
+        background-color: rgb(43, 43, 43);
+        font-family: "Raleway", sans-serif;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .faq-container {
+        max-width: 1000px;
+        margin: 120px auto;
+        margin-top: 225px;
+        padding: 20px 40px;
+        background: rgba(59, 59, 59, 0.8);
+        border-radius: 24px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 0 20px rgba(38, 38, 38, 0.1);
+        color:white;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        color: #00f7ff;
+        margin-bottom: 40px;
+      }
+
+      details {
+        background-color: rgba(35, 35, 35, 0.5);
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 6px solid #00f7ff;
+        transition: all 0.3s ease;
+      }
+
+      details[open] {
+        background-color: rgba(18, 18, 18, 0.8);
+        border-left-color: #8a2be2;
+      }
+
+      summary {
+        font-size: 22px;
+        cursor: pointer;
+        outline: none;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      summary:hover {
+        color: #00f7ff;
+      }
+
+      details p {
+        font-size: 18px;
+        margin-top: 10px;
+        line-height: 1.6;
+        color: #ddd;
+      }
+
+      .back-button {
+        display: block;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .back-button a {
+        color: #00f7ff;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .back-button a:hover {
+        text-decoration: underline;
+      }
+
+      footer{
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        border-radius: 3px;
+        padding-top: 10px;
+
+        background-color: rgb(26, 26, 26);
+        color: rgb(230, 230, 230);
+        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+        border-top-width: 4px; 
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-top-color: rgb(140, 0, 255);
+        border-style: solid;
+        transition: background-color, color, 0.3s;
+      }
+
+      footer:hover{
+        border-top-color:rgb(208, 0, 255);
+        color: rgb(231, 231, 231);
+      }
+
+      .contact-info{
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 1000;
+        font-size: 48px;
+        color: rgb(0, 247, 255);
+        letter-spacing: 2px;
+        transition: color,0.15s;
+        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+        padding-top: 25px;
+        transition: border-bottom-colo, color, 0.3s
+      }
+
+      .email{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-weight: bold;
+      }
+
+      .phone{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .contact-info .email h1, .contact-info .phone h1{
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        padding-right: 20px;
+      }
+
+      .contact-info .email p, .contact-info .phone p{
+        color:white;
+        font-size: 24px;
+        letter-spacing: 2px;
+        line-height: 60px;
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+        z-index: 0;
+      }
+
+      .social{
+        display:grid;
+        align-items: center;
+        grid-template-columns: 70px 80px 80px 80px 80px;
+        justify-content: center;
+        height : 100px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 50px;
+        margin-bottom: 30px;
+        transition: margin-right, margin-left,transform 0.3s
+      }
+
+      .icon_selection:hover{
+        cursor: pointer;
+        transform: translateY(-20px);
+      }
+
+        .background{
+          position: sticky;
+          background-image:url("FAQ.png");
+          background-size: cover;
+        }
+
+        .faq-container p{
+          color:white;
+          font-size: 24px;
+          line-height: 48px;
+        }
+    </style>
+  </head>
+  <body class = "background">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html">Orion Scholars</a>
+        </div>
+        <ul>
+          <li><a href="index.html" class="active"><button>Αρχική</button></a></li>
+          <li><a href="Μαθήματα.html" class="active"><button>Μαθήματα</button></a></li>
+          <li><a href="φιλοσοφία.html" class="active"><button>Φιλοσοφία</button></a></li>
+          <li><a href="Σχετικά.html" class="active"><button>Σχετικά</button></a></li>
+          <li><a href="Συχνές_Ερωτήσεις.html" class="active"><button>Συχνές Ερωτήσεις</button></a></li>
+          <li><a href="Επικοινωνία.html" class="active"><button>Επικοινωνία</button></a></li>
+        </ul>
+      </nav>
+
+    <div class="faq-container">
+      <h1>Συχνές Ερωτήσεις</h1>
+
+      <details>
+        <summary>Τι είναι το Orion Scholars;</summary>
+        <p>
+          Το Orion Scholars είναι ένα καινοτόμο εξωσχολικό πρόγραμμα που στοχεύει στην καλλιέργεια κριτικής σκέψης<strong>,</strong> 
+          δημιουργικότητας και επιστημονικής περιέργειας<strong>.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Σε ποιες ηλικίες απευθύνεται το πρόγραμμα;</summary>
+        <p>
+          Το πρόγραμμα σχεδιάζεται έχοντας υπόψιν ηλικίες τουλάχιστον δεκατεσσάρων ετών (14) και άνω<strong>.</strong>  
+          Ωστόσο ενήλικοι είναι εξίσου ευπρόσδεκτοι και μπορούν να συμμετάσχουν μέσω αντίστοιχων τμημάτων<strong>.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Είναι απαραίτητες οι γνώσεις προγραμματισμού ή άλλες προϋπάρχουσες γνώσεις ;</summary>
+        <p>
+          Όχι! Το πρόγραμμα ξεκινάει από βασικό επίπεδο και δεν απαιτεί προηγούμενη εμπειρία με υπολογιστές ή προγραμματισμό<strong>.</strong> 
+        </p>
+      </details>
+
+      <details>
+        <summary>Παρέχεται κάποια πιστοποίηση ;</summary>
+        <p>
+          Αυτή την στιγμή όχι<strong>.</strong> Η πιστοποίηση στην ουσία είναι οι γνώσεις που θα αποκτήσετε και η απόδειξη 
+          πως κατέχετε αυτή την γνώση θα είναι στην ουσία τα projects με τα οποία θα ασχοληθείτε κατά την διάρκεια
+          του προγράμματος<strong>.</strong> 
+        </p>
+      </details>
+
+      <details>
+        <summary>Είστε φροντιστήριο;</summary>
+        <p>
+          <strong>Όχι,</strong> και είναι πολύ σημαντικό να γίνει κατανοητό αυτό<strong>.</strong> Τόσο ο σκοπός όσο και η μέθοδος 
+          μας διαφέρει<strong>.</strong> Δεν ακολουθούμε αυστηρά κάποια συγκεκριμένη ύλη<strong>,</strong> δεν έχουμε εξετάσεις ή 
+          υποχρεώσεις<strong>.</strong> Είμαστε μια δημιουργική<strong>,</strong> ευέλικτη εξωσχολική δραστηριότητα<strong>,</strong> με 
+          έμφαση στην ελευθερία της σκέψης<strong>.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Σε τι διαφέρετε απο άλλα προγράμματα παρόμοιου τύπου ;</summary>
+        <p>
+          Όλα τα μαθήματα διδάσκονται από πτυχιούχους με άμεσα σχετική ακαδημαϊκή κατάρτιση και βασίζονται σε εργαλεία με 
+          εφαρμογή στην αγορά εργασίας<strong>.</strong> Παράλληλα<strong>,</strong> δεν περιοριζόμαστε στις τεχνολογικές δεξιότητες 
+          μόνο <strong>.</strong> Καλλιεργούμε στέρεα θεμέλια στις βασικές επιστήμες και τις συνδυάζουμε με την τεχνολογία με τρόπο 
+          που συχνά ξεπερνά τις δυνατότητες του σχολείου<strong>,</strong> του φροντιστηρίου ή άλλων προγραμμάτων<strong>.</strong> 
+          Αυτή η ολιστική προσέγγιση οδηγεί σε ουσιαστική κατανόηση και ανοίγει τον δρόμο προς την καινοτομία<strong>.</strong> Το 
+          πρόγραμμα στην ουσία απευθύνεται σε εκείνον που ψάχνει κάτι μοναδικό <strong>,</strong> μια ουσιαστική επένδυση στην
+          μόρφωση του<strong>.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Υπάρχουν ασκήσεις ή projects ;</summary>
+        <p>
+          Ναι, αλλά είναι προαιρετικά<strong>.</strong> Ο μαθητής μπορεί να συμμετάσχει στις διαλέξεις χωρίς άλλη υποχρέωση<strong>,</strong> 
+          εαν και για προφανείς λόγους ενθαρρύνουμε έντονα την ενασχόληση στον βαθμό που το πρόγραμμα του μαθητή το επιτρέπει<strong>.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Υπάρχει δυνατότητα δια ζώσης συμμετοχής ;</summary>
+        <p>
+          Προς το παρόν<strong>,</strong> όχι<strong>.</strong> Αναγνωρίζουμε το γεγονός πως η δια ζώσης εμπειρία έχει τη δική της 
+          ξεχωριστή αξία<strong>.</strong> Ωστόσο<strong>,</strong> έχουμε σχεδιάσει το πρόγραμμά μας έτσι ώστε να μπορεί να 
+          πραγματοποιηθεί εξ αποστάσεως<strong>.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Θα βελτιωθεί η απόδοση στο σχολείο ;</summary>
+        <p>
+          Είναι πιθανό<strong>,</strong> αλλά πρέπει να καταστεί σαφές εξαρχής πως ο βαθμός δεν αποτελεί άμεσο στόχο<strong>.</strong>
+          Η βασική εκπαίδευση παρέχεται απο το σχολείο<strong>.</strong> Το πρόγραμμα βασίζεται σε αυτή και δρα ως μια επέκταση<strong>.</strong>
+          Η αληθινή πρόοδος έρχεται όταν ο μαθητής θέλει ο ίδιος να μάθει περισσότερα<strong>.</strong> Το κίνητρο πρέπει να γίνει εσωτερικό<strong>.</strong> 
+          Όταν αυτό συμβεί<strong>,</strong> η βελτίωση των βαθμών έρχεται με φυσικό τρόπο<strong>.</strong> Αυτός ακριβώς είναι και 
+          ο κύριος στόχος του προγράμματος<strong>,</strong> να δώσει κίνητρο και να εμπνεύσει<strong>.</strong>
+        </p>
+      </details>
+
+      <div class="back-button">
+        <a href="orionscholars.html">← Επιστροφή στην αρχική</a>
+      </div>
+    </div>
+
+    <footer>
+        <div>
+          <div class = "contact-info">
+            <div class = "title">Βρείτε Μας Στα Social !</div>
+              <div class = social>
+                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="LinkedIn_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="YouTube_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="fb_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="Instagram_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="Threads_icon.png", width = 100%>
+                </div>
+                <div style="margin-top:30px;margin-bottom:30px;"></div>
+              </div>
+              
+              <div>
+
+                <div class = "email">
+                  <h1>email :</h1>
+                  <p>orionscholars@example.com</p>
+                </div>
+
+                <div class = "phone">
+                  <h1>Τηλ. :</h1>
+                  <p>6986631610</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style ="font-size: 32px; color:rgb(255, 255, 255); letter-spacing : 2px; text-align: center; margin-top:20px; padding-bottom:50px;">
+            © 2025 Orion Scholars All Rights Reserved
+          </div>
+
+        </div>
+        
+    </footer>
+  </body>
+</html>

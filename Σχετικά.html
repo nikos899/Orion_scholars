@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Σχετικά με την Ομάδα | Orion Scholars</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+      .navbar {
+        position: absolute; /* αντί για sticky */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        /*border-style: solid;
+        border-width: 0px;
+        border-bottom-width: 5px;
+        border-bottom-color: #7300ff;
+        */
+
+        margin-top: 20px;
+        background-color:rgba(31, 31, 31, 0);
+        transition: transform 0.4s ease-inrgb(9, 9, 9) opacity 0.3s ease;
+        opacity: 1;
+
+      }
+
+      .navbar.hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .logo a {
+        font-family: 'Griffy';
+        font-size: 80px;
+        color: #00eeff;
+        text-decoration: none;
+        letter-spacing: 5px;
+        text-shadow: 0px 0px 40px #00eeff;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .logo a:hover {
+        color: #50f3ff;
+        text-shadow: 0px 0px 40px #50f3ff;
+      }
+
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar li {
+        margin-left: 15px;
+      }
+
+      .navbar button {
+        font-size: 24px;
+        font-size: 'Raleway';
+        border-radius: 4px;
+        height: 100px;
+        width: 300px;
+        color: rgb(255, 255, 255);
+        background: transparent;
+        border: none;
+        font-weight : bold;
+        letter-spacing: 3px;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        text-decoration-color:transparent;
+        transition: font-size, color, background-color, text-decoration-color, 0.3s;
+      }
+
+      .navbar button:hover {
+        color: #00f0ff;
+        font-size: 30px;
+        text-decoration-color: rgb(0, 247, 255);
+        text-underline-offset: 10px;
+        cursor: pointer;
+      }
+
+      .navbar button {
+        width: auto;
+        padding: 10px 16px;
+        height: auto;
+        font-size: 16px;
+      }
+
+    .team-section {
+      max-width: 1500px;
+      margin: 80px auto;
+      padding: 40px;
+      margin-top:0px;
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+    }
+
+    .team-section h1 {
+      font-size: 42px;
+      color: #00f7ff;
+      margin-bottom: 50px;
+      text-shadow: 1px 1px 2px black;
+      letter-spacing: 5px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding-bottom:200px;
+      padding-top: 50px;
+    }
+
+    .team-member {
+      background: rgba(32, 32, 32, 0.9);
+      border-radius: 16px;
+      padding: 30px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+      margin-bottom : 200px;
+      border-style: solid;
+      border-width: 2px;
+      border-color:rgba(56, 56, 56, 0.9);
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 255, 255, 0.441);
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #00f7ff;
+      box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover img {
+      transform: scale(1.05);
+    }
+
+    .team-member h3 {
+      font-size: 20px;
+      font-family: "Raleway", sans-serif;
+      letter-spacing: 2px;
+      color: #00f7ff;
+      margin-bottom: 10px;
+    }
+
+    .team-member p {
+      font-size: 16px;
+      font-family: "Raleway", sans-serif;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .contact-info {
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      color: #00f7ff;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-row img{
+      border: none;
+      margin: 15px;
+      padding:0;
+      border-radius: 0px;
+      width: 32px;
+      height: 22px;
+      filter: brightness(0) invert(1); /* τις κάνει λευκές – προσαρμόζεται */
+      box-shadow: none;
+    }
+
+    .team-member p{
+      font-weight: bold;
+      color:white;
+    }
+
+    .contact-info .contact-row a,
+    .contact-info .contact-row span {
+      color: #e0fefe;
+      text-decoration: none;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    footer{
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        border-radius: 3px;
+        padding-top: 10px;
+
+        background-color: rgb(26, 26, 26);
+        color: rgb(230, 230, 230);
+        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+        border-top-width: 4px; 
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-top-color: rgb(140, 0, 255);
+        border-style: solid;
+        transition: background-color, color, 0.3s;
+      }
+
+      footer:hover{
+        border-top-color:rgb(208, 0, 255);
+        color: rgb(231, 231, 231);
+      }
+
+      .contact-info{
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 1000;
+        font-size: 48px;
+        color: rgb(0, 247, 255);
+        letter-spacing: 2px;
+        transition: color,0.15s;
+        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+        padding-top: 25px;
+        transition: border-bottom-colo, color, 0.3s
+      }
+
+      .email{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-weight: bold;
+      }
+
+      .phone{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .contact-info .email h1, .contact-info .phone h1{
+        font-size: 24px;
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        padding-right: 20px;
+      }
+
+      .contact-info .email p, .contact-info .phone p{
+        color:white;
+        font-size: 24px;
+        letter-spacing: 2px;
+        line-height: 60px;
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+        z-index: 0;
+      }
+
+      .social{
+        display:grid;
+        align-items: center;
+        grid-template-columns: 70px 80px 80px 80px 80px;
+        justify-content: center;
+        height : 100px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 50px;
+        margin-bottom: 30px;
+        transition: margin-right, margin-left,transform 0.3s
+      }
+
+      .icon_selection:hover{
+        cursor: pointer;
+        transform: translateY(-20px);
+      }
+
+      p{
+        text-align: center;
+        margin-left: 10%;
+        margin-right:10%;
+        padding-top: 1.5%;
+        padding-bottom: 0.5%;
+        font-size: 24px;
+        font-family: "Raleway", sans-serif;
+        letter-spacing: 3px;
+        line-height: 60px;
+        color: rgb(255, 255, 255);
+        border-color : black;
+        text-shadow: 0px 0px 0px black;
+        transition: color, text-shadow, 0.15s;
+      }
+
+      h1{
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 1000;
+        font-size: 32px;
+        letter-spacing: 5px;
+        color: rgb(0, 247, 255);
+        letter-spacing: 2px;
+        transition: color,0.15s;
+        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+        transition: color 0.3s, border-bottom-color 0.3s, border-bottom-width 0.3s, text-shadow 0.3s;
+        padding-top: 25px;
+        transition: border-bottom-colo, color, 0.3s
+      }
+
+    @media screen and (max-width: 600px) {
+      .navbar ul {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body style = "background-image: url(about.png); background-size: contain;">
+  <div id="particles-js"></div>
+  <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">Orion Scholars</a>
+      </div>
+      <ul>
+        <li><a href="index.html" class="active"><button>Αρχική</button></a></li>
+        <li><a href="Μαθήματα.html" class="active"><button>Μαθήματα</button></a></li>
+        <li><a href="φιλοσοφία.html" class="active"><button>Φιλοσοφία</button></a></li>
+        <li><a href="Σχετικά.html" class="active"><button>Σχετικά</button></a></li>
+        <li><a href="Συχνές_Ερωτήσεις.html" class="active"><button>Συχνές Ερωτήσεις</button></a></li>
+        <li><a href="Επικοινωνία.html" class="active"><button>Επικοινωνία</button></a></li>
+      </ul>
+  </nav>
+  <div style = "margin-top: 300px;">
+    <div>
+      <h1>Η Ομάδα Μας</h1>
+      <p>
+        Αποτελείται απο παθιασμένους ανθρώπους με αγάπη για την μάθηση<strong>,</strong> την επιστήμη και ιδιαίτερα μάλιστα για την μετάδοση της 
+        γνώσης προς τις νεότερες γενιές<strong>.</strong> Πιστεύουμε ακράδαντα πως αποτελούν το κλειδί για ένα καλύτερο αύριο<strong>.</strong> Για αυτόν τον λόγο
+        πήραμε την απόφαση να δημιουργήσουμε το παρών πρόγραμμα καθώς αναγνωρίσαμε το πόσα θα κερδίζαμε και πόσο θα θέλαμε να υπήρχε
+        όταν ήμασταν οι ίδιοι ακόμα μαθητές<strong>.</strong>
+      </p>
+    </div>
+
+    <div class="team-section">
+      <div class="team-grid">
+          <div class="team-member">
+            <img src="NT.jpg" alt="Νικόλαος Θ.">
+            <h3>Νικόλαος Θ.</h3>
+            <p>Ηλεκτρολόγων & Ηλεκτρονικών Μηχανικών ΠΑΔΑ</p>
+
+            <div class="contact-info">
+              <div class="contact-row">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:7%; height:7%;">
+                <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
+              </div>
+              <div class="contact-row">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:5%; height:5%;">
+                <span>69xxxxxxxx</span>
+              </div>
+              <div class="contact-row">
+                <img src="envelope-line-icon.svg">
+                <span>nikos@example.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="NT.jpg" alt="Νικόλαος Μ.">
+            <h3>Νικόλαος Μ.</h3>
+            <p>Μαθηματικό Πατρών</p>
+
+            <div class="contact-info">
+              <div class="contact-row">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:7%; height:7%;">
+                <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
+              </div>
+              <div class="contact-row">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:5%; height:5%;">
+                <span>69xxxxxxxx</span>
+              </div>
+              <div class="contact-row">
+                <img src="envelope-line-icon.svg">
+                <span>nikolaos@mpa.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="NT.jpg" alt="Αντυ">
+            <h3>Άντυ</h3>
+            <p>Πληροφορική ΟΠΑ</p>
+
+            <div class="contact-info">
+              <div class="contact-row">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:7%; height:7%;">
+                <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
+              </div>
+              <div class="contact-row">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:5%; height:5%;">
+                <span>69xxxxxxxx</span>
+              </div>
+              <div class="contact-row">
+                <img src="envelope-line-icon.svg">
+                <span>Andy@example.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!--
+          <div class="team-member">
+            <img src="NT.jpg" alt="Στέφανος Α.">
+            <h3>Στέφανος Α.</h3>
+            <p>Φυσικό ΕΚΠΑ</p>
+
+            <div class="contact-info">
+              <div class="contact-row">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;">
+                <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
+              </div>
+              <div class="contact-row">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:8%; height:8%;">
+                <span>69xxxxxxxx</span>
+              </div>
+              <div class="contact-row">
+                <img src="envelope-line-icon.svg">
+                <span>stefanos@antoniou.com</span>
+              </div>
+            </div>
+          </div>
+          -->
+
+      </div>
+    </div>
+  <footer>
+        <div>
+          <div class = "contact-info">
+            <div class = "title">Βρείτε Μας Στα Social !</div>
+              <div class = social>
+                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="LinkedIn_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="YouTube_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="fb_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="Instagram_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="Threads_icon.png", width = 100%>
+                </div>
+                <div style="margin-top:30px;margin-bottom:30px;"></div>
+              </div>
+              
+              <div>
+
+                <div class = "email">
+                  <h1>email :</h1>
+                  <p>orionscholars@example.com</p>
+                </div>
+
+                <div class = "phone">
+                  <h1>Τηλ. :</h1>
+                  <p>6986631610</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style ="font-size: 32px; color:rgb(255, 255, 255); letter-spacing : 2px; text-align: center; margin-top:20px; padding-bottom:50px;">
+            © 2025 Orion Scholars All Rights Reserved
+          </div>
+
+        </div>
+        
+    </footer>
+</body>
+</html>

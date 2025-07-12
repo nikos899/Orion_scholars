@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <Title>Orion Scholars</Title>
+    <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        position: absolute; /* αντί για sticky */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        /*border-style: solid;
+        border-width: 0px;
+        border-bottom-width: 5px;
+        border-bottom-color: #7300ff;
+        */
+
+        margin-top: 20px;
+        margin-bottom: 200px;
+        background-color: rgba(0, 0, 0, 0);
+        transition: transform 0.4s ease-inrgb(9, 9, 9) opacity 0.3s ease;
+        opacity: 1;
+
+      }
+
+      header{
+        text-align: center;
+        font-size: 32px;
+        font-family: "Raleway", sans-serif;;
+        color: rgb(104, 0, 189);
+      }
+
+      .navbar.hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .logo a {
+        font-family: 'Griffy';
+        font-size: 80px;
+        color: #00eeff;
+        text-decoration: none;
+        letter-spacing: 5px;
+        text-shadow: 0px 0px 40px #00eeff;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .logo a:hover {
+        color: #50f3ff;
+        text-shadow: 0px 0px 40px #50f3ff;
+      }
+
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+      }
+
+      .navbar li {
+        margin-left: 15px;
+      }
+
+      .navbar button {
+        font-size: 24px;
+        font-size: 'Raleway';
+        border-radius: 4px;
+        height: 100px;
+        width: 300px;
+        color: rgb(255, 255, 255);
+        background: transparent;
+        border: none;
+        font-weight : bold;
+        letter-spacing: 3px;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        text-decoration-color:transparent;
+        transition: font-size, color, background-color, text-decoration-color, 0.3s;
+      }
+
+      .navbar button:hover {
+        color: #00f0ff;
+        font-size: 30px;
+        text-decoration-color: rgb(0, 247, 255);
+        text-underline-offset: 10px;
+        cursor: pointer;
+      }
+
+      footer{
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        border-radius: 3px;
+        padding-top: 10px;
+
+        background-color: rgb(26, 26, 26);
+        color: rgb(230, 230, 230);
+        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+        border-top-width: 4px; 
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        border-top-color: rgb(140, 0, 255);
+        border-style: solid;
+        transition: background-color, color, 0.3s;
+      }
+
+      footer:hover{
+        border-top-color:rgb(208, 0, 255);
+        color: rgb(231, 231, 231);
+      }
+
+      h1, .contact-info{
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 1000;
+        font-size: 32px;
+        color: rgb(0, 247, 255);
+        letter-spacing: 3px;
+        transition: color,0.3s;
+        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+        padding-top: 25px;
+        transition: border-bottom-colo, color, 0.3s
+      }
+
+      .phone{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .email{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-weight: bold;
+      }
+
+      .contact-info .email h1{
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        padding-right: 20px;
+      }
+
+      .contact-info .email p{
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+      }
+
+      .contact-info .phone h1{
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        padding-right: 20px;
+      }
+
+      .contact-info .phone p{
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+      }
+
+      .contact-container {
+        max-width: 800px;
+        margin: 120px auto;
+        padding: 40px;
+        margin-top: 200px;
+        background: rgba(59, 59, 59, 0.6);
+        border-radius: 24px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 0 20px rgba(38, 38, 38, 0.1);
+    }
+
+      .contact-info {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #ddd;
+    }
+
+    .contact-info strong {
+      color: #00f7ff;
+    }
+
+    .contact-info .email, .contact-info .phone{
+      color: rgb(0, 247, 255);
+      font-weight:normal;
+      letter-spacing: 3px;
+    }
+
+    .contact-info{
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 48px;
+      color: rgb(0, 247, 255);
+      letter-spacing: 2px;
+      transition: color,0.3s;
+      text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
+      transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+      padding-top: 25px;
+      transition: border-bottom-colo, color, 0.3s
+    }
+
+    .group_size{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 10px;
+      padding-bottom: 50px;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+
+    .group_size h1{
+      justify-content: center;
+      align-items: center;
+      margin-left: -100px;
+    }
+
+    .social{
+      display:grid;
+      align-items: center;
+      grid-template-columns: 70px 80px 80px 80px 80px;
+      justify-content: center;
+      height : 100px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 50px;
+      margin-bottom: 30px;
+      transition: margin-right, margin-left,transform 0.3s
+    }
+
+    .icon_selection:hover{
+      cursor: pointer;
+      transform: translateY(-20px);
+    }
+
+    .social{
+      display:grid;
+      align-items: center;
+      grid-template-columns: 80px 80px 80px 80px 80px;
+      padding-left:5px;
+      padding-right:5px;
+    }
+
+    .μαθήματα{
+      background-color: rgba(128, 128, 128, 0.236);
+    }
+
+    .πρόγραμμα{
+      display: flex;
+      justify-content: space-evenly;
+      font-family: "Raleway", sans-serif;
+      color: white;
+      font-size: 24px;
+    }
+
+    p{
+      text-align: left;
+      margin-bottom: 24x;
+      padding: 2%;
+      font-size: 24px;
+      letter-spacing: 3px;
+      font-family: "Raleway", sans-serif;
+      line-height: 70px;
+      color: rgb(255, 255, 255);
+      transition: color 0.3s, text-shadow, 0.3s;
+    }
+
+    .math .program, .physics .program, .computer_science .program, .electronics .program {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 290px;
+      height: 100px;
+      background-color: rgb(9, 9, 9);
+      color: rgb(221, 221, 221);
+      border: none;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 60px;
+      letter-spacing: 2px;
+      margin-left: 2%;
+      transition: color 0.3s, background-color, 0.3s;
+    }
+
+      .math .program::after, .physics .program::after, .computer_science .program::after, .electronics .program::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 103%;
+      height: 108%;
+      background-image: linear-gradient(to bottom right, rgb(209, 0, 209), rgb(0, 98, 255));
+
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 60px;
+      margin:5%;
+    }
+
+    .math .program:hover, .physics .program:hover, .computer_science .program:hover, .electronics .program:hover{
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 0, 0);
+    }
+    
+    .math, .physics, .computer_science, .electronics{
+      margin: 5%;
+      margin-top: 0;
+      border-radius: 30px;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      padding: 2%;
+    }
+
+    .math h1, .physics h1, .computer_science h1, .electronics h1{
+      padding-top: 50px;
+      color: rgb(0, 247, 255);
+    }
+
+    .math img{
+      display:block;
+      margin: auto;
+      filter: brightness(0) invert(1);
+      width: 80px;
+      transform: translateY(25px);
+    }
+
+    .physics img{
+      display:block;
+      margin: auto;
+      filter: brightness(0) invert(1);
+      width: 80px;
+      transform: translateY(25px);
+    }
+
+    .computer_science img{
+      display:block;
+      margin: auto;
+      filter: brightness(0) invert(1);
+      width: 80px;
+      transform: translateY(25px);
+    }
+
+    .electronics img{
+      display:block;
+      margin: auto;
+      filter: brightness(0) invert(1);
+      width: 80px;
+      transform: translateY(25px);
+    }
+
+    .b_img{
+      background-image: linear-gradient(to bottom, rgb(46, 46, 46) 0.5%, rgb(26, 26, 26) 8%);
+    }
+    
+    </style>
+  </head>
+
+  <body class="b_img">
+
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">Orion Scholars</a>
+      </div>
+      <ul>
+        <li><a href="index.html" class="active"><button>Αρχική</button></a></li>
+        <li><a href="Μαθήματα.html" class="active"><button>Μαθήματα</button></a></li>
+        <li><a href="φιλοσοφία.html" class="active"><button>Φιλοσοφία</button></a></li>
+        <li><a href="Σχετικά.html" class="active"><button>Σχετικά</button></a></li>
+        <li><a href="Συχνές_Ερωτήσεις.html" class="active"><button>Συχνές Ερωτήσεις</button></a></li>
+        <li><a href="Επικοινωνία.html" class="active"><button>Επικοινωνία</button></a></li>
+      </ul>
+    </nav>
+      <div>
+        <div>
+          <h1 style ="margin-top:300px; padding-bottom: 30px;">Δομή Προγράμματος</h1>
+            <p style = "padding-left: 5%; padding-right: 5%;">
+              Το πρόγραμμα ξεκινάει τον Ιούνιο, διαρκεί εως τον Φεβρουάριο και
+              περιλαμβάνει τέσσερα επιστημονικά αντικείμενα ή μαθήματα, τα οποία παρουσιάζονται παρακάτω, το καθένα με την ύλη του. 
+              Ο μαθητής μπορεί να επιλέξει όσα και όποια μαθήματα επιθυμεί να παρακολουθήσει ανάλογα με τα ενδιαφέροντα του.
+            </p>
+        </div>
+
+        <div>
+
+          <div>
+            <div class = "math">
+              <img src = "formula-fx-icon.svg">
+              <h1>Μαθηματικά</h1>
+
+                <p>
+                  Η επιστήμη των Μαθηματικών αποτελεί τη γλώσσα με την οποία περιγράφεται το σύμπαν και θεμελιώνει κάθε πτυχή της 
+                  επιστημονικής σκέψης. Από την αρχαιότητα μέχρι σήμερα, τα Μαθηματικά έχουν παίξει κεντρικό ρόλο στην κατανόηση του 
+                  κόσμου γύρω μας, προσφέροντας εργαλεία για την ανάλυση, τη μοντελοποίηση και την πρόβλεψη φυσικών και τεχνητών 
+                  φαινομένων. Είναι μια επιστήμη που καλλιεργεί τη λογική σκέψη, την ακρίβεια και την ικανότητα επίλυσης προβλημάτων, 
+                  χαρακτηριστικά απαραίτητα για κάθε τομέα της τεχνολογίας και της επιστήμης. Η ενασχόληση με τα Μαθηματικά δεν 
+                  περιορίζεται μόνο σε θεωρητικές γνώσεις — αποτελεί μια πύλη κατανόησης των πιο σύνθετων φαινομένων, από την κίνηση 
+                  των πλανητών μέχρι την κρυπτογράφηση των δεδομένων. Παράλληλα, ενισχύει τη μαθηματική παιδεία και τη δημιουργική 
+                  σκέψη, θέτοντας τις βάσεις για την ανάπτυξη καινοτομίας και την καλλιέργεια επιστημονικής νοοτροπίας. Στο σύγχρονο 
+                  ψηφιακό και επιστημονικό περιβάλλον, τα Μαθηματικά δεν είναι απλώς χρήσιμα – είναι απολύτως αναγκαία.
+                </p>
+                <a href=""></a>
+                  <button class = "program" style = "text-decoration: none;">
+                    Ύλη Μαθηματικών
+                  </button>
+                </a>
+              </div>
+          </div>
+
+          <div>
+            <div class = "physics">
+              <img src = "atom-laboratory-science-icon.svg">
+              <h1>Φυσική</h1>
+
+                <p>
+                  Η Φυσική είναι η θεμελιώδης επιστήμη που προσπαθεί να εξηγήσει τους νόμους που διέπουν τη φύση και το σύμπαν
+                  απο την πιο μικρή κλίμακα, ως την  πιο μεγάλη, και απο τις πιο μικρές ταχύτητες ως αυτές του φωτός. 
+                  Από την κίνηση των σωμάτων, τον ηλεκτρισμό, εως την σχετικότητα και την κβαντομηχανική η Φυσική παρέχει το 
+                  θεωρητικό υπόβαθρο για την κατανόηση του κόσμου γύρω μας και αποτελεί την κινητήρια δύναμη πίσω από πολλές 
+                  τεχνολογικές εξελίξεις. Είναι μια επιστήμη που συνδυάζει την παρατήρηση, τον πειραματισμό και τη μαθηματική 
+                  ανάλυση, καλλιεργώντας βαθιά επιστημονική σκέψη και προσφέροντας εργαλεία για την ερμηνεία ακόμα και των πιο 
+                  πολύπλοκων φαινομένων. Η ενασχόληση με τη Φυσική βοηθά τον μαθητή να κατανοήσει πώς λειτουργεί ο κόσμος αλλά 
+                  και πως οι φυσικοί νόμοι περιορίζουν ή ενισχύουν την τεχνολογία. Παράλληλα, του δίνει την ευκαιρία να συνδέσει 
+                  θεωρητικές έννοιες με πρακτικές εφαρμογές, όπως η παραγωγή ηλεκτρισμού, οι μηχανές εσωτερικής καύσης
+                  ,οι τηλεπικοινωνίες και οι νέες τεχνολογίες. Η Φυσική αποτελεί τη βάση για πλήθος επιστημονικών και 
+                  τεχνολογικών κλάδων και είναι απαραίτητη για τη διαμόρφωση μιας σύγχρονης, ερευνητικής και καινοτόμας νοοτροπίας.
+                </p>
+                
+                <a href="Υλη Φυσικής.pdf" style = "text-decoration: none;">
+                  <button class = "program">
+                    Υλη Φυσικής
+                  </button>
+                </a>
+            </div>
+          </div>
+
+          <div>
+            <div class = "computer_science">
+              <img src = "cmd-terminal-icon.svg">
+              <h1>Πληροφορική</h1>
+              <p>
+                Η Πληροφορική είναι η επιστήμη που μελετά την αναπαράσταση, την επεξεργασία και την αυτοματοποιημένη διαχείριση της
+                πληροφορίας μέσω υπολογιστικών συστημάτων. Αποτελεί τον βασικό άξονα γύρω από τον οποίο έχει αναπτυχθεί η σύγχρονη 
+                τεχνολογία και έχει επηρεάσει βαθιά κάθε πτυχή της ζωής μας – από τις επικοινωνίες και την εκπαίδευση μέχρι την 
+                ιατρική, τη βιομηχανία και την τεχνητή νοημοσύνη. Η ιστορία της επιστήμης αυτής ξεκινά από τα μέσα του 20ού αιώνα, 
+                όταν ο Άλαν Τούρινγκ έθεσε τις θεωρητικές βάσεις των υπολογιστών και της υπολογισιμότητας με τη «Μηχανή Τούρινγκ», 
+                ενώ ο Κλωντ Σάνον θεμελίωσε τη θεωρία της πληροφορίας και αναγνώρισε την ικανότητα των ηλεκτρονικών διακοπτών να 
+                πραγματοποιούν μαθηματικές πράξεις, ανοίγοντας τον δρόμο για την ψηφιακή εποχή. Από τότε, η Πληροφορική αναπτύχθηκε 
+                ραγδαία, οδηγώντας στη δημιουργία των πρώτων ηλεκτρονικών υπολογιστών, των γλωσσών προγραμματισμού, του διαδικτύου 
+                και, πιο πρόσφατα, των έξυπνων συστημάτων. Η ενασχόληση με την Πληροφορική δεν είναι μόνο χρήσιμη αλλά και 
+                απαραίτητη. Εισάγει τους μαθητές στον αλγοριθμικό τρόπο σκέψης, στη λογική επίλυση προβλημάτων και στην κατανόηση 
+                του τρόπου με τον οποίο λειτουργούν τα τεχνολογικά εργαλεία που χρησιμοποιούμε καθημερινά. Παράλληλα, καλλιεργεί 
+                δεξιότητες όπως ο προγραμματισμός, η δημιουργικότητα, η ομαδική εργασία και η καινοτομία – θεμέλια απαραίτητα για 
+                τη νέα ψηφιακή εποχή.
+              </p>
+              
+              <a href="Υλη Πληροφορικής.pdf" style = "text-decoration: none;">
+                <button class = "program">
+                    Ύλη Πληροφορικής
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class = "electronics">
+                <img src = "processor-icon.svg">
+                <h1>Ηλεκτρονική</h1>
+            
+                <p>
+                  Η επιστήμη της ηλεκτρονικής αποτελεί πρακτικά το θεμέλιο για όλη την σύγχρονη τεχνολογία του 21ου αιώνα. 
+                  Πρόκειται για μια συναρπαστική επιστήμη η οποία αναπτύχθηκε και εξαπλώθηκε ταχύτατα μετά την ανακάλυψη του 
+                  τρανζίστορ και της τεχνολογίας του ολοκληρωμένου κυκλώματος στα τέλη της δεκαετίας του 1950, ενώ συνεχίζει μέχρι 
+                  σήμερα να έχει τεράστια επίδραση, τροφοδοτώντας την νέα τεχνολογική επανάσταση που φέρνει η χρήση της τεχνητής 
+                  νοημοσύνης μέσω προηγμένων τσιπ. Η ενασχόληση μαζί της όχι μόνο παρέχει τις βάσεις για την κατανόηση των σύγχρονων 
+                  συσκευών που έχουν γίνει αναπόσπαστο μέρος της καθημερινότητας μας όπως οι υπολογιστές, τα smartphones, τα tablets,
+                  οι κονσόλες παιχνιδών κτλπ. αλλά θέτει και απο νωρίς τα θεμέλια για την νοοτροπία του μηχανικού μαθαίνοντας πως
+                  αξιοποιεί κανείς τις γνώσεις του απο τις βασικές επιστήμες για να λύσει πραγματικά προβλήματα.
+                </p>
+                <a href="Υλη Ηλεκτρονικής.pdf" style = "text-decoration: none;">
+                  <button class = "program">
+                  
+                    Ύλη Ηλεκτρονικής
+                  </button>
+                </a>
+                
+              </div>Ύλη Πληροφορικής
+          </div>
+
+ <footer>
+        <div>
+          <div class = "contact-info">
+            <div class = "title">Βρείτε Μας Στα Social !</div>
+              <div class = social>
+                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="LinkedIn_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:10%; padding-left:10%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="YouTube_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="fb_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="Instagram_icon.png", width = 100%>
+                </div>
+
+                <div class = icon_selection style="padding-right:15%; padding-left:15%; transition: left-margin, right-margin, 0.15s;" icon_selection:hover="margin-left=-10px; margin-right=-10px;">
+                  <img src="Threads_icon.png", width = 100%>
+                </div>
+                <div style="margin-top:30px;margin-bottom:30px;"></div>
+              </div>
+              
+              <div>
+
+                <div class = "email">
+                  <h1>email :</h1>
+                  <p>orion@scholars.com</p>
+                </div>
+
+                <div class = "phone">
+                  <h1>Τηλ. :</h1>
+                  <p>69xxxxxxxx</p>
+                </div>
+
+              </div>
+
+            </div>
+            
+          </div>
+
+          <div style ="font-size: 32px; color:rgb(255, 255, 255); letter-spacing : 2px; text-align: center; margin-top:20px; padding-bottom:50px;">
+            © 2025 Orion Scholars All Rights Reserved
+          </div>
+
+        </div>
+        
+    </footer>
+    
+  </body>
+
+</html>
