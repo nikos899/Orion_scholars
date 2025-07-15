@@ -16,13 +16,20 @@
 
       html, body {
         height: 100%;
+        
       }
 
       body {
         display: flex;
         flex-direction: column;
-        background-repeat: repeat;
+        min-height: 100vh;
+      }
+
+      .background-img{
+        background-image: url("about.png");
         background-size: cover;
+        background-position-x: center;
+        background-color: black;
       }
 
       main {
@@ -93,6 +100,7 @@
       .intro-paragraph{
         padding: 1rem;
         margin-top: clamp(0.5rem, 5vw, 10rem);
+        margin-bottom: clamp(0.5rem, 2vw, 8rem);
       }
 
       .logo a:hover {
@@ -198,6 +206,13 @@
           padding: clamp(0.5rem, 1vw, 2rem);
         }
 
+        .background-img{
+          background-image: url("about.png");
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+        }
+
       }
 
     .team-section {
@@ -229,13 +244,14 @@
       background: rgba(32, 32, 32, 0.9);
       border-radius: 1rem;
       padding: 2rem 1.25rem;
-      width: clamp(10rem, 12vw, 30rem);
+      width: clamp(10rem, 40vw, 30rem);
       box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
       border-style: solid;
       border-width: 2px;
       border-color:rgba(56, 56, 56, 0.9);
 
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(0.1rem);
     }
 
     .team-member:hover {
@@ -244,12 +260,12 @@
     }
 
     .team-member img {
-      width: 150px;
-      height: 150px;
+      width: clamp(5rem, 8vw, 20rem);
+      height: clamp(5rem, 8vw, 20rem);
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid #00f7ff;
+      margin-bottom: 1.25rem;
+      border: 0.18rem solid #00f7ff;
       box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
       transition: transform 0.3s ease;
     }
@@ -299,7 +315,7 @@
 
     .contact-row a, .contact-row span {
       color: #e0fefe;
-      font-size: clamp(0.5rem, 1vw, 1rem);
+      font-size: clamp(0.5rem, 0.75vw, 1rem);
       text-decoration: none;
       font-family: "Raleway", sans-serif;
 
@@ -307,14 +323,16 @@
       transition: color 0.2s;
     }
 
-    footer{
+    footer {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+
       font-size: clamp(0.5rem, 1vw, 1rem);
       border-radius: 0.2rem;
       padding-top: 0.7rem;
+      margin-top: auto; /* Pushes footer to bottom if using flex layout */
 
       background-color: rgb(26, 26, 26);
       color: rgb(230, 230, 230);
@@ -325,7 +343,7 @@
       border-top-width: clamp(0.05rem, 0.2vw, 0.3rem);
       border-top-color: rgb(140, 0, 255);
 
-      transition: background-color, color, 0.3s;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .contact-info{
@@ -352,7 +370,7 @@
       }
 
       .contact-info .title{
-        font-size: clamp(0.75rem, 2vw, 3rem);
+        font-size: clamp(0.75rem, 1.5vw, 3rem);
       }
 
       .email{
@@ -396,7 +414,7 @@
         justify-content: center;
 
         padding-top: clamp(0.5rem, 1vw, 3.125rem);
-        margin-bottom: clamp(0.25rem, 1vw, 2rem);
+        margin-bottom: clamp(1rem, 1vw, 2rem);
         height: clamp(2rem, 3vw, 15rem);
 
         transition: margin-right 0.3s, margin-left 0.3s, transform 0.3s;
@@ -429,11 +447,11 @@
         padding-top: 1.5%;
         padding-bottom: 0.5%;
 
-        font-size: clamp(0.5rem, 1vw, 1.5rem);
-        line-height: clamp(1.25rem, 1.5vw, 2rem);
+        font-size: clamp(0.5rem, 1vw, 3rem);
+        line-height: clamp(1.25rem, 1.5vw, 4rem);
         font-family: "Raleway", sans-serif;
 
-        letter-spacing: clamp(0.05rem, 1vw, 0.1rem);
+        letter-spacing: clamp(0.01rem, 0.1vw, 0.1rem);
         color: rgb(255, 255, 255);
         border-color : black;
 
@@ -445,11 +463,10 @@
         text-align: center;
         font-family: "Raleway", sans-serif;
         font-weight: 1000;
-        font-size: clamp(0.5rem, 1vw, 2rem);
-        letter-spacing: 5px;
+        font-size: clamp(1rem, 3vw, 3rem);
         color: rgb(0, 247, 255);
-        letter-spacing: 2px;
-        transition: color,0.15s;
+        letter-spacing: clamp(0.01rem, 0.1vw, 0.1rem);
+
         text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
         transition: color 0.3s, border-bottom-color 0.3s, border-bottom-width 0.3s, text-shadow 0.3s;
         padding-top: 25px;
@@ -459,7 +476,7 @@
   </style>
 </head>
 
-<body style = "background-image: url(about.png);">
+<body class = "background-img">
   <div id="particles-js"></div>
   
     <header>
@@ -480,7 +497,7 @@
       </nav>
     </header>
   
-  <div>
+  <main>
     <div class = "intro-paragraph">
       <h1>Η Ομάδα Μας</h1>
       <p>
@@ -496,24 +513,24 @@
       <div class="team-grid">
 
           <div class="team-member">
-            <img src="NT.jpg" alt="Νικόλαος Θ.">
+            <img src="butterfly.png" alt="Νικόλαος Θ.">
             <h3>Νικόλαος Θ.</h3>
             <p>Ηλεκτρολόγων & Ηλεκτρονικών Μηχανικών ΠΑΔΑ</p>
 
             <div class="contact-info">
 
               <div class="contact-row">
-                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:7%; height:7%;">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;">
                 <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
               </div>
 
               <div class="contact-row">
-                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:5%; height:5%;">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:6%; height:6%;">
                 <span>69xxxxxxxx</span>
               </div>
 
               <div class="contact-row">
-                <img src="envelope-line-icon.svg", style = "width:5%; height:5%;">
+                <img src="envelope-line-icon.svg", style = "width:8%; height:8%;">
                 <span>nikos@example.com</span>
               </div>
 
@@ -522,24 +539,24 @@
           </div>
 
           <div class="team-member">
-            <img src="NT.jpg" alt="Νικόλαος Μ.">
+            <img src="butterfly.png" alt="Νικόλαος Μ.">
             <h3>Νικόλαος Μ.</h3>
             <p>Μαθηματικό Πατρών</p>
 
             <div class="contact-info">
 
               <div class="contact-row">
-                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:7%; height:7%;">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;">
                 <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
               </div>
 
               <div class="contact-row">
-                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:5%; height:5%;">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:6%; height:6%;">
                 <span>69xxxxxxxx</span>
               </div>
 
               <div class="contact-row">
-                <img src="envelope-line-icon.svg" style = "width:5%; height:5%;">
+                <img src="envelope-line-icon.svg" style = "width:8%; height:8%;">
                 <span>nikolaos@mpa.com</span>
               </div>
 
@@ -549,7 +566,7 @@
 
           <div class="team-member">
 
-            <img src="NT.jpg" alt="Αντυ">
+            <img src="butterfly.png" alt="Αντυ">
             <h3>Άντυ</h3>
             <p>Πληροφορική ΟΠΑ</p>
 
@@ -600,7 +617,7 @@
       </div>
 
     </div>
-
+  </main>
   <footer>
 
       <div>
