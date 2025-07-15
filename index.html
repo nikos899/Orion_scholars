@@ -150,12 +150,13 @@
           
           font-family: 'Griffy';
           font-size: clamp(0.75rem, 1vw, 1rem);
+          letter-spacing: clamp(0.1rem, 1vw, 0.2rem);
           text-align: center;
           text-decoration: none;
           font-weight: normal;
 
           color: #00eeff;
-          text-shadow: 0px 0px 2rem #00eeff;
+          text-shadow: 0rem 0rem 2rem #00eeff;
           transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
@@ -173,7 +174,7 @@
           font-size: clamp(0.75rem, 1vw, 1rem);
           font-family: 'Raleway', sans-serif;
           font-weight : bold;
-          letter-spacing: 0.2rem;
+          letter-spacing: clamp(0.1rem, 1vw, 0.2rem);
           text-align: center;
 
           text-decoration: underline;
@@ -209,7 +210,7 @@
       p{
         text-align: center;
         margin : clamp(1rem, 1vw, 3rem);
-        font-size: clamp(0.5rem, 1vw, 2.5rem);
+        font-size: clamp(0.2rem, 1vw, 2.5rem);
         font-family: "Raleway", sans-serif;
         line-height: clamp(1rem , 2vw, 4rem);
 
@@ -229,7 +230,7 @@
         font-family: "Raleway", sans-serif;
         font-weight: 10rem;
         font-size: clamp(0.5rem ,3vw, 4rem);
-        letter-spacing: 0.2rem;
+        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
         text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
 
         transition: color 0.3s, border-bottom-color 0.3s, border-bottom-width 0.3s, text-shadow 0.3s;
@@ -270,7 +271,7 @@
         margin-right: clamp(0rem, 5vw, 20rem);
         margin-top: clamp(0.1rem, 1vw, 1rem);
         margin-bottom: clamp(0.5rem, 1vw, 1rem);
-
+        
         padding: clamp(0.2rem, 1vw, 2.5rem);
         border-radius: clamp(0.25rem, 1vw, 0.75rem);
         justify-content: center;
@@ -283,13 +284,12 @@
         background-color: rgba(16, 16, 16, 0.5);
         border: clamp(0.05rem, 0.1vw, 0.15rem) solid rgb(140, 0, 255);
         box-shadow: 0 0 1.25rem rgba(140, 0, 255, 0.2);
-        backdrop-filter: blur(0.5rem);
+        backdrop-filter: blur(0.2rem);
         transition: box-shadow 0.3s ease;
       }
 
       .grid-item p{
         color: rgb(255, 255, 255);
-
         margin : auto;
         font-size: clamp(1rem, 1vw, 1.5rem);
         letter-spacing: clamp(0.05rem, 0.2vw, 0.1rem);
@@ -315,7 +315,7 @@
 
       .grid-container {
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         color: white;
         gap: clamp(0.2rem, 2vw, 2rem);
         justify-content: space-evenly;
@@ -359,8 +359,16 @@
         font-size: clamp(0.1rem, 0.75vw, 1.5rem);
         color: rgb(255, 255, 255);
         font-weight: bold;
-        line-height: clamp(0.3rem, 1vw, 1.5rem);
+        line-height: clamp(0.4rem, 1vw, 1.5rem);
       }
+
+      /*
+      .grid-item.zoomed {
+        transform: scale(5);
+        z-index: 10;
+        position: relative;
+      }
+      */
 
       .cta-button-container {
         display: flex;
@@ -396,7 +404,6 @@
         font-size: clamp(0.5rem, 1vw, 1rem);
         border-radius: 0.2rem;
         padding-top: 0.7rem;
-        flex: 1;
 
         background-color: rgb(26, 26, 26);
         color: rgb(230, 230, 230);
@@ -604,8 +611,8 @@
 
         <div class="grid-container">
 
-          <div class="grid-item">
-            <div class="details">
+          <div class="grid-item" onclick = "this.classList.toggle('zoomed')">
+            <div>
               <h3>Πακέτο Τριών Μαθημάτων</h3>
               <img src = "buy-book-icon.svg">
               <p class="price">50€ / μήνα</p>
@@ -698,9 +705,6 @@
       </div>
         
     </footer>
-
-    <script src = "particles.js"></script>
-    <script src = "app.js"></script>
 
     <script>
       const menuToggle = document.getElementById("menu-toggle");
