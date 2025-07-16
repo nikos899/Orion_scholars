@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <Title>Orion Scholars</Title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
 
       @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -21,10 +25,18 @@
       body {
         display: flex;
         flex-direction: column;
+        min-height: 100vh; /* ή άλλο ύψος */
+        background-image: url('intro.png');
+        background-size: cover;
       }
 
       main {
         flex: 1; /* takes up all available space */
+        background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgb(22, 22, 22) 32%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: normal;
       }
 
       .navbar {
@@ -33,29 +45,36 @@
         position: absolute;
         align-items: center;
         justify-content: space-between;
+        font-family: 'Orbitron', sans-serif;
         padding: 1rem;
         top: 0;
 
-        background-color: rgba(0, 0, 0, 0);
+        background: rgba(0, 0, 0, 0);
         transition: transform 0.4s ease-in, opacity 0.3s ease;
       }
 
       .navbar.hidden {
-        display: none;
         transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
       }
 
       .navbar .logo a {
-        font-family: 'Griffy';
+        font-family: 'Orbitron', sans-serif;
         font-size: clamp(1rem, 3vw, 4rem);
         
         text-decoration: none;
-        font-weight: normal;
+        font-weight: 600;
         color: #00eeff;
-        letter-spacing: 0.5rem;
-        text-shadow: 0px 0px 2rem #00eeff;
-        transition: color 0.3s ease, text-shadow 0.3s ease;
+        letter-spacing: 0.3rem;
+        text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
+        transition: color 0.3s, text-shadow 0.3s;
+      }
+
+      .navbar .logo a:hover {
+        color: #50f3ff;
+        text-shadow: 0 0 1rem #50f3ff, 0 0 6rem #50f3ff;
+        transform: scale(1.02);
       }
 
       .navbar ul {
@@ -64,45 +83,50 @@
         flex-shrink: 1;
       }
 
-      .navbar a {
-        color: rgb(255, 255, 255);
-        background: transparent;
-        flex: 1;
-        flex-wrap: wrap;
-
-        font-size: clamp(1rem, 1vw, 3rem);
-        font-family: 'Raleway', sans-serif;
-        font-weight : bold;
-        letter-spacing: 0.2rem;
-        
-        text-decoration: underline;
-        text-underline-offset: 1rem;
-        text-decoration-color: transparent;
-        margin: clamp(0.05rem, 1rem, 3rem);
-
-        transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
-      }
-
       .hamburger{
         display:none;
         opacity: 0;
       }
 
       .intro-paragraph{
-        margin-top: 10rem;
+        margin-top: 30rem;
+        margin-bottom: 0rem;
         padding: 1rem;
       }
 
-      .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0rem 0rem 2.5rem #50f3ff;
+      .navbar a {
+        position: relative;
+        color: #ffffff;
+        background: transparent;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        font-size: clamp(1rem, 1vw, 2rem);
+        letter-spacing: 0.15rem;
+        text-decoration: none;
+        margin: 0 1rem;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
+
+      .navbar a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(90deg, #00ff9100, #44fff39f , #c0feff);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
       }
 
       .navbar a:hover {
         color: #00f0ff;
-        text-decoration-color: rgb(0, 247, 255);
-        text-underline-offset: 1rem;
-        cursor: pointer;
+      }
+
+      .navbar a:hover::after {
+        transform: scaleX(1);
       }
 
       @media screen and (max-width: 1024px){
@@ -111,7 +135,7 @@
           visibility: hidden;
           pointer-events: none;
         }
-        
+
         .navbar.active {
           display: block;
           visibility: visible;
@@ -123,7 +147,7 @@
           align-items: center;
           padding: 0.2rem;
           width: 100%;
-          z-index: 1000;
+          z-index: 1001;
           transition: opacity 0.4s ease;
         }
 
@@ -141,23 +165,22 @@
           background: none;
           border: none;
 
+          pointer-events: auto;
           cursor: pointer;
           z-index: 1001;
         }
 
-        .navbar .logo a{
-          display: block;
+        .navbar .logo a {
+          font-family: 'Orbitron', sans-serif;
+          font-size: clamp(1rem, 3vw, 4rem);
           
-          font-family: 'Griffy';
-          font-size: clamp(0.75rem, 1vw, 1rem);
-          letter-spacing: clamp(0.1rem, 1vw, 0.2rem);
-          text-align: center;
           text-decoration: none;
-          font-weight: normal;
-
+          font-weight: 600;
           color: #00eeff;
-          text-shadow: 0rem 0rem 2rem #00eeff;
-          transition: color 0.3s ease, text-shadow 0.3s ease;
+          letter-spacing: 0.03rem;
+          text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
+          transition: color 0.3s, text-shadow 0.3s;
+          user-select: none;
         }
 
         .navbar ul {
@@ -170,32 +193,31 @@
           display: block;
           color: rgb(255, 255, 255);
           background: transparent;
-
+          
           font-size: clamp(0.75rem, 1vw, 1rem);
           font-family: 'Raleway', sans-serif;
-          font-weight : bold;
-          letter-spacing: clamp(0.1rem, 1vw, 0.2rem);
+          font-weight: bold;
+          letter-spacing: 0.03rem;
           text-align: center;
-
+          
           text-decoration: underline;
           text-underline-offset: 1rem;
           text-decoration-color: transparent;
-
-          transition: font-size, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
-        }
-
-        .navbar a:hover {
-          color: #00f0ff;
-          text-decoration-color: rgb(0, 247, 255);
-          text-underline-offset: 0.2rem;
-          cursor: pointer;
+          
+          padding: 0.5rem 1rem;
+          
+          -webkit-tap-highlight-color: transparent; /* Αφαιρεί το μπλε highlight σε iOS */
+          tap-highlight-color: transparent; /* Για μελλοντική συμβατότητα */
+          
+          transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
         }
 
         .intro-paragraph{
-          margin-top: 2rem;
-          padding: clamp(0.5rem, 1vw, 2rem);
-        }
-
+          margin-top: 10rem;
+          margin-bottom: 0rem;
+          padding: 1rem;
+      }
+      
       }
       
       #particles-js {
@@ -207,16 +229,16 @@
         left: 0;
       }
 
-      p{
+      p {
         text-align: center;
-        margin : clamp(1rem, 1vw, 3rem);
-        font-size: clamp(0.5rem, 1vw, 2.5rem);
-        font-family: "Raleway", sans-serif;
-        line-height: clamp(1rem , 2vw, 4rem);
+        margin: clamp(1rem, 3vw, 2rem);
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        font-family: 'Inter', sans-serif;
+        line-height: clamp(1.4rem, 2.2vw, 2.2rem);
 
         color: rgb(237, 237, 237);
         background: transparent;
-        transition: color, text-shadow, 0.3s;
+        transition: color 0.3s, text-shadow 0.3s;
       }
 
       .offer-card price:hover, .offer-card details:hover {
@@ -227,90 +249,99 @@
       h1{
         color: rgb(0, 247, 255);
         text-align: center;
-        font-family: "Raleway", sans-serif;
-        font-weight: 10rem;
-        font-size: clamp(0.5rem ,3vw, 4rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        letter-spacing: 0.05rem;
         text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
-
-        transition: color 0.3s, border-bottom-color 0.3s, border-bottom-width 0.3s, text-shadow 0.3s;
       }
 
       .LearnMoreButton {
-        display: block;
-        margin: auto;
-        justify-content: center;
-        align-items: center;
-        padding: clamp(0.5rem, 1vw ,2rem);
-        width: clamp(6rem, 13vw, 18rem);
+        display: inline-block; /* αντί για block */
+        margin: 1.5rem auto;
+        padding: clamp(0.75rem, 1.5vw, 1.5rem) clamp(1.5rem, 3vw, 3rem);
+        min-width: 8rem;
         cursor: pointer;
 
         color: rgb(0, 204, 231);
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(1rem, 1.5vw, 1.8rem);
+        font-weight: 700;
         text-align: center;
-        font-size: clamp(0.5rem, 1vw, 4rem);
-        font-weight: bold;
         text-decoration: none;
-        
-        background-color: rgba(0, 200, 225, 0.1);
-        border-style: solid;
-        border-width: clamp(0.05rem ,0.5vw, 0.1rem);
-        border-radius: 10rem;
-        border-color:  rgb(0, 170, 192);
-        
-        transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+        letter-spacing: 0.05rem;
+        user-select: none;
+
+        background: rgba(0, 200, 225, 0.15);
+        border: 2px solid rgb(0, 170, 192);
+        border-radius: 2rem;
+
+        box-shadow: 0 4px 8px rgba(0, 170, 192, 0.3);
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
-      .LearnMoreButton:hover{
+      .LearnMoreButton:hover,
+      .LearnMoreButton:focus-visible {
         color: rgb(90, 255, 255);
-        border-color:rgb(90, 255, 255);
-        background-color:rgba(0, 255, 255, 0.3);
+        border-color: rgb(90, 255, 255);
+        background-color: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 6px 14px rgba(90, 255, 255, 0.6);
+        outline: none;
+      }
+
+      .LearnMoreButton:focus-visible {
+        outline: 3px solid rgb(90, 255, 255);
+        outline-offset: 4px;
       }
 
       .stem-feature-grid {
-        margin-left: clamp(0rem, 5vw, 20rem);
-        margin-right: clamp(0rem, 5vw, 20rem);
-        margin-top: clamp(0.1rem, 1vw, 1rem);
-        margin-bottom: clamp(0.5rem, 1vw, 1rem);
-        
-        padding: clamp(0.2rem, 1vw, 2.5rem);
-        border-radius: clamp(0.25rem, 1vw, 0.75rem);
-        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        font-family: 'Poppins', sans-serif;
+        justify-content: space-evenly;  /* Κεντράρει οριζόντια */
         align-items: center;
+        gap: clamp(1rem, 2vw, 2.5rem);  /* Ωραίο spacing μεταξύ καρτών */
 
-        color: rgb(255, 255, 255);
-        font-family: "Raleway", sans-serif;
-        text-align: center;
-        
-        background-color: rgba(16, 16, 16, 0.5);
-        border: clamp(0.05rem, 0.1vw, 0.15rem) solid rgb(140, 0, 255);
-        box-shadow: 0 0 1.25rem rgba(140, 0, 255, 0.2);
-        backdrop-filter: blur(0.2rem);
-        transition: box-shadow 0.3s ease;
+        margin: clamp(2rem, 3vw, 4rem) auto; /* Κεντράρισμα και σωστή απόσταση */
+        max-width: 1200px; /* Όριο πλάτους για πιο επαγγελματική εμφάνιση */
+        padding: clamp(1rem, 2vw, 3rem);
+
+        background-color: rgb(40, 40, 40);
+        border-radius: clamp(2rem, 3vw, 5rem);
+        border: none;
       }
 
-      .grid-item p{
+      .grid-item p {
         color: rgb(255, 255, 255);
-        margin : auto;
+        margin: auto;
+        padding: 0.3rem 0.6rem;
         font-size: clamp(1rem, 1vw, 1.5rem);
         letter-spacing: clamp(0.05rem, 0.2vw, 0.1rem);
-        border-radius: 1rem;
-        font-family: "Raleway", sans-serif;
+        font-family: 'Inter', sans-serif;
         text-align: center;
         box-shadow: none;
-        background: none;
-      }
-
-      .stem-feature-grid:hover {
-        box-shadow: 0 0 2rem rgba(140, 0, 255, 0.5);
+        user-select: none;
       }
 
       .stem-feature-grid h2 {
-        font-size: clamp(0.25rem, 2vw, 1.5rem);
+        font-size: clamp(0.8rem, 5vw, 3rem); /* ανεβάζω το min λίγο */
         text-align: center;
-        margin-bottom: clamp(0.5rem, 1vw, 2rem);
-        margin-top: clamp(0.5rem, 1vw, 2rem);
+        margin: clamp(0.5rem, 1vw, 1.5rem) 0;
         color: rgb(0, 247, 255);
-        text-shadow: 0 0 30px rgba(77, 249, 255, 0.67);
+        text-shadow: 0 0 10px rgba(77, 249, 255, 0.6); /* πιο διακριτικό glow */
+        font-weight: 600;
+        letter-spacing: 0.03rem;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .stem-feature-grid h2:hover {
+        color: #00fff7;
+        text-shadow: 0 0 20px rgba(77, 249, 255, 0.9);
+        cursor: default;
       }
 
       .grid-container {
@@ -323,22 +354,21 @@
       }
 
       .grid-item {
-        background-color: rgba(0, 0, 0, 0.5);
-        border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgb(104, 0, 189);
-        border-radius: clamp(0.1rem, 1vw, 0.75rem);
+        background-color: rgba(22, 22, 22, 0.5);
+        border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
+        border-radius: clamp(0.1rem, 1vw, 2rem);
         padding: clamp(0.1rem, 1vw, 1.5rem);
         text-align: center;
         justify-content: space-evenly;
         align-items: center;
 
-        box-shadow: 0 0 1rem rgba(104, 0, 189, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         width: clamp(5rem, 10vw, 20rem);
       }
 
       .grid-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 0 1.5rem rgba(104, 0, 189, 0.4);
+        box-shadow: 0 0 1.5rem rgba(153, 44, 255, 0.2);
       }
 
       .grid-item img {
@@ -362,158 +392,142 @@
         line-height: clamp(0.4rem, 1vw, 1.5rem);
       }
 
-      /*
-      .grid-item.zoomed {
-        transform: scale(5);
-        z-index: 10;
-        position: relative;
-      }
-      */
-
       .cta-button-container {
         display: flex;
         justify-content: center;
-        margin-top: clamp(0.1rem, 1vw, 2rem);
-        margin-bottom: clamp(0.5rem, 1vw, 2rem);
+        margin-top: clamp(1rem, 2vw, 3rem);
+        margin-bottom: clamp(1rem, 2vw, 3rem);
       }
 
       .cta-button {
-        font-size: clamp(0.1rem, 1vw, 1.5rem);
-        padding: clamp(0.5rem, 1vw, 2rem);
-        background: linear-gradient(to right, rgb(104, 0, 189), rgb(0, 204, 255));
-        color: white;
+        background: #00ffbb; /* Φωτεινό τιρκουάζ */
+        color: #111; /* Σκούρο για αντίθεση */
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1rem, 2vw, 1.8rem);
+        padding: clamp(0.7rem, 1.5vw, 1.2rem) clamp(2rem, 4vw, 3.5rem);
+        border-radius: 9999px; /* pill shape */
         border: none;
-        border-radius: 0.5rem;
-        font-weight: bold;
         cursor: pointer;
-        box-shadow: 0px 0.25rem 1.5rem rgba(0, 204, 255, 0.4);
-        transition: all 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0, 255, 187, 0.5);
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
       }
 
-      .cta-button:hover {
-        background: linear-gradient(to right, rgb(140, 0, 255), rgb(0, 247, 255));
-        transform: scale(1.05);
-        box-shadow: 0px 0.4rem 1.6rem rgba(0, 255, 255, 0.5);
+      .cta-button:hover, 
+      .cta-button:focus {
+        background: #00b386; /* Σκούροτερο τιρκουάζ */
+        color: #fff;
+        box-shadow: 0 6px 15px rgba(0, 179, 134, 0.7);
+        outline: none;
       }
 
-      footer{
+      footer {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
-        font-size: clamp(0.5rem, 1vw, 1rem);
-        border-radius: 0.2rem;
-        padding-top: 0.7rem;
+        gap: 0.5rem;
 
-        background-color: rgb(26, 26, 26);
-        color: rgb(230, 230, 230);
-        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
-
-        border-style: solid;
-        border-width: 0;
-        border-top-width: clamp(0.05rem, 0.2vw, 0.3rem);
-        border-top-color: rgb(140, 0, 255);
-
-        transition: background-color, color, 0.3s;
-      }
-
-      .contact-info{
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(0.7rem, 1vw, 1rem);
         text-align: center;
-        font-family: "Raleway", sans-serif;
+
+        padding: 1rem 2rem;
+
+        background-color: #1a1a1a;
+        color: #e6e6e6;
+
+        border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
+
+        box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
+
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      footer:hover {
+        background-color: #222;
+        color: #fff;
+        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
+      }
+      
+      .contact-info {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
         font-weight: 1000;
-        font-size: clamp(1rem, 5vw, 3rem);
+        font-size: clamp(1rem, 5vw, 2.5rem);
         color: rgb(0, 247, 255);
-
         letter-spacing: 0.1rem;
-        transition: color 0.3s;
-        text-shadow: 0px 0px 0.3rem rgba(0, 255, 187, 0.35);
-        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+        text-shadow: 0 0 0.3rem rgba(0, 255, 187, 0.35);
         padding-top: clamp(0.5rem, 1vw, 1.5rem);
-        transition: border-bottom-color 0.3s, color 0.3s;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
-      .contact-info .email, .contact-info .phone{
-        font-size: clamp(1.5rem, 5vw, 3rem);
-        color: rgb(0, 247, 255);
-        font-weight: normal;
-        letter-spacing: 0.19rem;
+      .contact-info .title {
+        font-size: clamp(0.9rem, 3vw, 2rem);
       }
 
-      .contact-info .title{
-        font-size: clamp(0.75rem, 3vw, 3rem);
-      }
-
-      .email{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-weight: bold;
-        margin-bottom: clamp(0.25rem, 1vw ,1.2rem);
-      }
-
-      .phone{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-      }
-
-      .contact-info .email h1, .contact-info .phone h1{
-        font-size: clamp(0.5rem, 1vw, 1.375rem);
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-weight: bold;
-        padding-right: clamp(0.5rem, 1vw, 1.25rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
-      }
-
-      .contact-info .phone p, .contact-info .email p{
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-size: clamp(0.5rem, 1vw, 1.375rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
-        font-weight: normal;
-      }
-
-      .social{
+      .email, .phone {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        padding-top: clamp(0.5rem, 1vw, 3.125rem);
-        margin-bottom: clamp(0.25rem, 1vw, 2rem);
-        height: clamp(2rem, 3vw, 15rem);
-
-        transition: margin-right 0.3s, margin-left 0.3s, transform 0.3s;
+        font-weight: bold;
+        margin-bottom: clamp(0.5rem, 1vw, 1rem);
       }
 
-      .social img{
-        width: clamp(1rem, 2vw, 15rem);
-        margin-left: clamp(0.1rem, 1vw, 0.5rem);
-        margin-right: clamp(0.1rem, 1vw, 0.5rem);
+      .contact-info .email h1, .contact-info .phone h1 {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        margin: 0;
+        padding-right: clamp(0.5rem, 1vw, 1.25rem);
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 0.05rem;
       }
 
-      .icon_selection:hover{
+      .contact-info .phone p, .contact-info .email p {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: clamp(0.5rem, 1vw, 2rem);
+        margin-bottom: clamp(0.5rem, 1vw, 1.5rem);
+        height: clamp(2rem, 5vw, 5rem);
+        transition: transform 0.3s ease;
+      }
+
+      .social img {
+        width: clamp(1.2rem, 2vw, 3rem);
+        margin: 0 0.5rem;
+      }
+
+      .icon_selection {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.3s ease;
+      }
+
+      .icon_selection:hover {
         cursor: pointer;
-        transform: translateY(-1rem);
+        transform: translateY(-0.4rem) scale(1.05);
+        filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
       }
 
-      .copyrights{
-        font-size: clamp(0.5rem, 1vw, 2rem);
-        color:rgb(255, 255, 255); 
-        letter-spacing : clamp(0.05rem, 0.1vw, 0.3rem);
-        text-align: center; 
+      .copyrights {
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        color: rgb(255, 255, 255);
+        letter-spacing: clamp(0.05rem, 0.1vw, 0.2rem);
+        text-align: center;
         margin-top: clamp(0.5rem, 1vw, 1.2rem);
-        padding-bottom: clamp(2rem, 1vw, 3.2rem);
+        padding-bottom: clamp(1rem, 1vw, 2rem);
       }
     
     </style>
   </head>
 
-  <body style = "background-image: url(intro.png); background-size: cover;">
+  <body>
     <header>
 
       <button id="menu-toggle" class="hamburger">&#9776;</button>
@@ -533,29 +547,33 @@
       </nav>
 
     </header>
-    
+    <div id="particles-js"></div>
     <main>
-      <div id="particles-js"></div>
+
+      <div class = "intro-paragraph">
+          <h1>Μια Νέα Προσέγγιση Στην Εκπαίδευση !</h1>
+          <p>
+            Δώστε την ευκαιρία στα παιδια σας να εξερευνήσουν ελεύθερα, δημιουργικά και οικονομικά την επιστήμη & την τεχνολογία μέσω online διαλέξεων & προσωπικών project, καθοδηγούμενα απο επαγγελματίες !
+          </p>
+          <div class="cta-button-container">
+          <a href="Φορμα_Επικοινωνίας.html"><button class="cta-button">Ξεκίνα Τώρα !</button></a>
+        </div>
+        </div>
+      
         <div class = "intro-paragraph">
           <h1>Με μια ματιά...</h1>
           <p>
-            Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής 
-            σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα Μαθηματικά, η Φυσική, 
-            η Πληροφορική και η Ηλεκτρονική. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και 
-            διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω προσωπικών εργασιών( δηλ. project ). 
-            Το πρόγραμμα απευθύνεται σε μαθητές Γυμνασίου & Λυκείου που θέλουν να εξερευνήσουν την επιστήμη, πρόσφατους αποφοίτους 
-            Λυκείου που θέλουν να προετοιμαστούν καλύτερα πριν την έναρξη των μαθημάτων τους στην σχολή τους, αλλά και σε ενήλικες που 
-            επιθυμούν να αξιοποιήσουν παραγωγικά τον ελεύθερο τους χρόνο μαθαίνοντας νέα πράγματα και αποκτώντας νέες ικανότητες. 
-            Προσφέρει ευέλικτη συμμετοχή χωρίς εξετάσεις ή υποχρεωτικές ασκήσεις, εστιάζοντας στην προσωπική ανάπτυξη και την 
-            προετοιμασία για μελλοντικές σπουδές ή επαγγελματική πορεία, και όλα αυτά σε μια αρκετά οικονομική τιμή.
+            Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω προσωπικών εργασιών( δηλ. project ). 
+
           </p>
-          <a class = "LearnMoreButton" href="φιλοσοφία.html">Μάθε Περισσότερα !</a>
+          <span class = "cta-button-container">
+            <a class = "LearnMoreButton" href="φιλοσοφία.html">Δες πως λειτουργεί</a>
+          </span>
         </div>
-      </div>
 
       <section class="stem-feature-grid">
 
-        <h2>Τι Προσφέρει το Πρόγραμμα STEM;</h2>
+        <h2>Τι Προσφέρει Το Πρόγραμμα STEM ;</h2>
         <div class="grid-container">
           <div class="grid-item">
             <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
@@ -584,7 +602,7 @@
           <div class="grid-item">
             <img src="age-icon.svg" alt="age icon" />
             <h3>Ηλικίες</h3>
-            <p>13+ ετών</p>
+            <p>14+ ετών</p>
           </div>
 
           <div class="grid-item">
@@ -597,13 +615,13 @@
 
         <div class="cta-button-container">
           <a href="Μαθήματα.html">
-            <button class="cta-button">Δες τα μαθήματα !</button>
+            <button class="cta-button">Δες Τα Μαθήματα</button>
           </a>
         </div>
       </section>
 
       <section class="stem-feature-grid">
-        <h2>ΕΓΓΡΑΦΗ</h2>
+        <h2>ΠΡΟΣΦΟΡΕΣ</h2>
         <p>
           Το κόστος συμμετοχής ανέρχεται στα <strong>20€ τον μήνα</strong> για κάθε μάθημα. 
           Παρακάτω μπορείτε να δείτε τις διαθέσιμες προσφορές :
@@ -644,9 +662,6 @@
           </div>
         </div>
 
-        <div class="cta-button-container">
-          <a href="Φορμα_Επικοινωνίας.html"><button class="cta-button">Συμπλήρωσε Φόρμα Ενδιαφέροντος</button></a>
-        </div>
       </section>
     </main>
 
@@ -697,7 +712,7 @@
           </div>
 
         </div>
-
+      
         <div class = "copyrights">
           © 2025 Orion Scholars All Rights Reserved
         </div>
@@ -714,6 +729,7 @@
         navbar.classList.toggle("active");
       });
     </script>
-
+    <script src = "particles.js"></script>
+    <script src = "app.js"></script>
   </body>
 </html>
