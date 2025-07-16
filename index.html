@@ -363,8 +363,7 @@
         background-color: rgba(22, 22, 22, 0.5);
         border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
         border-radius: clamp(0.1rem, 1vw, 2rem);
-        padding: clamp(0.1rem, 1vw, 1.5rem);
-
+        padding: clamp(1rem, 1vw, 3rem);
 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         width: clamp(5rem, 10vw, 20rem);
@@ -377,7 +376,7 @@
       }
 
       .grid-item img {
-        width: clamp(1rem, 3vw, 5rem);
+        width: clamp(2rem, 3vw, 5rem);
         margin-bottom: clamp(1rem, 3vw, 2rem);
         filter: drop-shadow(0 0 4rem cyan);
         filter: brightness(0) invert(1);
@@ -634,7 +633,7 @@
 
         <div class="grid-container">
 
-          <div class="grid-item" onclick = "this.classList.toggle('zoomed')">
+          <div class="grid-item">
             <div>
               <h3>Πακέτο Τριών Μαθημάτων</h3>
               <img src = "buy-book-icon.svg">
