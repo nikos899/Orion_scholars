@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-
-      @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
       
       *{
         margin: 0;
@@ -28,12 +26,14 @@
         min-height: 100vh; /* ή άλλο ύψος */
         background-image: url('intro.png');
         background-size: cover;
+        scroll-behavior: smooth;
+        backdrop-filter: blur(0.5rem);
       }
 
       main {
         flex: 1; /* takes up all available space */
         background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgb(22, 22, 22) 32%);
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 25%, rgb(15, 15, 15), rgb(35, 35, 35) 40%);
         background-position: center;
         background-repeat: no-repeat;
         background-blend-mode: normal;
@@ -73,7 +73,7 @@
 
       .navbar .logo a:hover {
         color: #50f3ff;
-        text-shadow: 0 0 1rem #50f3ff, 0 0 6rem #50f3ff;
+        text-shadow: 0 0 1rem #50f3ff, 0 0 3rem #50f3ff;
         transform: scale(1.02);
       }
 
@@ -89,7 +89,7 @@
       }
 
       .intro-paragraph{
-        margin-top: 30rem;
+        margin-top: 35rem;
         margin-bottom: 0rem;
       }
 
@@ -114,7 +114,7 @@
         bottom: 0;
         height: 2px;
         width: 100%;
-        background: linear-gradient(90deg, #00ff9100, #44fff39f , #c0feff);
+        background: linear-gradient(90deg, #00ffd000, #2de3ff9f , #59fcff);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.3s ease;
@@ -254,48 +254,6 @@
         text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
       }
 
-      .LearnMoreButton {
-        display: inline-block; /* αντί για block */
-        margin: clamp(1rem, 3vw, 2rem) auto;
-        padding: clamp(0.75rem, 1.5vw, 1.5rem) clamp(1.5rem, 3vw, 3rem);
-        min-width: 8rem;
-        cursor: pointer;
-
-        color: rgb(0, 204, 231);
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(1rem, 1.5vw, 1.8rem);
-        font-weight: 700;
-        text-align: center;
-        text-decoration: none;
-        letter-spacing: 0.05rem;
-        user-select: none;
-
-        background: rgba(0, 200, 225, 0.15);
-        border: 2px solid rgb(0, 170, 192);
-        border-radius: 2rem;
-
-        box-shadow: 0 4px 8px rgba(0, 170, 192, 0.3);
-        transition:
-          background-color 0.3s ease,
-          color 0.3s ease,
-          border-color 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-      .LearnMoreButton:hover,
-      .LearnMoreButton:focus-visible {
-        color: rgb(90, 255, 255);
-        border-color: rgb(90, 255, 255);
-        background-color: rgba(0, 255, 255, 0.3);
-        box-shadow: 0 6px 14px rgba(90, 255, 255, 0.6);
-        outline: none;
-      }
-
-      .LearnMoreButton:focus-visible {
-        outline: 3px solid rgb(90, 255, 255);
-        outline-offset: 4px;
-      }
-
       .stem-feature-grid {
         display: flex;
         flex-wrap: wrap;
@@ -304,14 +262,14 @@
         align-items: center;
         gap: clamp(1rem, 2vw, 2.5rem);  /* Ωραίο spacing μεταξύ καρτών */
 
-        margin: clamp(1rem, 1vw, 2rem) auto; /* Κεντράρισμα και σωστή απόσταση */
+        margin: clamp(2rem, 2vw, 5rem) auto; /* Κεντράρισμα και σωστή απόσταση */
         padding: clamp(1rem, 5vw, 3rem);
 
         width: 90vw;
         max-width: 1500px;
         box-sizing: border-box;
 
-        background-color: rgb(40, 40, 40);
+        background-color: rgb(25, 25, 25);
         border-radius: clamp(2rem, 3vw, 5rem);
         border: none;
       }
@@ -361,7 +319,7 @@
         width: clamp(5rem, 10vw, 20rem);
         max-width: 300px;
 
-        background-color: rgba(22, 22, 22, 0.5);
+        background-color: rgba(15, 15, 15, 0.751);
         border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
         border-radius: clamp(0.1rem, 1vw, 2rem);
         padding: clamp(1rem, 1vw, 3rem);
@@ -405,6 +363,7 @@
       .cta-button {
         background: #00ffbb; /* Φωτεινό τιρκουάζ */
         color: #111; /* Σκούρο για αντίθεση */
+
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1rem, 2vw, 1.8rem);
@@ -413,6 +372,8 @@
         border: none;
         cursor: pointer;
         box-shadow: 0 4px 10px rgba(0, 255, 187, 0.5);
+        text-decoration: none;
+        
         transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
@@ -442,9 +403,7 @@
         color: #e6e6e6;
 
         border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
-
         box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
-
         transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
       }
 
@@ -570,7 +529,7 @@
 
           </p>
           <span class = "cta-button-container">
-            <a class = "LearnMoreButton" href="φιλοσοφία.html">Δες πως λειτουργεί</a>
+            <a class = "cta-button" href="φιλοσοφία.html">ΔΕΣ ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
           </span>
         </div>
 
