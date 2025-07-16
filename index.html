@@ -91,7 +91,6 @@
       .intro-paragraph{
         margin-top: 30rem;
         margin-bottom: 0rem;
-        padding: 1rem;
       }
 
       .navbar a {
@@ -104,7 +103,7 @@
         letter-spacing: 0.15rem;
         text-decoration: none;
         margin: 0 1rem;
-        padding: 0.5rem 0;
+        padding: clamp(0.1rem, 1vw, 1.5rem) 0;
         transition: color 0.3s ease;
       }
 
@@ -145,7 +144,7 @@
           background-color: rgba(0, 0, 0, 1);
           position: fixed;
           align-items: center;
-          padding: 0.2rem;
+          padding: clamp(0.1rem, 1vw, 1.5rem);
           width: 100%;
           z-index: 1001;
           transition: opacity 0.4s ease;
@@ -204,10 +203,9 @@
           text-underline-offset: 1rem;
           text-decoration-color: transparent;
           
-          padding: 0.5rem 1rem;
+          padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
           
           -webkit-tap-highlight-color: transparent; /* Αφαιρεί το μπλε highlight σε iOS */
-          tap-highlight-color: transparent; /* Για μελλοντική συμβατότητα */
           
           transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
         }
@@ -215,7 +213,7 @@
         .intro-paragraph{
           margin-top: 10rem;
           margin-bottom: 0rem;
-          padding: 1rem;
+          padding: clamp(0.1rem, 1vw, 1.5rem);
       }
       
       }
@@ -258,7 +256,7 @@
 
       .LearnMoreButton {
         display: inline-block; /* αντί για block */
-        margin: 1.5rem auto;
+        margin: clamp(1rem, 3vw, 2rem) auto;
         padding: clamp(0.75rem, 1.5vw, 1.5rem) clamp(1.5rem, 3vw, 3rem);
         min-width: 8rem;
         cursor: pointer;
@@ -306,8 +304,8 @@
         align-items: center;
         gap: clamp(1rem, 2vw, 2.5rem);  /* Ωραίο spacing μεταξύ καρτών */
 
-        margin: clamp(2rem, 3vw, 4rem) auto; /* Κεντράρισμα και σωστή απόσταση */
-        max-width: 1200px; /* Όριο πλάτους για πιο επαγγελματική εμφάνιση */
+        margin: clamp(1rem, 1vw, 2rem) auto; /* Κεντράρισμα και σωστή απόσταση */
+        max-width: 900px; /* Όριο πλάτους για πιο επαγγελματική εμφάνιση */
         padding: clamp(1rem, 2vw, 3rem);
 
         background-color: rgb(40, 40, 40);
@@ -330,7 +328,7 @@
       .stem-feature-grid h2 {
         font-size: clamp(0.8rem, 5vw, 3rem); /* ανεβάζω το min λίγο */
         text-align: center;
-        margin: clamp(0.5rem, 1vw, 1.5rem) 0;
+        margin: clamp(1rem, 3vw, 2rem) 0;
         color: rgb(0, 247, 255);
         text-shadow: 0 0 10px rgba(77, 249, 255, 0.6); /* πιο διακριτικό glow */
         font-weight: 600;
@@ -376,7 +374,7 @@
 
       .grid-item img {
         width: clamp(1rem, 3vw, 5rem);
-        margin-bottom: clamp(0.1rem, 1vw, 1rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
         filter: drop-shadow(0 0 4rem cyan);
         filter: brightness(0) invert(1);
       }
@@ -384,7 +382,7 @@
       .grid-item h3 {
         font-size: clamp(0.5rem, 0.75vw, 1.5rem);
         color: rgb(0, 255, 255);
-        margin-bottom: clamp(0.1rem, 0.75vw, 1.5rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
       .grid-item p {
@@ -398,8 +396,8 @@
       .cta-button-container {
         display: flex;
         justify-content: center;
-        margin-top: clamp(1rem, 2vw, 3rem);
-        margin-bottom: clamp(1rem, 2vw, 3rem);
+        margin-top: clamp(1rem, 3vw, 2rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
       .cta-button {
@@ -408,7 +406,7 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1rem, 2vw, 1.8rem);
-        padding: clamp(0.7rem, 1.5vw, 1.2rem) clamp(2rem, 4vw, 3.5rem);
+        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
         border-radius: 9999px; /* pill shape */
         border: none;
         cursor: pointer;
@@ -436,7 +434,7 @@
         font-size: clamp(0.7rem, 1vw, 1rem);
         text-align: center;
 
-        padding: 1rem 2rem;
+        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
 
         background-color: #1a1a1a;
         color: #e6e6e6;
@@ -462,7 +460,7 @@
         color: rgb(0, 247, 255);
         letter-spacing: 0.1rem;
         text-shadow: 0 0 0.3rem rgba(0, 255, 187, 0.35);
-        padding-top: clamp(0.5rem, 1vw, 1.5rem);
+        padding-top: clamp(0.1rem, 1vw, 1.5rem);
         transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
@@ -475,13 +473,13 @@
         align-items: center;
         justify-content: center;
         font-weight: bold;
-        margin-bottom: clamp(0.5rem, 1vw, 1rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
       .contact-info .email h1, .contact-info .phone h1 {
         font-size: clamp(0.8rem, 1vw, 1.25rem);
         margin: 0;
-        padding-right: clamp(0.5rem, 1vw, 1.25rem);
+        padding-right: clamp(0.1rem, 1vw, 1.5rem);
         font-family: 'Poppins', sans-serif;
         letter-spacing: 0.05rem;
       }
@@ -496,8 +494,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: clamp(0.5rem, 1vw, 2rem);
-        margin-bottom: clamp(0.5rem, 1vw, 1.5rem);
+        padding-top: clamp(0.1rem, 1vw, 1.5rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
         height: clamp(2rem, 5vw, 5rem);
         transition: transform 0.3s ease;
       }
@@ -523,8 +521,8 @@
         color: rgb(255, 255, 255);
         letter-spacing: clamp(0.05rem, 0.1vw, 0.2rem);
         text-align: center;
-        margin-top: clamp(0.5rem, 1vw, 1.2rem);
-        padding-bottom: clamp(1rem, 1vw, 2rem);
+        margin-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
       }
     
     </style>
@@ -566,7 +564,7 @@
         <div class = "intro-paragraph">
           <h1>Με μια ματιά...</h1>
           <p>
-            Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω προσωπικών εργασιών( δηλ. project ). 
+            Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω projects. 
 
           </p>
           <span class = "cta-button-container">
@@ -576,7 +574,7 @@
 
       <section class="stem-feature-grid">
 
-        <h2>Τι Προσφέρει Το Πρόγραμμα STEM ;</h2>
+        <h2>Τι Προσφέρει Το Πρόγραμμα STEM;</h2>
         <div class="grid-container">
           <div class="grid-item">
             <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
