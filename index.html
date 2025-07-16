@@ -308,7 +308,7 @@
         padding: clamp(1rem, 2vw, 3rem);
         
 
-        width: 100vw;
+        width: 90vw;
         max-width: 1800px;
         box-sizing: border-box;
 
@@ -360,14 +360,17 @@
         justify-content: space-evenly;
         align-items: center;
 
+        flex: 1 1 clamp(220px, 30%, 300px);
+        width: clamp(5rem, 10vw, 20rem);
+        max-width: 250px;
+        min-width: 150px;
+
         background-color: rgba(22, 22, 22, 0.5);
         border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
         border-radius: clamp(0.1rem, 1vw, 2rem);
         padding: clamp(1rem, 1vw, 3rem);
 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: clamp(5rem, 10vw, 20rem);
-        min-width: 8rem;
       }
 
       .grid-item:hover {
@@ -462,7 +465,7 @@
         font-size: clamp(1rem, 5vw, 2.5rem);
         color: rgb(0, 247, 255);
         letter-spacing: 0.1rem;
-        text-shadow: 0 0 0.3rem rgba(0, 255, 187, 0.35);
+        text-shadow: 0 0 5px rgba(77,249,255,0.6);
         padding-top: clamp(0.1rem, 1vw, 1.5rem);
         transition: color 0.3s ease, text-shadow 0.3s ease;
       }
@@ -577,7 +580,7 @@
 
       <section class="stem-feature-grid">
 
-        <h2>Τι Προσφέρει Το Πρόγραμμα STEM;</h2>
+        <h2>Τι Προσφέρει Το Πρόγραμμα;</h2>
         <div class="grid-container">
           <div class="grid-item">
             <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
