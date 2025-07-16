@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <Title>Orion Scholars</Title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,600&display=swap" rel="stylesheet">
+
     <style>
 
       @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -14,12 +16,9 @@
         box-sizing: border-box;
       }
 
-
-
       body {
         display: flex;
         flex-direction: column;
-
         background-image: linear-gradient(rgb(46, 46, 46), rgb(26, 26, 26));
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -200,238 +199,527 @@
 
       }
 
-      footer{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        font-size: clamp(0.5rem, 1vw, 1rem);
-        border-radius: 0.2rem;
-        padding-top: 0.7rem;
-
-        background-color: rgb(26, 26, 26);
-        color: rgb(230, 230, 230);
-        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
-
-        border-style: solid;
-        border-width: 0;
-        border-top-width: clamp(0.05rem, 0.2vw, 0.3rem);
-        border-top-color: rgb(140, 0, 255);
-
-        transition: background-color, color, 0.3s;
-      }
-
-      .contact-info{
-        text-align: center;
-        font-family: "Raleway", sans-serif;
-        font-weight: 1000;
-        font-size: clamp(1rem, 5vw, 3rem);
-        color: rgb(0, 247, 255);
-
-        letter-spacing: 0.1rem;
-        transition: color 0.3s;
-        text-shadow: 0px 0px 0.3rem rgba(0, 255, 187, 0.35);
-        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
-        padding-top: clamp(0.5rem, 1vw, 1.5rem);
-        transition: border-bottom-color 0.3s, color 0.3s;
-      }
-
-      .contact-info .email, .contact-info .phone{
-        font-size: clamp(1.5rem, 5vw, 3rem);
-        color: rgb(0, 247, 255);
-        font-weight: normal;
-        letter-spacing: 0.19rem;
-      }
-
-      .contact-info .title{
-        font-size: clamp(0.75rem, 3vw, 2.5rem);
-      }
-
-      .email{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-weight: bold;
-        margin-bottom: clamp(0.25rem, 1vw ,1.2rem);
-      }
-
-      .phone{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-      }
-
-      .contact-info .email h1, .contact-info .phone h1{
-        font-size: clamp(0.5rem, 1vw, 1.375rem);
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-weight: bold;
-        padding-right: clamp(0.5rem, 1vw, 1.25rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
-      }
-
-      .contact-info .phone p, .contact-info .email p{
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-size: clamp(0.5rem, 1vw, 1.375rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
-        font-weight: normal;
-      }
-
-      .social{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        padding-top: clamp(0.5rem, 1vw, 3.125rem);
-        margin-bottom: clamp(1rem, 1vw, 2rem);
-        height: clamp(2rem, 3vw, 15rem);
-
-        transition: margin-right 0.3s, margin-left 0.3s, transform 0.3s;
-      }
-
-      .social img{
-        width: clamp(1rem, 2vw, 15rem);
-        margin-left: clamp(0.1rem, 1vw, 0.5rem);
-        margin-right: clamp(0.1rem, 1vw, 0.5rem);
-      }
-
-      .icon_selection:hover{
-        cursor: pointer;
-        transform: translateY(-1rem);
-      }
-
-      .copyrights{
-        font-size: clamp(0.5rem, 1vw, 2rem);
-        color:rgb(255, 255, 255); 
-        letter-spacing : clamp(0.05rem, 0.1vw, 0.3rem);
-        text-align: center; 
-        margin-top: clamp(0.5rem, 1vw, 1.2rem);
-        padding-bottom: clamp(2rem, 1vw, 3.2rem);
-      }
-
-      .contact-info{
-        text-align: center;
-        font-family: "Raleway", sans-serif;
-        font-weight: bold;
-        font-size: 48px;
-        color: rgb(0, 247, 255);
-        letter-spacing: 2px;
-        transition: color,0.3s;
-        text-shadow: 0px 0px 5px rgba(0, 255, 187, 0.35);
-        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
-        padding-top: 25px;
-        transition: border-bottom-colo, color, 0.3s
-      }
-
-        .icon_selection:hover{
-          cursor: pointer;
-          transform: translateY(-20px);
-        }
-
-        .μαθήματα{
+      .μαθήματα{
           background-color: rgba(128, 128, 128, 0.236);
         }
 
-        .πρόγραμμα{
-          display: flex;
-          justify-content: space-evenly;
-          font-family: "Raleway", sans-serif;
-          color: white;
-          font-size: 24px;
-        }
+      .πρόγραμμα{
+        display: flex;
+        justify-content: space-evenly;
+        font-family: "Raleway", sans-serif;
+        color: white;
+        font-size: 24px;
+      }
+
+      p {
+        text-align: center;
+        margin: clamp(1rem, 3vw, 2rem);
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        font-family: 'Inter', sans-serif;
+        line-height: clamp(1.6rem, 2.2vw, 2.2rem);
+
+        color: rgb(237, 237, 237);
+        background: transparent;
+        transition: color 0.3s, text-shadow 0.3s;
+      }
 
       h1{
-          color: rgb(0, 247, 255);
-          text-align: center;
-          font-family: "Raleway", sans-serif;
-          font-weight: 10rem;
-          font-size: clamp(0.5rem ,1.5vw, 3rem);
-          letter-spacing: clamp(0.1rem, 0.3vw, 0.5rem);
-          text-shadow: 0rem 0rem 0.5rem rgba(0, 255, 187, 0.35);
-
-          transition: color 0.3s, border-bottom-color 0.3s, border-bottom-width 0.3s, text-shadow 0.3s;
-        }
-
-      p{
+        color: rgb(0, 247, 255);
         text-align: center;
-          margin : clamp(1rem, 1vw, 3rem);
-          font-size: clamp(0.5rem, 1vw, 4rem);
-          font-family: "Raleway", sans-serif;
-          line-height: clamp(1rem , 2vw, 4rem);
-
-          color: rgb(237, 237, 237);
-          background: transparent;
-          transition: color, text-shadow, 0.3s;
-          }
-
-        .math .program, .physics .program, .computer_science .program, .electronics .program {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: auto;
-          
-          color: rgb(221, 221, 221);
-          width: clamp(5rem, 12vw, 20rem);
-          height: clamp(1.5rem, 3vw, 7rem);
-          background-color: rgb(9, 9, 9);
-          border: none;
-
-          font-size: clamp(0.1rem, 1vw, 1rem);
-          font-weight: bold;
-
-          cursor: pointer;
-          border-radius: 5rem;
-          letter-spacing: clamp(0.05rem, 0.1vw, 0.125rem);
-          transition: color 0.3s, background-color, 0.3s;
-        }
-
-        .math .program::after, .physics .program::after, .computer_science .program::after, .electronics .program::after {
-          content: '';
-          position: absolute;
-          margin: auto;
-          z-index: -1;
-
-          width: 102%;
-          height: 110%;
-          background-image: linear-gradient(to bottom right, rgb(209, 0, 209), rgb(0, 98, 255));
-
-          font-weight: bold;
-          cursor: pointer;
-          border-radius: 5rem;
-        }
-
-        .math .program:hover, .physics .program:hover, .computer_science .program:hover, .electronics .program:hover{
-          color: rgb(255, 255, 255);
-          background-color: rgb(0, 0, 0);
-        }
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 3rem);
         
-        .math, .physics, .computer_science, .electronics{
-          margin: 5%;
-          margin-top: 0;
-          border-radius: clamp(1rem, 3vw, 10rem);
-          background-color: rgba(0, 0, 0, 0.4);
-          z-index: 1;
-          padding: 2%;
-        }
+        letter-spacing: 0.03rem;
+        text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
+      }
 
-        .math h1, .physics h1, .computer_science h1, .electronics h1{
-          padding-top: 50px;
-          color: rgb(0, 247, 255);
-        }
+      .math .program, .physics .program, .computer_science .program, .electronics .program {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .math img, .physics img, .computer_science img, .electronics img{
-          display:block;
-          margin: auto;
-          filter: brightness(0) invert(1);
-          width: clamp(2rem, 3vw, 10rem);
-          transform: translateY(25px);
+        margin: auto;
+        margin-bottom: clamp(1rem, 1vw, 2rem);
+        margin-top: clamp(1rem, 1vw, 2rem);
+        padding: clamp(0.5rem, 1vw, 1.5rem);
+        
+        font-size: clamp(0.75rem, 2vw, 1.8rem);
+        color: rgb(221, 221, 221);
+        background-color: rgb(9, 9, 9);
+        
+        border: none;
+        width: clamp(12rem, 25vw, 23rem);
+        font-weight: bold;
+
+        cursor: pointer;
+        border-radius: 5rem;
+        letter-spacing: 0.03rem;
+        transition: color 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      }
+
+      .math .program::after,
+      .physics .program::after,
+      .computer_science .program::after,
+      .electronics .program::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+
+        width: 102%;
+        height: 110%;
+
+        background-image: linear-gradient(45deg, rgb(209, 0, 209), rgb(0, 98, 255), rgb(209, 0, 209));
+        background-size: 200% 200%;
+        background-position: 0% 50%;
+        animation: animate-gradient 5s ease infinite;
+
+        border-radius: 5rem;
+      }
+
+      @keyframes animate-gradient {
+        0% {
+          background-position: 0% 50%;
         }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .math .program:hover,
+      .physics .program:hover,
+      .computer_science .program:hover,
+      .electronics .program:hover {
+        color: #ffffff;
+        background-color: #000000;
+
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.15),
+                    0 0 20px rgba(209, 0, 209, 0.4),
+                    0 0 30px rgba(0, 98, 255, 0.3);
+      }
+
+      .math .program::before,
+      .physics .program::before,
+      .computer_science .program::before,
+      .electronics .program::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        background: linear-gradient(135deg, rgba(209, 0, 209, 0.55), rgba(0, 98, 255, 0.55));
+        opacity: 0;
+        transform: scale(1.2);
+        transition: 
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          filter 0.5s ease;
+        
+        border-radius: inherit;
+        filter: blur(0.8px) brightness(1.1);
+
+        /* Transition */
+        transition-property: opacity, transform, filter;
+        transition-duration: 0.3s, 0.5s, 0.5s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0s, 0s, 0s;
+      }
+      
+
+    .math .program:hover::before,
+    .physics .program:hover::before,
+    .computer_science .program:hover::before,
+    .electronics .program:hover::before {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px) brightness(1.3);
+
+      /* Κατά το hover αφαιρούμε το delay */
+      transition-delay: 0s, 0s, 0s;
+    }
+
+    .math .program:not(:hover)::before,
+    .physics .program:not(:hover)::before,
+    .computer_science .program:not(:hover)::before,
+    .electronics .program:not(:hover)::before {
+      transition-delay: 0.3s, 0s, 0s; /* opacity delay στο fade out */
+      transition-duration: 0.7s, 0.5s, 0.5s; /* πιο αργό fade-out στο opacity */
+    }
+              
+      .math, .physics, .computer_science, .electronics{
+        margin: 5%;
+        margin-top: 0;
+        border-radius: clamp(1rem, 3vw, 10rem);
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+        padding: 2%;
+      }
+
+      .math h1, .physics h1, .computer_science h1, .electronics h1{
+        margin: clamp(0.1rem, 1vw, 3rem);
+        color: rgb(0, 247, 255);
+      }
+
+      .math img, .computer_science img{
+        display:block;
+        margin: auto;
+        padding:0;
+        margin-top: clamp(0.5rem, 1vw, 3rem);
+        margin-bottom: clamp(0.5rem, 1vw, 3rem);
+        filter: brightness(0) invert(1);
+        width: clamp(2rem, 3vw, 10rem);
+      }
+
+      .math-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .curve {
+        display: block;
+        margin: auto;
+        width: clamp(6rem, 10vw, 15rem);
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .curve path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw-curve 3s ease-out forwards, pulse-glow 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 4px #a200ff);
+        transition: stroke 0.3s ease, filter 0.3s ease;
+        cursor: pointer;
+      }
+
+      .curve:hover path {
+        animation: draw-curve 2s ease-out forwards, pulse-glow-hover 1.5s ease-in-out infinite;
+        stroke: url(#waveGradient);
+      }
+
+      @keyframes draw-curve {
+        0% {
+          stroke-dashoffset: 1000;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes pulse-glow-hover {
+        0%, 100% {
+          filter: drop-shadow(0 0 6px #a200ff);
+        }
+        50% {
+          filter: drop-shadow(0 0 15px #00ffff);
+        }
+      }
+
+      .curve:hover {
+        transform: scale(1.05);
+      }
+
+      .chip-container::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 110%;
+        height: 110%;
+        background: rgba(0, 255, 150, 0.4);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(8px);
+        box-shadow: 0 0 40px rgb(0, 255, 247), 0 0 60px rgb(255, 0, 0);
+        animation: subtle-glow 0.2s ease-in-out infinite;
+        z-index: 0;
+      }
+
+      .chip-container img {
+        display: block;
+        width: 100%;
+        filter: brightness(0) invert(1);
+        border-radius: 8%;
+        transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        z-index: 1;
+        animation: pulse-scale 3s ease-in-out infinite;
+      }
+
+      .chip-container:hover img {
+        transform: scale(1.1);
+      }
+
+      @keyframes subtle-glow {
+        0%, 100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      @keyframes pulse-scale {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+      }
+
+      .chip-container {
+        position: relative;
+        display: block;
+        margin: auto;
+        margin-top: clamp(0.5rem, 1vw, 3rem);
+        margin-bottom: clamp(0.5rem, 1vw, 3rem);
+        width: clamp(2rem, 3vw, 10rem);
+      }
+
+      .chip-traces {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        transform-origin: center center;
+        transform: translate(-50%, -50%) rotate(0deg);
+        animation: rotate-steps 5s steps(4) infinite;
+      }
+
+      @keyframes rotate-steps {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg); /* 7 * 90 */
+        }
+      }
+      .trace {
+        position: absolute;
+        background: linear-gradient(90deg, rgb(0, 255, 251), rgba(0,255,150,0));
+        height: 1px;
+        width: 5%;
+        left: 100%;
+        transform-origin: left center;
+        opacity: 0;
+        animation: trace-anim 0.5s ease-in-out infinite;
+      }
+
+      .trace1 {
+        top: 30%;
+        animation-delay: 0.16s;
+      }
+
+      .trace2 {
+        top: 50%;
+        animation-delay: 0.33s;
+      }
+
+      .trace3 {
+        top: 70%;
+        animation-delay: 0.26s;
+      }
+
+      @keyframes trace-anim {
+        0% {
+          width: 0;
+          opacity: 0;
+        }
+        50% {
+          width: 100%;
+          opacity: 1;
+        }
+        100% {
+          width: 0;
+          opacity: 0;
+        }
+      }
+
+      .scale-wrapper {
+        display: flex;
+        justify-content: center;
+        animation: smooth-scale 3s ease-in-out infinite alternate;
+      }
+
+      .math img {
+        display: block;
+        margin: auto;
+        filter: brightness(0) invert(1);
+        width: clamp(2rem, 3vw, 10rem);
+      }
+
+      .physics-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: clamp(1rem, 5vw, 3rem);
+        filter: brightness(0) invert(1);
+        width: clamp(2rem, 3vw, 10rem);
+        transform-origin: center;
+        animation: smooth-rotation 30s linear infinite;
+      }
+
+      @keyframes smooth-rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes smooth-scale {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .code-typing-software {
+        display: block;
+        margin: auto;
+        font-family: monospace, monospace;
+        font-size: clamp(1rem, 2vw, 5rem);
+        font-weight: bold;
+        color: #4fffe863;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 0.15em solid #ffffff; /* cursor */
+        width: 0;
+        animation: typing_software 3s steps(8, end) forwards, blink_software 0.75s step-end infinite;
+      }
+
+      @keyframes typing_software {
+        from {
+          width: 0;
+        }
+        to {
+          width: 30ch; /* number of chars */
+        }
+      }
+
+      @keyframes blink_software {
+        0%, 100% {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #007883;
+        }
+      }
+
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        text-align: center;
+
+        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+
+        background-color: #1a1a1a;
+        color: #e6e6e6;
+
+        border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
+        box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      footer:hover {
+        background-color: #222;
+        color: #fff;
+        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
+      }
+      
+      .contact-info {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-weight: 1000;
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        color: rgb(0, 247, 255);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(77,249,255,0.6);
+        padding-top: clamp(0.1rem, 1vw, 1.5rem);
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .contact-info .title {
+        font-size: clamp(0.9rem, 3vw, 2rem);
+      }
+
+      .email, .phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+      }
+
+      .contact-info .email h1, .contact-info .phone h1 {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        margin: 0;
+        padding-right: clamp(0.1rem, 1vw, 1.5rem);
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 0.03rem;
+      }
+
+      .contact-info .phone p, .contact-info .email p {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: clamp(0.1rem, 1vw, 1.5rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+        height: clamp(2rem, 5vw, 5rem);
+        transition: transform 0.3s ease;
+      }
+
+      .social img {
+        width: clamp(1.2rem, 2vw, 3rem);
+        margin: 0 0.5rem;
+      }
+
+      .icon_selection {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.3s ease;
+      }
+
+      .icon_selection:hover {
+        cursor: pointer;
+        transform: translateY(-0.4rem) scale(1.05);
+        filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
+      }
+
+      .copyrights {
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        color: rgb(255, 255, 255);
+        letter-spacing: 0.03rem;
+        text-align: center;
+        margin-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
+      }
     
     </style>
   </head>
@@ -465,32 +753,55 @@
             </p>
         </div>
 
-        <div>
-            <div class = "math">
-              <img src = "formula-fx-icon.svg">
-              <h1>Μαθηματικά</h1>
-                <p>
-                  Η επιστήμη των Μαθηματικών αποτελεί τη γλώσσα με την οποία περιγράφεται το σύμπαν και θεμελιώνει κάθε πτυχή της 
-                  επιστημονικής σκέψης. Από την αρχαιότητα μέχρι σήμερα, τα Μαθηματικά έχουν παίξει κεντρικό ρόλο στην κατανόηση του 
-                  κόσμου γύρω μας, προσφέροντας εργαλεία για την ανάλυση, τη μοντελοποίηση και την πρόβλεψη φυσικών και τεχνητών 
-                  φαινομένων. Είναι μια επιστήμη που καλλιεργεί τη λογική σκέψη, την ακρίβεια και την ικανότητα επίλυσης προβλημάτων, 
-                  χαρακτηριστικά απαραίτητα για κάθε τομέα της τεχνολογίας και της επιστήμης. Η ενασχόληση με τα Μαθηματικά δεν 
-                  περιορίζεται μόνο σε θεωρητικές γνώσεις — αποτελεί μια πύλη κατανόησης των πιο σύνθετων φαινομένων, από την κίνηση 
-                  των πλανητών μέχρι την κρυπτογράφηση των δεδομένων. Παράλληλα, ενισχύει τη μαθηματική παιδεία και τη δημιουργική 
-                  σκέψη, θέτοντας τις βάσεις για την ανάπτυξη καινοτομίας και την καλλιέργεια επιστημονικής νοοτροπίας. Στο σύγχρονο 
-                  ψηφιακό και επιστημονικό περιβάλλον, τα Μαθηματικά δεν είναι απλώς χρήσιμα – είναι απολύτως αναγκαία.
-                </p>
-                <a href=""></a>
-                  <button class = "program" style = "text-decoration: none;">
-                    Ύλη Μαθηματικών
-                  </button>
-                </a>
-              </div>
+        <div class = "math">
+          <svg class="curve" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00ffff" />
+                <stop offset="50%" stop-color="#a200ff" />
+                <stop offset="100%" stop-color="#00ffff" />
+              </linearGradient>
+            </defs>
+
+            <path d="
+              M0 50
+              C 30 50, 50 20, 75 50
+              C 90 70, 110 80, 125 50
+              C 140 20, 160 20, 175 50
+              C 190 80, 210 70, 225 50
+              C 250 20, 270 50, 300 50
+            " stroke="url(#waveGradient)" stroke-width="2.5" fill="none"/>
+          </svg>
+
+
+          <span class="symbol-f">
+            <img src = "formula-fx-icon.svg">
+          </span>
+            
+          <h1>Μαθηματικά</h1>
+            <p>
+              Η επιστήμη των Μαθηματικών αποτελεί τη γλώσσα με την οποία περιγράφεται το σύμπαν και θεμελιώνει κάθε πτυχή της 
+              επιστημονικής σκέψης. Από την αρχαιότητα μέχρι σήμερα, τα Μαθηματικά έχουν παίξει κεντρικό ρόλο στην κατανόηση του 
+              κόσμου γύρω μας, προσφέροντας εργαλεία για την ανάλυση, τη μοντελοποίηση και την πρόβλεψη φυσικών και τεχνητών 
+              φαινομένων. Είναι μια επιστήμη που καλλιεργεί τη λογική σκέψη, την ακρίβεια και την ικανότητα επίλυσης προβλημάτων, 
+              χαρακτηριστικά απαραίτητα για κάθε τομέα της τεχνολογίας και της επιστήμης. Η ενασχόληση με τα Μαθηματικά δεν 
+              περιορίζεται μόνο σε θεωρητικές γνώσεις — αποτελεί μια πύλη κατανόησης των πιο σύνθετων φαινομένων, από την κίνηση 
+              των πλανητών μέχρι την κρυπτογράφηση των δεδομένων. Παράλληλα, ενισχύει τη μαθηματική παιδεία και τη δημιουργική 
+              σκέψη, θέτοντας τις βάσεις για την ανάπτυξη καινοτομίας και την καλλιέργεια επιστημονικής νοοτροπίας. Στο σύγχρονο 
+              ψηφιακό και επιστημονικό περιβάλλον, τα Μαθηματικά δεν είναι απλώς χρήσιμα – είναι απολύτως αναγκαία.
+            </p>
+            <a href=""></a>
+              <button class = "program" style = "text-decoration: none;">
+                Ύλη Μαθηματικών
+              </button>
+            </a>
           </div>
 
           <div>
             <div class = "physics">
-              <img src = "atom-laboratory-science-icon.svg">
+              <div class="scale-wrapper">
+                <img src="atom-laboratory-science-icon.svg" class="physics-img" alt="Physics" />
+              </div>
               <h1>Φυσική</h1>
                 <p>
                   Η Φυσική είναι η θεμελιώδης επιστήμη που προσπαθεί να εξηγήσει τους νόμους που διέπουν τη φύση και το σύμπαν
@@ -516,6 +827,7 @@
 
           <div>
             <div class = "computer_science">
+              <div class="code-typing-software">std::cout << "Hello Parents!";</div>
               <img src = "cmd-terminal-icon.svg">
               <h1>Πληροφορική</h1>
               <p>
@@ -544,7 +856,15 @@
 
           <div>
             <div class = "electronics">
-                <img src = "processor-icon.svg">
+                <div class="chip-container">
+                <img src="processor-icon.svg" alt="chip" />
+                <div class="chip-traces">
+                  <div class="trace trace1"></div>
+                  <div class="trace trace2"></div>
+                  <div class="trace trace3"></div>
+                </div>
+              </div>
+
                 <h1>Ηλεκτρονική</h1>
                 <p>
                   Η επιστήμη της ηλεκτρονικής αποτελεί πρακτικά το θεμέλιο για όλη την σύγχρονη τεχνολογία του 21ου αιώνα. 
