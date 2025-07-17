@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <Title>Orion Scholars</Title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,600&display=swap" rel="stylesheet">
 
     <style>
-
-      @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
       
       *{
         margin: 0;
@@ -39,6 +40,7 @@
 
         background: rgba(0, 0, 0, 0);
         transition: transform 0.4s ease-in, opacity 0.3s ease;
+        z-index: 2;
       }
 
       .navbar.hidden {
@@ -55,13 +57,13 @@
         font-weight: 600;
         color: #00eeff;
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
+        text-shadow: 0 0 0.2rem #00eeff, 0 0 2rem #00a9b5;
         transition: color 0.3s, text-shadow 0.3s;
       }
 
       .navbar .logo a:hover {
         color: #50f3ff;
-        text-shadow: 0 0 1rem #50f3ff, 0 0 3rem #50f3ff;
+        text-shadow: 0 0 1rem #50f3ff, 0 0 0.5rem #1dffd5;
         transform: scale(1.02);
       }
 
@@ -77,8 +79,8 @@
       }
 
       .intro-paragraph{
-        margin-top: 15rem;
-        margin-bottom: 0rem;
+        margin-top: clamp(15rem, 1vw, 20rem);
+        margin-bottom: clamp(10rem, 1vw, 15rem);
       }
 
       .navbar a {
@@ -129,13 +131,14 @@
           opacity: 1;
           pointer-events: auto;
           
-          background-color: rgba(0, 0, 0, 1);
+          background-image: linear-gradient(black 20%, rgba(255, 255, 255, 0));
           position: fixed;
           align-items: center;
           padding: clamp(0.1rem, 1vw, 1.5rem);
           width: 100%;
           z-index: 1001;
           transition: opacity 0.4s ease;
+          backdrop-filter: blur(0.3rem);
         }
 
         .hamburger {
@@ -144,6 +147,7 @@
           opacity: 1;
           transform: translateY(0%);
           top: 0;
+          margin: 1rem;
 
           color: #00eeff;
           font-size: clamp(1.5rem, 1vw, 3.5rem);
@@ -154,7 +158,7 @@
 
           pointer-events: auto;
           cursor: pointer;
-          z-index: 1001;
+          z-index: 1002;
         }
 
         .navbar .logo a {
@@ -166,6 +170,8 @@
           color: #00eeff;
           letter-spacing: 0.03rem;
           text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
+          padding: 1rem;
+
           transition: color 0.3s, text-shadow 0.3s;
           user-select: none;
         }
@@ -180,9 +186,10 @@
           display: block;
           color: rgb(255, 255, 255);
           background: transparent;
+          padding: clamp(1rem, 1vw, 2rem);
           
-          font-size: clamp(0.75rem, 1vw, 1rem);
-          font-family: 'Raleway', sans-serif;
+          font-size: clamp(1rem, 1vw, 2rem);
+          font-family: 'Inter', sans-serif;
           font-weight: bold;
           letter-spacing: 0.03rem;
           text-align: center;
@@ -199,12 +206,12 @@
         }
 
         .intro-paragraph{
-          margin-top: 10rem;
-          margin-bottom: 0rem;
-          padding: clamp(0.1rem, 1vw, 1.5rem);
-        }
-      
+          margin-top: clamp(5rem, 1vw, 30rem);
+          margin-bottom: clamp(5rem, 1vw, 30rem);
+          padding: clamp(0.5rem, 1vw, 1.5rem);
       }
+      
+    }
 
       .μαθήματα{
           background-color: rgba(128, 128, 128, 0.236);
@@ -213,15 +220,15 @@
       .πρόγραμμα{
         display: flex;
         justify-content: space-evenly;
-        font-family: "Raleway", sans-serif;
+        font-family: "Inter", sans-serif;
         color: white;
         font-size: 24px;
       }
 
-      p {
+      p{
         text-align: center;
         margin: clamp(1rem, 3vw, 2rem);
-        font-size: clamp(1.5rem, 1vw, 2rem);
+        font-size: clamp(1rem, 1vw, 2rem);
         font-family: 'Inter', sans-serif;
         line-height: clamp(1.6rem, 2.25vw, 4rem);
 
@@ -668,7 +675,7 @@
         color: rgb(0, 247, 255);
         letter-spacing: 0.03rem;
         text-shadow: 0 0 5px rgba(77,249,255,0.6);
-        padding-top: clamp(0.1rem, 1vw, 1.5rem);
+        padding-top: clamp(0.5rem, 1vw, 1.5rem);
         transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
@@ -702,7 +709,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: clamp(0.1rem, 1vw, 1.5rem);
+        margin-top: clamp(1rem, 3vw, 2rem);
         margin-bottom: clamp(1rem, 3vw, 2rem);
         height: clamp(2rem, 5vw, 5rem);
         transition: transform 0.3s ease;
@@ -737,6 +744,7 @@
   </head>
 
   <body>
+    
     <header>
       <button id="menu-toggle" class="hamburger">&#9776;</button>
 

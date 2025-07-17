@@ -1,125 +1,135 @@
 <!DOCTYPE html>
 <html lang="el">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Φόρμα Εκδήλωσης Ενδιαφέροντος</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <Title>Orion Scholars</Title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-        background-image: linear-gradient(rgb(0, 0, 0) 50%, rgb(21, 0, 57) 80%);
+        background-image: linear-gradient(rgb(18, 18, 18) 50%, rgb(25, 31, 32) 80%);
         background-color: #0d0d1a;
         color: white;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Inter', sans-serif;
         margin: 0;
         padding: 0;
         }
 
         .form-container {
-        max-width: 700px;
-        margin: 7.5rem auto;
-        letter-spacing: 2px;
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 16px;
-        border: 3px solid rgb(104, 0, 189);
-        box-shadow: 0 0 25px rgba(0, 204, 255, 0.2);
+          max-width: 44rem;
+          margin: 7.5rem auto;
+          letter-spacing: 0.03rem;
+          padding: 2.5rem;
+          background-color: rgba(24, 24, 24, 0.4);
+          border-radius: 1rem;
+          border: 0.02rem solid rgba(0, 242, 214, 0.6);
+          box-shadow: 0 0 0.5rem rgba(0, 204, 255, 0.2);
+          backdrop-filter: blur(0.1rem);
+          transition: all 0.3s ease;
         }
 
         .form-container h1 {
-        text-align: center;
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: rgb(0, 204, 255);
-        text-shadow: 0 0 20px rgb(0, 255, 200);
+          text-align: center;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          color: rgb(0, 255, 187);
+          transition: all 0.3s ease;
         }
 
         .form-container p {
-        text-align: center;
-        margin-bottom: 30px;
-        font-style: italic;
-        color: #ccc;
+          text-align: center;
+          margin-bottom: 2rem;
+          font-style: italic;
+          color: #ccc;
         }
 
         .form-container h1:hover{
           color: rgb(0, 247, 255);
-          text-shadow: 0px 0px 80px rgb(0, 255, 187);
+          text-shadow: 0rem 0rem 0.2rem rgb(0, 255, 187);
         }
 
         .form-container:hover{
-          text-shadow: 0px 0px 20px rgb(242, 0, 255);
-          box-shadow: 0 10px 30px rgba(140, 0, 255, 0.5);
+          text-shadow: 0rem 0rem 0.5rem rgb(0, 208, 255);
+          box-shadow: 0 0.5rem 0.5rem rgba(0, 170, 255, 0.5);
           color: rgb(255, 255, 255);
         }
 
         label {
-        display: block;
-        margin-top: 20px;
-        font-weight: 600;
-        color: #eee;
+          display: block;
+          margin-top: 20px;
+          font-weight: 600;
+          color: #eee;
         }
 
         input[type="text"],
         input[type="email"] {
-        width: 100%;
-        padding: 12px;
-        margin-top: 6px;
-        border: 2px solid rgba(0, 204, 255, 0.3);
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.05);
-        color: white;
-        font-size: 16px;
+          width: 100%;
+          padding: 12px;
+          margin-top: 6px;
+          border: 2px solid rgba(0, 255, 183, 0.3);
+          border-radius: 8px;
+          background-color: rgba(255, 255, 255, 0.05);
+          color: white;
+          font-size: 1rem;
         }
 
         .radio-group,
         .checkbox-group {
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
 
         .radio-group label,
         .checkbox-group label {
-        font-weight: 400;
-        cursor: pointer;
+          font-weight: 400;
+          cursor: pointer;
         }
 
         input[type="radio"],
         input[type="checkbox"] {
-        margin-right: 10px;
-        accent-color: rgb(0, 204, 255);
-        transform: scale(1.2);
+          margin-right: 10px;
+          accent-color: rgb(0, 255, 221);
+          transform: scale(1.2);
         }
 
-        .submit-btn {
-        margin-top: 30px;
-        width: 100%;
-        padding: 14px;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(to right, rgb(104, 0, 189), rgb(0, 204, 255));
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-        transition: all 0.3s ease;
+        .submit-btn{
+          background: #00ffbb; /* Φωτεινό τιρκουάζ */
+          color: #111; /* Σκούρο για αντίθεση */
+
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1rem, 2vw, 1.8rem);
+          padding: clamp(1rem, 1vw, 3rem) clamp(5rem, 4vw, 10rem);
+          margin-top: clamp(2rem, 1vw, 3rem);
+          border-radius: 9999px; /* pill shape */
+          
+          border: none;
+          cursor: pointer;
+          box-shadow: 0 0.25rem 0.6rem rgba(0, 255, 187, 0.5);
+          text-decoration: none;
+          
+          transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.03rem;
         }
 
-        .submit-btn:hover {
-        background: linear-gradient(to right, rgb(140, 0, 255), rgb(0, 255, 255));
-        transform: scale(1.03);
-        box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        .submit-btn:hover, 
+        .submit-btn:focus {
+          background: #00b386; /* Σκούροτερο τιρκουάζ */
+          color: #fff;
+          box-shadow: 0 6px 15px rgba(0, 179, 134, 0.7);
+          outline: none;
         }
 
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            top: 0;
-            left: 0;
+        .submit-btn-container {
+          display: flex;
+          justify-content: center;
+          margin-top: clamp(1rem, 3vw, 2rem);
+          margin-bottom: clamp(1rem, 3vw, 2rem);
         }
 
         *{
@@ -137,7 +147,6 @@
     </style>
     </head>
     <body>
-      <div id="particles-js"></div>
       <div class="form-container">
         
           <h1>ΦΟΡΜΑ ΕΚΔΗΛΩΣΗΣ ΕΝΔΙΑΦΕΡΟΝΤΟΣ</h1>
@@ -169,8 +178,10 @@
               <label><input type="checkbox" name="subject" value="Ηλεκτρονική" /> Ηλεκτρονική</label>
               <label><input type="checkbox" name="subject" value="Δωρεάν Δοκιμαστική Περίοδος" /> Δωρεάν Δοκιμαστική Περίοδος</label>
           </div>
-
-          <button type="submit" class="submit-btn">Αποστολή</button>
+          <div class = "submit-btn-container">
+            <button type="submit" class="submit-btn">Αποστολή</button>
+          </div>
+          
           </form>
       </div>
     </body>

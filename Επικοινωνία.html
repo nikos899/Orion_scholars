@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <Title>Orion Scholars</Title>
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-      @import url('https://fonts.googleapis.com/css2?family=Griffy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+    <style>
       
       *{
         margin: 0;
@@ -33,29 +35,37 @@
         position: absolute;
         align-items: center;
         justify-content: space-between;
+        font-family: 'Orbitron', sans-serif;
         padding: 1rem;
         top: 0;
 
-        background-color: rgba(0, 0, 0, 0);
+        background: rgba(0, 0, 0, 0);
         transition: transform 0.4s ease-in, opacity 0.3s ease;
+        z-index: 2;
       }
 
       .navbar.hidden {
-        display: none;
         transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
       }
 
       .navbar .logo a {
-        font-family: 'Griffy';
+        font-family: 'Orbitron', sans-serif;
         font-size: clamp(1rem, 3vw, 4rem);
         
         text-decoration: none;
-        font-weight: normal;
+        font-weight: 600;
         color: #00eeff;
-        letter-spacing: 0.5rem;
-        text-shadow: 0px 0px 2rem #00eeff;
-        transition: color 0.3s ease, text-shadow 0.3s ease;
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 0.2rem #00eeff, 0 0 2rem #00a9b5;
+        transition: color 0.3s, text-shadow 0.3s;
+      }
+
+      .navbar .logo a:hover {
+        color: #50f3ff;
+        text-shadow: 0 0 1rem #50f3ff, 0 0 0.5rem #1dffd5;
+        transform: scale(1.02);
       }
 
       .navbar ul {
@@ -64,45 +74,49 @@
         flex-shrink: 1;
       }
 
-      .navbar a {
-        color: rgb(255, 255, 255);
-        background: transparent;
-        flex: 1;
-        flex-wrap: wrap;
-
-        font-size: clamp(1rem, 1vw, 3rem);
-        font-family: 'Raleway', sans-serif;
-        font-weight : bold;
-        letter-spacing: 0.2rem;
-        
-        text-decoration: underline;
-        text-underline-offset: 1rem;
-        text-decoration-color: transparent;
-        margin: clamp(0.05rem, 1rem, 3rem);
-
-        transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
-      }
-
       .hamburger{
         display:none;
         opacity: 0;
       }
 
       .intro-paragraph{
-        margin-top: 10rem;
-        padding: 1rem;
+        margin-top: 35rem;
+        margin-bottom: 0rem;
       }
 
-      .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0rem 0rem 2.5rem #50f3ff;
+      .navbar a {
+        position: relative;
+        color: #ffffff;
+        background: transparent;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        font-size: clamp(1rem, 1vw, 2rem);
+        letter-spacing: 0.03rem;
+        text-decoration: none;
+        margin: 0 1rem;
+        padding: clamp(0.1rem, 1vw, 1.5rem) 0;
+        transition: color 0.3s ease;
+      }
+
+      .navbar a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(90deg, #00ffd000, #2de3ff9f , #59fcff);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
       }
 
       .navbar a:hover {
         color: #00f0ff;
-        text-decoration-color: rgb(0, 247, 255);
-        text-underline-offset: 1rem;
-        cursor: pointer;
+      }
+
+      .navbar a:hover::after {
+        transform: scaleX(1);
       }
 
       @media screen and (max-width: 1024px){
@@ -111,20 +125,21 @@
           visibility: hidden;
           pointer-events: none;
         }
-        
+
         .navbar.active {
           display: block;
           visibility: visible;
           opacity: 1;
           pointer-events: auto;
           
-          background-color: rgba(0, 0, 0, 1);
+          background-image: linear-gradient(black 20%, rgba(255, 255, 255, 0));
           position: fixed;
           align-items: center;
-          padding: 0.2rem;
+          padding: clamp(0.1rem, 1vw, 1.5rem);
           width: 100%;
-          z-index: 1000;
+          z-index: 1001;
           transition: opacity 0.4s ease;
+          backdrop-filter: blur(0.3rem);
         }
 
         .hamburger {
@@ -133,6 +148,7 @@
           opacity: 1;
           transform: translateY(0%);
           top: 0;
+          margin: 1rem;
 
           color: #00eeff;
           font-size: clamp(1.5rem, 1vw, 3.5rem);
@@ -141,23 +157,24 @@
           background: none;
           border: none;
 
+          pointer-events: auto;
           cursor: pointer;
-          z-index: 1001;
+          z-index: 1002;
         }
 
-        .navbar .logo a{
-          display: block;
+        .navbar .logo a {
+          font-family: 'Orbitron', sans-serif;
+          font-size: clamp(1rem, 3vw, 4rem);
           
-          font-family: 'Griffy';
-          font-size: clamp(0.75rem, 1vw, 1rem);
-          letter-spacing: clamp(0.1rem, 1vw, 0.2rem);
-          text-align: center;
           text-decoration: none;
-          font-weight: normal;
-
+          font-weight: 600;
           color: #00eeff;
-          text-shadow: 0rem 0rem 2rem #00eeff;
-          transition: color 0.3s ease, text-shadow 0.3s ease;
+          letter-spacing: 0.03rem;
+          text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
+          padding: 1rem;
+
+          transition: color 0.3s, text-shadow 0.3s;
+          user-select: none;
         }
 
         .navbar ul {
@@ -170,86 +187,80 @@
           display: block;
           color: rgb(255, 255, 255);
           background: transparent;
-
-          font-size: clamp(0.75rem, 1vw, 1rem);
-          font-family: 'Raleway', sans-serif;
-          font-weight : bold;
-          letter-spacing: clamp(0.1rem, 1vw, 0.2rem);
+          padding: clamp(1rem, 1vw, 2rem);
+          
+          font-size: clamp(1rem, 1vw, 2rem);
+          font-family: 'Inter', sans-serif;
+          font-weight: bold;
+          letter-spacing: 0.03rem;
           text-align: center;
-
+          
           text-decoration: underline;
           text-underline-offset: 1rem;
           text-decoration-color: transparent;
-
-          transition: font-size, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
-        }
-
-        .navbar a:hover {
-          color: #00f0ff;
-          text-decoration-color: rgb(0, 247, 255);
-          text-underline-offset: 0.2rem;
-          cursor: pointer;
+          
+          padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+          
+          -webkit-tap-highlight-color: transparent; /* Αφαιρεί το μπλε highlight σε iOS */
+          
+          transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
         }
 
         .intro-paragraph{
-          margin-top: 2rem;
-          padding: clamp(0.5rem, 1vw, 2rem);
-        }
-
+          margin-top: 10rem;
+          padding: clamp(0.1rem, 1vw, 1.5rem);
       }
-
+      
+    }
 
       body {
         background-color: rgb(33, 33, 33);
-        font-family: "Raleway", sans-serif;
         color: #ffffff;
       }
 
       .contact-container {
-        max-width: 800px;
-        min-width: 200px;
-        width: clamp(19rem, 45vw, 55rem);
+        max-width: 50rem;
+        min-width: 12.5rem;
+        width: clamp(19rem, 48vw, 55rem);
 
         margin: auto;
         padding: clamp(0.5rem, 1vw ,2.2rem);
         margin-top: clamp(2rem, 12vw ,12rem);
         margin-bottom: clamp(2rem, 1vw, 5rem);
 
-        letter-spacing: 3px;
+        letter-spacing: 0.03rem;
         background: rgba(59, 59, 59, 0.6);
-        border-radius: 1.25rem;
-        backdrop-filter: blur(6px);
-        box-shadow: 0 0 20px rgba(38, 38, 38, 0.1);
+        border-radius: clamp(0.5rem, 1vw, 1.25rem);
+        backdrop-filter: blur(0.3rem);
+        box-shadow: 0 0 1.1rem rgba(38, 38, 38, 0.1);
       }
 
       p{
         text-align: center;
-        margin : clamp(1rem, 1vw, 3rem);
-        font-size: clamp(0.5rem, 1vw, 2.5rem);
-        font-family: "Raleway", sans-serif;
-        line-height: clamp(1rem , 2vw, 4rem);
+        margin: clamp(1rem, 3vw, 2rem);
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        font-family: 'Inter', sans-serif;
+        line-height: clamp(1.4rem, 2.2vw, 2.2rem);
 
         color: rgb(237, 237, 237);
         background: transparent;
-        transition: color, text-shadow, 0.3s;
+        transition: color 0.3s, text-shadow 0.3s;
       }
 
       h1{
         color: rgb(0, 247, 255);
         text-align: center;
-        font-family: "Raleway", sans-serif;
-        font-weight: 10rem;
-        font-size: clamp(0.5rem ,3vw, 4rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        letter-spacing: 0.03rem;
         text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
-
-        transition: color 0.3s, border-bottom-color 0.3s, border-bottom-width 0.3s, text-shadow 0.3s;
       }
 
       form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: clamp(0.75rem, 1vw ,1.2rem);
       }
 
       input, textarea {
@@ -272,9 +283,9 @@
         color: #000;
         font-size: clamp(0.2rem, 1vw, 1.1rem);
         font-weight: bold;
-        padding: clamp(0.2rem, 1vw, 0.8rem);
+        padding: clamp(0.75rem, 1vw, 1rem);
         border: none;
-        border-radius: 10px;
+        border-radius: 999rem;
         cursor: pointer;
         transition: all 0.2s ease;
       }
@@ -286,10 +297,11 @@
 
       .contact-info-form {
         margin-top: clamp(0.5rem, 1vw, 2rem);
-        letter-spacing: clamp(0.02rem, 0.1vw, 0.1rem);
+        letter-spacing: 0.03rem;
         font-size: clamp(0.2rem, 1vw, 1.1rem);
+        font-family: 'Inter', sans-serif;
         text-align: center;
-        line-height: 1.8;
+        line-height: clamp(1.4rem, 2.2vw, 2.2rem);
         color: #ddd;
       }
 
@@ -297,128 +309,136 @@
         color: #00f7ff;
       }
 
-      footer{
+      footer {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
-        font-size: clamp(0.5rem, 1vw, 1rem);
-        border-radius: 0.2rem;
-        padding-top: 0.7rem;
+        gap: 0.5rem;
 
-        background-color: rgb(26, 26, 26);
-        color: rgb(230, 230, 230);
-        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
-
-        border-style: solid;
-        border-width: 0;
-        border-top-width: clamp(0.05rem, 0.2vw, 0.3rem);
-        border-top-color: rgb(140, 0, 255);
-
-        transition: background-color, color, 0.3s;
-      }
-
-      .contact-info{
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(0.7rem, 1vw, 1rem);
         text-align: center;
-        font-family: "Raleway", sans-serif;
+
+        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+
+        background-color: #1a1a1a;
+        color: #e6e6e6;
+
+        border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
+        box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      footer:hover {
+        background-color: #222;
+        color: #fff;
+        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
+      }
+      
+      .contact-info {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
         font-weight: 1000;
-        font-size: clamp(1rem, 5vw, 3rem);
+        font-size: clamp(1rem, 5vw, 2.5rem);
         color: rgb(0, 247, 255);
-
-        letter-spacing: 0.1rem;
-        transition: color 0.3s;
-        text-shadow: 0px 0px 0.3rem rgba(0, 255, 187, 0.35);
-        transition: color, border-bottom-color, border-bottom-width, text-shadow, 0.15s;
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(77,249,255,0.6);
         padding-top: clamp(0.5rem, 1vw, 1.5rem);
-        transition: border-bottom-color 0.3s, color 0.3s;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
-      .contact-info .email, .contact-info .phone{
-        font-size: clamp(1.5rem, 5vw, 3rem);
-        color: rgb(0, 247, 255);
-        font-weight: normal;
-        letter-spacing: 0.19rem;
+      .contact-info .title {
+        font-size: clamp(0.9rem, 3vw, 2rem);
       }
 
-      .contact-info .title{
-        font-size: clamp(0.75rem, 3vw, 3rem);
-      }
-
-      .email{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-weight: bold;
-        margin-bottom: clamp(0.25rem, 1vw ,1.2rem);
-      }
-
-      .phone{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-      }
-
-      .contact-info .email h1, .contact-info .phone h1{
-        font-size: clamp(0.5rem, 1vw, 1.375rem);
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-weight: bold;
-        padding-right: clamp(0.5rem, 1vw, 1.25rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
-      }
-
-      .contact-info .phone p, .contact-info .email p{
-        margin: 0;
-        padding: 0;
-        font-family: "Raleway", sans-serif;
-        font-size: clamp(0.5rem, 1vw, 1.375rem);
-        letter-spacing: clamp(0.02rem, 1vw, 0.1rem);
-        font-weight: normal;
-      }
-
-      .social{
+      .email, .phone {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        padding-top: clamp(0.5rem, 1vw, 3.125rem);
-        margin-bottom: clamp(0.25rem, 1vw, 2rem);
-        height: clamp(2rem, 3vw, 15rem);
-
-        transition: margin-right 0.3s, margin-left 0.3s, transform 0.3s;
+        font-weight: bold;
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
-      .social img{
-        width: clamp(1rem, 2vw, 15rem);
-        margin-left: clamp(0.1rem, 1vw, 0.5rem);
-        margin-right: clamp(0.1rem, 1vw, 0.5rem);
+      .contact-info .email h1, .contact-info .phone h1 {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        margin: 0;
+        padding-right: clamp(0.1rem, 1vw, 1.5rem);
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 0.03rem;
       }
 
-      .icon_selection:hover{
+      .contact-info .phone p, .contact-info .email p {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: clamp(1rem, 3vw, 2rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+        height: clamp(2rem, 5vw, 5rem);
+        transition: transform 0.3s ease;
+      }
+
+      .social img {
+        width: clamp(1.2rem, 2vw, 3rem);
+        margin: 0 0.5rem;
+      }
+
+      .icon_selection {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.3s ease;
+      }
+
+      .icon_selection:hover {
         cursor: pointer;
-        transform: translateY(-1rem);
+        transform: translateY(-0.4rem) scale(1.05);
+        filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
       }
 
-      .copyrights{
-        font-size: clamp(0.5rem, 1vw, 2rem);
-        color:rgb(255, 255, 255); 
-        letter-spacing : clamp(0.05rem, 0.1vw, 0.3rem);
-        text-align: center; 
-        margin-top: clamp(0.5rem, 1vw, 1.2rem);
-        padding-bottom: clamp(2rem, 1vw, 3.2rem);
+      .copyrights {
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        color: rgb(255, 255, 255);
+        letter-spacing: 0.03rem;
+        text-align: center;
+        margin-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
       }
 
-      .background{
-        background-image: url("butterfly.png");
+      .background-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('butterfly.png');
         background-size: cover;
-        background-position-x: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        background-repeat: repeat-y;
+        position: fixed;
+        filter: blur(0.05rem);
       }
+
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100dvh;
+        z-index: -1;
+        top: 0;
+        left: 0;
+      }
+
     </style>
   </head>
-  <body class="background">
+  <body>
+    <div  class="background-img"></div>
+    <div id="particles-js"></div>
     <header>
 
       <button id="menu-toggle" class="hamburger">&#9776;</button>
@@ -521,5 +541,7 @@
         navbar.classList.toggle("active");
       });
     </script>
+    <script src = "particles.js"></script>
+    <script src = "app.js"></script>
   </body>
 </html>
