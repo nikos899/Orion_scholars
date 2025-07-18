@@ -29,6 +29,11 @@
         flex: 1; /* takes up all available space */
       }
 
+      .intro-paragraph{
+        margin-top: 35rem;
+        margin-bottom: 0rem;
+      }
+
       .navbar {
         display: flex;
         width: 100%;
@@ -41,7 +46,19 @@
 
         background: rgba(0, 0, 0, 0);
         transition: transform 0.4s ease-in, opacity 0.3s ease;
-        z-index: 2;
+        
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: slideInNavbar 1s ease-out forwards;
+        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
+        z-index: 1001;
+      }
+
+      @keyframes slideInNavbar {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
 
       .navbar.hidden {
@@ -58,13 +75,13 @@
         font-weight: 600;
         color: #00eeff;
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.2rem #00eeff, 0 0 2rem #00a9b5;
+        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
         transition: color 0.3s, text-shadow 0.3s;
       }
 
       .navbar .logo a:hover {
         color: #50f3ff;
-        text-shadow: 0 0 1rem #50f3ff, 0 0 0.5rem #1dffd5;
+        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
         transform: scale(1.02);
       }
 
@@ -79,12 +96,7 @@
         opacity: 0;
       }
 
-      .intro-paragraph{
-        margin-top: 35rem;
-        margin-bottom: 0rem;
-      }
-
-      .navbar a {
+      .navbar a{
         position: relative;
         color: #ffffff;
         background: transparent;
@@ -118,6 +130,10 @@
       .navbar a:hover::after {
         transform: scaleX(1);
       }
+
+      .navbar a.active{
+          color:#00eeff;
+        }
 
       @media screen and (max-width: 1024px){
         .navbar {
@@ -190,7 +206,7 @@
           padding: clamp(1rem, 1vw, 2rem);
           
           font-size: clamp(1rem, 1vw, 2rem);
-          font-family: 'Inter', sans-serif;
+          font-family: 'Intern', sans-serif;
           font-weight: bold;
           letter-spacing: 0.03rem;
           text-align: center;
@@ -209,8 +225,7 @@
         .intro-paragraph{
           margin-top: 10rem;
           padding: clamp(0.1rem, 1vw, 1.5rem);
-      }
-      
+        }
     }
 
       body {
@@ -301,7 +316,7 @@
         font-size: clamp(0.2rem, 1vw, 1.1rem);
         font-family: 'Inter', sans-serif;
         text-align: center;
-        line-height: clamp(1.4rem, 2.2vw, 2.2rem);
+        line-height: clamp(0.75rem, 2.2vw, 2.2rem);
         color: #ddd;
       }
 
@@ -448,11 +463,11 @@
           <a href="index.html">Orion Scholars</a>
         </div>
         <ul>
-          <li><a href="index.html" class="active">Αρχική</a></li>
-          <li><a href="Μαθήματα.html" class="active">Μαθήματα</a></li>
-          <li><a href="φιλοσοφία.html" class="active">Φιλοσοφία</a></li>
-          <li><a href="Σχετικά.html" class="active">Σχετικά</a></li>
-          <li><a href="Συχνές_Ερωτήσεις.html" class="active">Συχνές Ερωτήσεις</a></li>
+          <li><a href="index.html">Αρχική</a></li>
+          <li><a href="Μαθήματα.html">Μαθήματα</a></li>
+          <li><a href="φιλοσοφία.html">Φιλοσοφία</a></li>
+          <li><a href="Σχετικά.html">Σχετικά</a></li>
+          <li><a href="Συχνές_Ερωτήσεις.html">Συχνές Ερωτήσεις</a></li>
           <li><a href="Επικοινωνία.html" class="active">Επικοινωνία</a></li>
         </ul>
       </nav>

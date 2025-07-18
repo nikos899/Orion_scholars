@@ -32,6 +32,29 @@
         flex: 1; /* takes up all available space */
       }
 
+      .background-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('about.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        background-position-y: -35rem;
+        background-repeat: repeat-y;
+        position: fixed;
+        filter: blur(0.3rem);
+      }
+
+      .intro-paragraph{
+        margin-top: clamp(10rem, 1vw, 20rem);
+        margin-bottom: 0rem;
+      }
+
       .navbar {
         display: flex;
         width: 100%;
@@ -44,7 +67,19 @@
 
         background: rgba(0, 0, 0, 0);
         transition: transform 0.4s ease-in, opacity 0.3s ease;
-        z-index: 2;
+        
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: slideInNavbar 1s ease-out forwards;
+        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
+        z-index: 1001;
+      }
+
+      @keyframes slideInNavbar {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
 
       .navbar.hidden {
@@ -61,13 +96,13 @@
         font-weight: 600;
         color: #00eeff;
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.2rem #00eeff, 0 0 2rem #00a9b5;
+        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
         transition: color 0.3s, text-shadow 0.3s;
       }
 
       .navbar .logo a:hover {
         color: #50f3ff;
-        text-shadow: 0 0 1rem #50f3ff, 0 0 0.5rem #1dffd5;
+        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
         transform: scale(1.02);
       }
 
@@ -82,12 +117,7 @@
         opacity: 0;
       }
 
-      .intro-paragraph{
-        margin-top: clamp(10rem, 1vw, 20rem);
-        margin-bottom: 0rem;
-      }
-
-      .navbar a {
+      .navbar a{
         position: relative;
         color: #ffffff;
         background: transparent;
@@ -122,23 +152,9 @@
         transform: scaleX(1);
       }
 
-      .background-img {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('about.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
-
-        background-position-y: -35rem;
-        background-repeat: repeat-y;
-        position: fixed;
-        filter: blur(0.3rem);
-      }
+      .navbar a.active{
+          color:#00eeff;
+        }
 
       @media screen and (max-width: 1024px){
         .navbar {
@@ -211,7 +227,7 @@
           padding: clamp(1rem, 1vw, 2rem);
           
           font-size: clamp(1rem, 1vw, 2rem);
-          font-family: 'Inter', sans-serif;
+          font-family: 'Intern', sans-serif;
           font-weight: bold;
           letter-spacing: 0.03rem;
           text-align: center;
@@ -272,6 +288,8 @@
     }
 
     .team-member {
+      opacity: 1; /* αρχική κατάσταση για GSAP */
+      transform: translateY(50px);
       background: rgba(32, 32, 32, 0.9);
       border-radius: 1rem;
       padding: 2rem 1.25rem;
@@ -282,7 +300,25 @@
       color:white;
 
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.8s ease-out forwards;
       backdrop-filter: blur(0.4rem);
+    }
+
+    .team-member:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .team-member:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+    .team-member:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .team-member:hover {
@@ -520,12 +556,12 @@
         <a href="index.html">Orion Scholars</a>
       </div>
       <ul>
-        <li><a href="index.html" class="active">Αρχική</a></li>
-        <li><a href="Μαθήματα.html" class="active">Μαθήματα</a></li>
-        <li><a href="φιλοσοφία.html" class="active">Φιλοσοφία</a></li>
+        <li><a href="index.html">Αρχική</a></li>
+        <li><a href="Μαθήματα.html">Μαθήματα</a></li>
+        <li><a href="φιλοσοφία.html">Φιλοσοφία</a></li>
         <li><a href="Σχετικά.html" class="active">Σχετικά</a></li>
-        <li><a href="Συχνές_Ερωτήσεις.html" class="active">Συχνές Ερωτήσεις</a></li>
-        <li><a href="Επικοινωνία.html" class="active">Επικοινωνία</a></li>
+        <li><a href="Συχνές_Ερωτήσεις.html">Συχνές Ερωτήσεις</a></li>
+        <li><a href="Επικοινωνία.html">Επικοινωνία</a></li>
       </ul>
     </nav>
   </header>
@@ -709,6 +745,9 @@
         
     </footer>
 
+    <script src="particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
     <script>
       const menuToggle = document.getElementById("menu-toggle");
       const navbar = document.querySelector('.navbar');
@@ -717,7 +756,7 @@
         navbar.classList.toggle("active");
       });
     </script>
-    <script src="particles.js"></script>
+    
     <script>
       particlesJS('particles-js', {
         particles: {
@@ -778,6 +817,31 @@
           }
         },
         retina_detect: true
+      });
+    </script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".team-member", {
+        scrollTrigger: {
+          trigger: ".team-section",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3, // εμφάνιση μία-μία
+        ease: "power2.out"
+      });
+    </script>
+    <script>
+      gsap.from(".team-member", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.3  // Εμφανίζονται η μία μετά την άλλη
       });
     </script>
 </body>

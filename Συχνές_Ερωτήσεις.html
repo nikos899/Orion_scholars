@@ -32,6 +32,22 @@
         flex: 1; /* takes up all available space */
       }
 
+      .background{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('FAQ.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        background-repeat: repeat-y;
+        position: fixed;
+        filter: blur(0.3rem);
+      }
+
       .navbar {
         display: flex;
         width: 100%;
@@ -44,7 +60,19 @@
 
         background: rgba(0, 0, 0, 0);
         transition: transform 0.4s ease-in, opacity 0.3s ease;
-        z-index: 2;
+        
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: slideInNavbar 1s ease-out forwards;
+        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
+        z-index: 1001;
+      }
+
+      @keyframes slideInNavbar {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
 
       .navbar.hidden {
@@ -61,13 +89,13 @@
         font-weight: 600;
         color: #00eeff;
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.2rem #00eeff, 0 0 2rem #00a9b5;
+        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
         transition: color 0.3s, text-shadow 0.3s;
       }
 
       .navbar .logo a:hover {
         color: #50f3ff;
-        text-shadow: 0 0 1rem #50f3ff, 0 0 0.5rem #1dffd5;
+        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
         transform: scale(1.02);
       }
 
@@ -82,11 +110,11 @@
         opacity: 0;
       }
 
-      .navbar a {
+      .navbar a{
         position: relative;
         color: #ffffff;
         background: transparent;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Orbitron', sans-serif;
         font-weight: 600;
         font-size: clamp(1rem, 1vw, 2rem);
         letter-spacing: 0.03rem;
@@ -117,21 +145,9 @@
         transform: scaleX(1);
       }
 
-      .background{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('FAQ.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        z-index: -1;
-
-        background-repeat: repeat-y;
-        position: fixed;
-        filter: blur(0.3rem);
-      }
+      .navbar a.active{
+          color:#00eeff;
+        }
 
       @media screen and (max-width: 1024px){
         .navbar {
@@ -204,7 +220,7 @@
           padding: clamp(1rem, 1vw, 2rem);
           
           font-size: clamp(1rem, 1vw, 2rem);
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Intern', sans-serif;
           font-weight: bold;
           letter-spacing: 0.03rem;
           text-align: center;
@@ -433,12 +449,12 @@
           <a href="index.html">Orion Scholars</a>
         </div>
         <ul>
-          <li><a href="index.html" class="active">Αρχική</a></li>
-          <li><a href="Μαθήματα.html" class="active">Μαθήματα</a></li>
-          <li><a href="φιλοσοφία.html" class="active">Φιλοσοφία</a></li>
-          <li><a href="Σχετικά.html" class="active">Σχετικά</a></li>
+          <li><a href="index.html">Αρχική</a></li>
+          <li><a href="Μαθήματα.html">Μαθήματα</a></li>
+          <li><a href="φιλοσοφία.html">Φιλοσοφία</a></li>
+          <li><a href="Σχετικά.html">Σχετικά</a></li>
           <li><a href="Συχνές_Ερωτήσεις.html" class="active">Συχνές Ερωτήσεις</a></li>
-          <li><a href="Επικοινωνία.html" class="active">Επικοινωνία</a></li>
+          <li><a href="Επικοινωνία.html">Επικοινωνία</a></li>
         </ul>
       </nav>
     </header>
