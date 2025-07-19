@@ -24,8 +24,10 @@
         display: flex;
         flex-direction: column;
         min-height: 100dvh; /* ή άλλο ύψος */
+        position: relative;
+        overflow-x: hidden;
         scroll-behavior: smooth;
-        background-color: rgb(253, 255, 230);
+        background-color: rgb(255, 255, 255);
       }
 
       .navbar {
@@ -137,6 +139,44 @@
           color:#00eeff;
         }
 
+        .v-right{
+        position: relative;
+        padding: 3rem 2rem;
+        z-index: 0;
+      }
+
+      .v-right::before {
+        content: "";
+        position: absolute;
+        top: clamp(18rem, 18dvh, 30rem);
+        left: 0;
+        width: 100dvw;
+        height: clamp(25rem, 43dvw, 48rem);
+        background: #58d8ff;
+        transform-origin: top left;
+        transform: skewY(3deg); /* or skewX(-15deg) */
+        z-index: -1; /* push it behind content */
+      }
+
+      .v-left{
+        position: relative;
+        padding: 3rem 2rem;
+        z-index: 0;
+      }
+
+      .v-left::before {
+        content: "";
+        position: absolute;
+        top: clamp(31rem, 35dvh, 50rem);
+        right: 0;
+        width: 100dvw;
+        height: clamp(22rem, 50dvw, 50rem);
+        background:#ff695e;
+        transform-origin: top right;
+        transform: skewY(-3deg); /* or skewX(-15deg) */
+        z-index: -1; /* push it behind content */
+      }
+
       @media screen and (max-width: 1024px){
         .navbar {
           opacity: 0;
@@ -229,9 +269,109 @@
           margin: 0 auto;
           margin-top: calc(50vh - 75px);
           margin-bottom: 40vh;
+        }
+
+        .v-right{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-right::before {
+          content: "";
+          position: absolute;
+          top: clamp(14rem, 20dvw, 60rem);
+          left: 0;
+          width: 100dvw;
+          height: clamp(25rem, 60dvh, 100rem);
+          background: #58d8ff;
+          transform-origin: top left;
+          transform: skewY(10deg); 
+          z-index: -1; 
+        }
+
+        .v-left{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-left::before {
+          content: "";
+          position: absolute;
+          top: clamp(31rem, 35dvh, 50rem);
+          right: 0;
+          width: 100dvw;
+          height: clamp(22rem, 50dvw, 50rem);
+          background:#ff695e;
+          transform-origin: top right;
+          transform: skewY(-3deg);
+          z-index: -1; 
       }
-      
     }
+    @media (min-width: 589px) and (max-width: 646px) {
+      .v-right{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-right::before {
+          content: "";
+          position: absolute;
+          top: clamp(20rem, 25vw, 60rem);
+          left: 0;
+          width: 100dvw;
+          height: clamp(25rem, 200dvh, 80rem);
+          background: #58d8ff;
+          transform-origin: top left;
+          transform: skewY(10deg); 
+          z-index: -1; 
+        }
+    }
+      
+    @media screen and (max-width: 588px){
+
+      .v-right{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-right::before {
+          content: "";
+          position: absolute;
+          top: clamp(20rem, 25vw, 60rem);
+          left: 0;
+          width: 100dvw;
+          height: clamp(25rem, 200dvh, 80rem);
+          background: #58d8ff;
+          transform-origin: top left;
+          transform: skewY(10deg); 
+          z-index: -1; 
+        }
+
+        .v-left{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-left::before {
+          content: "";
+          position: absolute;
+          top: clamp(31rem, 35dvh, 50rem);
+          right: 0;
+          width: 100dvw;
+          height: clamp(22rem, 200dvh, 50rem);
+          background:#ff695e;
+          transform-origin: top right;
+          transform: skewY(-3deg);
+          z-index: -1; 
+    }
+  }
+      
+    
     .background-img {
       position: fixed;
       top: 0;
@@ -269,7 +409,7 @@
       }
 
       h1{
-        color: rgb(0, 247, 255);
+        color: rgb(36, 153, 208);
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
@@ -292,7 +432,7 @@
         max-width: 1500px;
         box-sizing: border-box;
 
-        background-color:  rgba(44, 42, 40, 0);
+        background-color: rgba(0, 0, 0, 0);
         border-radius: clamp(2rem, 3vw, 5rem);
         border: none;
       }
@@ -314,7 +454,7 @@
       }
 
       .stem-feature-grid h1 {
-        font-size: clamp(0.8rem, 5vw, 3rem); /* ανεβάζω το min λίγο */
+        font-size: clamp(1.5rem, 5vw, 3rem);
         text-align: center;
         margin: clamp(1rem, 3vw, 2rem) 0;
         color: rgb(36, 153, 208);
@@ -333,7 +473,7 @@
         color: white;
         gap: clamp(0.2rem, 2vw, 2rem);
         max-width: 80rem;
-        margin: clamp(1rem, 3vw, 2rem);
+        margin: clamp(1rem, 5vw, 5rem);
         justify-content: center;
         align-items: center;
       }
@@ -368,7 +508,7 @@
 
       .grid-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 0 1.5rem rgba(153, 44, 255, 0.2);
+        box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.2);
       }
 
       .grid-item img {
@@ -380,7 +520,7 @@
 
       .grid-item h3 {
         font-size: clamp(1rem, 1vw, 1.5rem);
-        color: rgb(0, 255, 255);
+        color:   rgb(0, 247, 255);
         margin: clamp(0.75rem, 1vw, 1rem);
       }
 
@@ -401,13 +541,14 @@
       }
 
       .cta-button {
+        display: block;
         background: #00ffbb; /* Φωτεινό τιρκουάζ */
         color: #111; /* Σκούρο για αντίθεση */
 
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
-        font-size: clamp(1rem, 2vw, 1.8rem);
-        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
+        font-size: clamp(0.8rem, 2vw, 1.8rem);
+        padding: clamp(1rem, 1vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
         border-radius: 9999px; /* pill shape */
         
         border: none;
@@ -446,6 +587,7 @@
         border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
         box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
         transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        z-index: 0;
       }
 
       footer:hover {
@@ -652,97 +794,100 @@
             </div>
           </section>
 
-          <section class="stem-feature-grid">
+          <div class = "v-right">
+            <section class="stem-feature-grid">
+              <h1>Χαρακτηριστικά Προγράμματος</h1>
+              <div class="grid-container">
+                <div class="grid-item">
+                  <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
+                  <h3>Διάρκεια</h3>
+                  <p>9 Μήνες</p>
+                </div>
 
-            <h1>Χαρακτηριστικά Προγράμματος</h1>
-            <div class="grid-container">
-              <div class="grid-item">
-                <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
-                <h3>Διάρκεια</h3>
-                <p>9 Μήνες</p>
-              </div>
+                <div class="grid-item">
+                  <img src="working-on-office-icon.svg" alt="online icon" />
+                  <h3>Διεξαγωγή</h3>
+                  <p>Online</p>
+                </div>
 
-              <div class="grid-item">
-                <img src="working-on-office-icon.svg" alt="online icon" />
-                <h3>Διεξαγωγή</h3>
-                <p>Online</p>
-              </div>
+                <div class="grid-item">
+                  <img src="slow-icon.svg" alt="clock icon" />
+                  <h3>Συχνότητα</h3>
+                  <p>Μια φορά την εβδομάδα για κάθε μάθημα</p>
+                </div>
 
-              <div class="grid-item">
-                <img src="slow-icon.svg" alt="clock icon" />
-                <h3>Συχνότητα</h3>
-                <p>Μια φορά την εβδομάδα για κάθε μάθημα</p>
-              </div>
+                <div class="grid-item">
+                  <img src="referral-customer-icon.svg" alt="group icon" />
+                  <h3>Τμήματα</h3>
+                  <p>Μέχρι 20 άτομα</p>
+                </div>
 
-              <div class="grid-item">
-                <img src="referral-customer-icon.svg" alt="group icon" />
-                <h3>Τμήματα</h3>
-                <p>Μέχρι 20 άτομα</p>
-              </div>
+                <div class="grid-item">
+                  <img src="age-icon.svg" alt="age icon" />
+                  <h3>Ηλικίες</h3>
+                  <p>14+ ετών</p>
+                </div>
 
-              <div class="grid-item">
-                <img src="age-icon.svg" alt="age icon" />
-                <h3>Ηλικίες</h3>
-                <p>14+ ετών</p>
-              </div>
-
-              <div class="grid-item">
-                <img src="time-limit-icon.png" alt="duration icon" />
-                <h3>Διδακτική ώρα</h3>
-                <p>75 λεπτά</p>
-              </div>
-
-            </div>
-
-            <div class="cta-button-container">
-              <a href="Μαθήματα.html" class="cta-button">
-                Δες Τα Μαθήματα
-              </a>
-            </div>
-          </section>
-
-          <section class="stem-feature-grid">
-            <h1>ΠΡΟΣΦΟΡΕΣ</h1>
-            <p>
-              Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
-            </p>
-
-            <div class="grid-container" style ="max-width: 80%;">
-
-              <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
-                <div>
-                  <h3>Πακέτο Τριών Μαθημάτων</h3>
-                  <img src = "buy-book-icon.svg">
-                  <p class="price">50€ / μήνα</p>
+                <div class="grid-item">
+                  <img src="time-limit-icon.png" alt="duration icon" />
+                  <h3>Διδακτική ώρα</h3>
+                  <p>75 λεπτά</p>
                 </div>
               </div>
-
-              <div class="grid-item">
-                <div class="details">
-                  <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
-                  <img src = "surprise-icon.svg">
-                  <p class="price">60€ / μήνα</p>
-                </div>
+              <div class="cta-button-container">
+                <a href="Μαθήματα.html" class="cta-button">
+                  Δες Τα Μαθήματα
+                </a>
               </div>
 
-              <div class="grid-item">
-                <div class="details">
-                  <h3>Οικογενειακό Πακέτο</h3>
-                  <img src = "teamwork-together-icon.svg">
-                  <p>Μία συνδρομή για όλα τα αδέλφια !</p>
-                </div>
-              </div>
+            </section>
+          </div>
 
-              <div class="grid-item">
-                <div class="details">
-                  <h3>Δωρεάν Δοκιμή</h3>
-                  <img src = "one-free-icon.svg">
-                  <p>Μια εβδομάδα δωρεάν!</p>
-                </div>
-              </div>
-            </div>
+          <div class = "v-left"></div>
+            <section class="stem-feature-grid">
+              <h1>ΠΡΟΣΦΟΡΕΣ</h1>
+              <p>
+                Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
+              </p>
 
-          </section>
+              <div class="grid-container">
+
+                <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
+                  <div>
+                    <h3>Πακέτο Τριών Μαθημάτων</h3>
+                    <img src = "buy-book-icon.svg">
+                    <p class="price">50€ / μήνα</p>
+                  </div>
+                </div>
+
+                <div class="grid-item">
+                  <div class="details">
+                    <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
+                    <img src = "surprise-icon.svg">
+                    <p class="price">60€ / μήνα</p>
+                  </div>
+                </div>
+
+                <div class="grid-item">
+                  <div class="details">
+                    <h3>Οικογενειακό Πακέτο</h3>
+                    <img src = "teamwork-together-icon.svg">
+                    <p>Μία συνδρομή για όλα τα αδέλφια !</p>
+                  </div>
+                </div>
+
+                <div class="grid-item">
+                  <div class="details">
+                    <h3>Δωρεάν Δοκιμή</h3>
+                    <img src = "one-free-icon.svg">
+                    <p>Μια εβδομάδα δωρεάν!</p>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+          </div>
+          
 
         </div>
       </main>
@@ -841,12 +986,12 @@
       gsap.utils.toArray('.stem-feature-grid').forEach(section => {
       gsap.from(section, {
         opacity: 0,
-        y: 50,
-        duration: 1,
+        y: 0,
+        duration: 3,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
+          start: 'top 95%',
           toggleActions: 'play reverse play reverse',
         }
       });
@@ -855,12 +1000,12 @@
     gsap.utils.toArray('.intro-summary').forEach(section => {
       gsap.from(section, {
         opacity: 0,
-        y: 50,
-        duration: 1,
+        y: 0,
+        duration: 3,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
+          start: 'top 95%',
           toggleActions: 'play reverse play reverse',
         }
       });
