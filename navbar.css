@@ -1,0 +1,100 @@
+.navbar {
+        display: flex;
+        width: 100%;
+        position: absolute;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Orbitron', sans-serif;
+        padding: 1rem;
+        top: 0;
+
+        background: rgba(0, 0, 0, 0);
+        transition: transform 0.4s ease-in, opacity 0.3s ease;
+        
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: slideInNavbar 1s ease-out forwards;
+        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
+        z-index: 1001;
+      }
+
+      @keyframes slideInNavbar {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .navbar.hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .navbar .logo a {
+        font-family: 'Orbitron', sans-serif;
+        font-size: clamp(1rem, 3vw, 4rem);
+        
+        text-decoration: none;
+        font-weight: 600;
+        color: #00eeff;
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
+        transition: color 0.3s, text-shadow 0.3s;
+      }
+
+      .navbar .logo a:hover {
+        color: #50f3ff;
+        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
+        transform: scale(1.02);
+      }
+
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        flex-shrink: 1;
+      }
+
+      .hamburger{
+        display:none;
+        opacity: 0;
+      }
+
+      .navbar a{
+        position: relative;
+        color: #ffffff;
+        background: transparent;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        font-size: clamp(1rem, 1vw, 2rem);
+        letter-spacing: 0.03rem;
+        text-decoration: none;
+        margin: 0 1rem;
+        padding: clamp(0.1rem, 1vw, 1.5rem) 0;
+        transition: color 0.3s ease;
+      }
+
+      .navbar a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(90deg, #00ffd000, #2de3ff9f , #59fcff);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar a:hover {
+        color: #00f0ff;
+      }
+
+      .navbar a:hover::after {
+        transform: scaleX(1);
+      }
+
+      .navbar a.active{
+          color:#00eeff;
+        }

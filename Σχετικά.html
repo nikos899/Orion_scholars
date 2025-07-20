@@ -2,11 +2,22 @@
 <html lang="el">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <Title>Orion Scholars</Title>
+    <title>Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους</title>
+    <meta name="description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:image" content="https://orionscholars.gr/preview.jpg" />
+    <meta property="og:title" content="Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους">
+    <meta property="og:description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta property="og:url" content="https://orionscholars.gr">
+
+    <link rel="canonical" href="https://orionscholars.gr/" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
 
     <style>
       
@@ -62,107 +73,6 @@
         margin-top: clamp(10rem, 1vw, 20rem);
         margin-bottom: 0rem;
       }
-
-      .navbar {
-        display: flex;
-        width: 100%;
-        position: absolute;
-        align-items: center;
-        justify-content: space-between;
-        font-family: 'Orbitron', sans-serif;
-        padding: 1rem;
-        top: 0;
-
-        background: rgba(0, 0, 0, 0);
-        transition: transform 0.4s ease-in, opacity 0.3s ease;
-        
-        opacity: 0;
-        transform: translateX(-100px);
-        animation: slideInNavbar 1s ease-out forwards;
-        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
-        z-index: 1001;
-      }
-
-      @keyframes slideInNavbar {
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .navbar.hidden {
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .navbar .logo a {
-        font-family: 'Orbitron', sans-serif;
-        font-size: clamp(1rem, 3vw, 4rem);
-        
-        text-decoration: none;
-        font-weight: 600;
-        color: #00eeff;
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
-        transition: color 0.3s, text-shadow 0.3s;
-      }
-
-      .navbar .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
-        transform: scale(1.02);
-      }
-
-      .navbar ul {
-        display: flex;
-        list-style: none;
-        flex-shrink: 1;
-      }
-
-      .hamburger{
-        display:none;
-        opacity: 0;
-      }
-
-      .navbar a{
-        position: relative;
-        color: #ffffff;
-        background: transparent;
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 600;
-        font-size: clamp(1rem, 1vw, 2rem);
-        letter-spacing: 0.03rem;
-        text-decoration: none;
-        margin: 0 1rem;
-        padding: clamp(0.1rem, 1vw, 1.5rem) 0;
-        transition: color 0.3s ease;
-      }
-
-      .navbar a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 100%;
-        background: linear-gradient(90deg, #00ffd000, #2de3ff9f , #59fcff);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-      }
-
-      .navbar a:hover {
-        color: #00f0ff;
-      }
-
-      .navbar a:hover::after {
-        transform: scaleX(1);
-      }
-
-      .navbar a.active{
-          color:#00eeff;
-        }
 
       @media screen and (max-width: 1024px){
         .navbar {
@@ -265,7 +175,6 @@
           background-size: cover;
           filter: blur(0.3rem);
         }
-
     }
 
     .team-section {
@@ -388,166 +297,79 @@
       font-size: clamp(0.5rem, 0.75vw, 1rem);
       text-decoration: none;
       font-family: "Inter", sans-serif;
-
       font-weight: 500;
       transition: color 0.2s;
     }
 
-    footer{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.7rem, 1vw, 1rem);
+    p{
       text-align: center;
+      margin: clamp(1rem, 3vw, 2rem);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-family: 'Inter', sans-serif;
+      line-height: clamp(1.4rem, 2.2vw, 2.2rem);
 
-      padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
-
-      background-color: #1a1a1a;
-      color: #e6e6e6;
-
-      border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
-      box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      color: rgb(237, 237, 237);
+      background: transparent;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
-      footer:hover {
-        background-color: #222;
-        color: #fff;
-        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
-      }
-      
-      .contact-info {
-        text-align: center;
-        font-family: 'Inter', sans-serif;
-        font-weight: 1000;
-        font-size: clamp(1rem, 5vw, 2.5rem);
-        color: rgb(0, 247, 255);
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 5px rgba(77,249,255,0.6);
-        padding-top: clamp(0.5rem, 1vw, 1.5rem);
-        transition: color 0.3s ease, text-shadow 0.3s ease;
-      }
+    h1,h2,h3{
+      color: rgb(0, 247, 255);
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      letter-spacing: 0.03rem;
+      text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
+    }
 
-      .contact-info .title {
-        font-size: clamp(0.9rem, 3vw, 2rem);
-      }
+    h2{
+      font-size: clamp(1rem, 1vw, 2rem)
+    }
 
-      .email, .phone {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-bottom: clamp(1rem, 3vw, 2rem);
-      }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100dvh;
+      z-index: -1;
+      top: 0;
+      left: 0;
 
-      .contact-info .email h1, .contact-info .phone h1 {
-        font-size: clamp(0.8rem, 1vw, 1.25rem);
-        margin: 0;
-        padding-right: clamp(0.1rem, 1vw, 1.5rem);
-        font-family: 'Poppins', sans-serif;
-        letter-spacing: 0.03rem;
-      }
+      -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 
-      .contact-info .phone p, .contact-info .email p {
-        font-size: clamp(0.8rem, 1vw, 1.25rem);
-        font-weight: normal;
-        margin: 0;
-      }
+      -webkit-mask-size: 100%;
+      mask-size: 100%;
 
-      .social {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: clamp(1rem, 3vw, 2rem);
-        margin-bottom: clamp(1rem, 3vw, 2rem);
-        height: clamp(2rem, 5vw, 5rem);
-        transition: transform 0.3s ease;
-      }
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
 
-      .social img {
-        width: clamp(1.2rem, 2vw, 3rem);
-        margin: 0 0.5rem;
-      }
+    #particles-right {
+      position: fixed;
+      width: 100%;
+      height: 100dvh;
+      z-index: -1;
+      top: 0;
+      left: 0;
 
-      .icon_selection {
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    filter 0.3s ease;
-      }
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+      mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+      -webkit-mask-size: 100%;
+      mask-size: 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
 
-      .icon_selection:hover {
-        cursor: pointer;
-        transform: translateY(-0.4rem) scale(1.05);
-        filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
-      }
-
-      .copyrights {
-        font-size: clamp(0.7rem, 1vw, 1rem);
-        color: rgb(255, 255, 255);
-        letter-spacing: 0.03rem;
-        text-align: center;
-        margin-top: clamp(1rem, 3vw, 2rem);
-        padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
-      }
-
-      p {
-        text-align: center;
-        margin: clamp(1rem, 3vw, 2rem);
-        font-size: clamp(1rem, 2vw, 1.4rem);
-        font-family: 'Inter', sans-serif;
-        line-height: clamp(1.4rem, 2.2vw, 2.2rem);
-
-        color: rgb(237, 237, 237);
-        background: transparent;
-        transition: color 0.3s, text-shadow 0.3s;
-      }
-
-      h1{
-        color: rgb(0, 247, 255);
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.5rem, 4vw, 3rem);
-        letter-spacing: 0.03rem;
-        text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
-      }
-
-      #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100dvh;
-        z-index: -1;
-        top: 0;
-        left: 0;
-
-          /* Fade-out to the right */
-        -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-        mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-
-        -webkit-mask-size: 100%;
-        mask-size: 100%;
-
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-      }
-
-      #particles-right {
-        position: fixed;
-        width: 100%;
-        height: 100dvh;
-        z-index: -1;
-        top: 0;
-        left: 0;
-
-        -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-        mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-        -webkit-mask-size: 100%;
-        mask-size: 100%;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-      }
+    #mist-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.1;
+    }
       
   </style>
 </head>
@@ -575,6 +397,7 @@
   </header>
   
   <main>
+    <canvas id="mist-canvas"></canvas>
     <div class = "intro-paragraph">
       <h1>Η Ομάδα Μας</h1>
       <p>
@@ -590,24 +413,24 @@
       <div class="team-grid">
 
           <div class="team-member">
-            <img src="butterfly.png" alt="Νικόλαος Θ.">
-            <h3>Νικόλαος Θ.</h3>
+            <img src="butterfly.png" alt="Εικόνα Νικόλαου Θεοδοσιάδη - Founder του Orion Scholars, Καθηγητή Ηλεκτρονικής">
+            <h2>Νικόλαος Θ.</h2>
             <p>Η&ΗΜ ΠΑΔΑ</p>
 
             <div class="contact-info">
 
               <div class="contact-row">
-                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;" alt="Εικονίδιο LinkedIn λογαριασμού Νικόλαου Θ.">
                 <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
               </div>
 
               <div class="contact-row">
-                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:6%; height:6%;">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:6%; height:6%;" alt="Εικονίδιο κινητού τηλεφώνου Νικόλαου Θ.">
                 <span>69xxxxxxxx</span>
               </div>
 
               <div class="contact-row">
-                <img src="envelope-line-icon.svg", style = "width:8%; height:8%;">
+                <img src="envelope-line-icon.svg", style = "width:8%; height:8%;" alt="Εικονίδιο email Νικόλαου Θ.">
                 <span>nikos@example.com</span>
               </div>
 
@@ -616,23 +439,23 @@
           </div>
 
           <div class="team-member">
-            <img src="butterfly.png" alt="Νικόλαος Μ.">
-            <h3>Νικόλαος Μ.</h3>
+            <img src="butterfly.png" alt="Εικόνα Νικόλαου Μ. Καθηγητή Μαθηματικών">
+            <h2>Νικόλαος Μ.</h2>
             <p>Μαθηματικό Πατρών</p>
 
             <div class="contact-info">
 
               <div class="contact-row">
-                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width:10%; height:10%;" alt="Εικονίδιο LinkedIn λογαριασμού Νικόλαου Μ.">
                 <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
               </div>
 
               <div class="contact-row">
-                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:6%; height:6%;">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width:6%; height:6%;" alt="Εικονίδιο κινητού τηλεφώνου Νικόλαου Μ.">
                 <span>69xxxxxxxx</span>
               </div>
 
-              <div class="contact-row">
+              <div class="contact-row" alt="Εικονίδιο email Νικόλαου Μ.">
                 <img src="envelope-line-icon.svg" style = "width:8%; height:8%;">
                 <span>nikolaos@example.com</span>
               </div>
@@ -643,24 +466,24 @@
 
           <div class="team-member">
 
-            <img src="butterfly.png" alt="Αντυ">
-            <h3>Άντυ</h3>
+            <img src="butterfly.png" alt="Εικόνα Αντυ Καθηγητή Πληροφορική">
+            <h2>Άντυ</h2>
             <p>Πληροφορική ΟΠΑ</p>
 
             <div class="contact-info">
 
               <div class="contact-row">
-                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width: 10%; height: 10%;">
+                <img src="linkedin-square-icon.svg" style = "filter: brightness(1) invert(1); width: 10%; height: 10%;" alt="Εικονίδιο LinkedIn λογαριασμού Άντυ">
                 <a href="https://www.linkedin.com/in/example-nt" target="_blank">LinkedIn</a>
               </div>
 
               <div class="contact-row">
-                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width: 6%; height: 6%;">
+                <img src="smartphone-icon.svg" style = "filter: brightness(1) invert(1); width: 6%; height: 6%;" alt="Εικονίδιο κινητού τηλεφώνου Άντυ">
                 <span>69xxxxxxxx</span>
               </div>
 
               <div class="contact-row">
-                <img src="envelope-line-icon.svg" style = "width: 8%; height: 8%;">
+                <img src="envelope-line-icon.svg" style = "width: 8%; height: 8%;" alt="Εικονίδιο email Άντυ">
                 <span>Andy@example.com</span>
               </div>
 
@@ -699,59 +522,56 @@
 
   <footer>
 
-      <div>
+    <div>
 
-        <div class = "contact-info">
-          <div class = "title">Βρείτε Μας Στα Social !</div>
+      <div class = "contact-info">
 
-            <div class = social>
-              <div class = icon_selection>
-                <img src="LinkedIn_icon.png", width = 60%>
-              </div>
+        <div class = "title">Βρείτε Μας Στα Social !</div>
+        <div class = social>
+          
+          <div class = icon_selection>
+            <img src="LinkedIn_icon.png" alt="Εικονίδιο LinkedIn του Orion Scholars" loading="lazy" width = 60%>
+          </div>
 
-              <div class = icon_selection>
-                <img src="YouTube_icon.png", width = 100%>
-              </div>
+          <div class = icon_selection>
+            <img src="YouTube_icon.png" alt="Εικονίδιο YouTube του Orion Scholars" loading="lazy" width = 100%>
+          </div>
 
-              <div class = icon_selection>
-                <img src="fb_icon.png", width = 60%>
-              </div>
+          <div class = icon_selection>
+            <img src="fb_icon.png" alt="Εικονίδιο Facebook του Orion Scholars" loading="lazy" width = 60%>
+          </div>
 
-              <div class = icon_selection>
-                <img src="Instagram_icon.png", width = 60%>
-              </div>
+          <div class = icon_selection>
+            <img src="Instagram_icon.png" alt="Εικονίδιο Instagram του Orion Scholars" loading="lazy" width = 60%>
+          </div>
 
-              <div class = icon_selection>
-                <img src="Threads_icon.png", width = 60%>
-              </div>
-              <div style="margin-top: 2rem; margin-bottom: 2rem;"></div>
-            </div>
-              
-            <div>
+          <div class = icon_selection>
+            <img src="Threads_icon.png" alt="Εικονίδιο Threads του Orion Scholars" loading="lazy" width = 60%>
+          </div>
+        </div>  
 
-              <div class = "email">
-                <h1>email :</h1>
-                <p>orion@scholars.com</p>
-              </div>
+        <div>
 
-              <div class = "phone">
-                <h1>Τηλ. :</h1>
-                <p>69xxxxxxxx</p>
-              </div>
+          <div class = "email">
+            <h3>email :</h3>
+            <p>orion@scholars.com</p>
+          </div>
 
-            </div>
-
+          <div class = "phone">
+            <h3>Τηλ. :</h3>
+            <p>69xxxxxxxx</p>
           </div>
 
         </div>
 
-        <div class = "copyrights">
-          © 2025 Orion Scholars All Rights Reserved
-        </div>
-
       </div>
-        
-    </footer>
+
+      <div class = "copyrights">
+        © 2025 Orion Scholars All Rights Reserved
+      </div>      
+
+    </div>
+  </footer>
 
     <script src="particles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -851,6 +671,81 @@
         ease: "power2.out",
         stagger: 1  // Εμφανίζονται η μία μετά την άλλη
       });
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Orion Scholars",
+      "url": "https://orionscholars.gr",
+      "logo": "https://orionscholars.gr/logo.png",
+      "description": "Online μαθήματα STEM για εφήβους – Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική.",
+      "email": "orion@scholars.com",
+      "telephone": "+30 69xxxxxxxx",
+      "availableLanguage": "Greek",
+      "sameAs": [
+        "https://facebook.com/orionscholars",
+        "https://instagram.com/orionscholars",
+        "https://youtube.com/@orionscholars"
+      ]
+    }
+  </script>
+  <script>
+      const canvas = document.getElementById("mist-canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      const blobs = [];
+      const blobCount = 1000;
+
+      for (let i = 0; i < blobCount; i++) {
+        blobs.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: 10 + Math.random() * 100,
+          dx: (Math.random() - 0.5) * 3,
+          dy: (Math.random() - 0.5) * 8,
+          opacity: Math.random() * 0.1
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        blobs.forEach(blob => {
+          ctx.beginPath();
+          const gradient = ctx.createRadialGradient(blob.x, blob.y, blob.r * 0.2, blob.x, blob.y, blob.r);
+          // Αρχικό χρώμα πιο ανοιχτό πράσινο με διαφάνεια:
+          gradient.addColorStop(0, `rgba(100, 150, 255, 0.05), ${blob.opacity})`); // light green (LightGreen)
+          // Τελικό χρώμα διαφανές πράσινο:
+          gradient.addColorStop(1, "rgba(144, 238, 144, 0)");
+          
+          ctx.fillStyle = gradient;
+          ctx.arc(blob.x, blob.y, blob.r, 0, Math.PI * 2);
+          ctx.fill();
+
+          // update position
+          blob.x += blob.dx;
+          blob.y += blob.dy;
+
+          // wrap around screen
+          if (blob.x - blob.r > canvas.width) blob.x = -blob.r;
+          if (blob.x + blob.r < 0) blob.x = canvas.width + blob.r;
+          if (blob.y - blob.r > canvas.height) blob.y = -blob.r;
+          if (blob.y + blob.r < 0) blob.y = canvas.height + blob.r;
+        });
+
+        requestAnimationFrame(draw);
+      }
+
+      draw();
     </script>
 </body>
 </html>

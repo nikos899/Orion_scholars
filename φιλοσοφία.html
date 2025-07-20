@@ -2,11 +2,22 @@
 <html lang="el">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <Title>Orion Scholars</Title>
+    <title>Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους</title>
+    <meta name="description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:image" content="https://orionscholars.gr/preview.jpg" />
+    <meta property="og:title" content="Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους">
+    <meta property="og:description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta property="og:url" content="https://orionscholars.gr">
+
+    <link rel="canonical" href="https://orionscholars.gr/" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
     <style>
       
       *{
@@ -28,68 +39,6 @@
         flex: 1; /* takes up all available space */
       }
 
-      .navbar {
-        display: flex;
-        width: 100%;
-        position: absolute;
-        align-items: center;
-        justify-content: space-between;
-        font-family: 'Orbitron', sans-serif;
-        padding: 1rem;
-        top: 0;
-
-        background: rgba(0, 0, 0, 0);
-        transition: transform 0.4s ease-in, opacity 0.3s ease;
-        
-        opacity: 0;
-        transform: translateX(-100px);
-        animation: slideInNavbar 1s ease-out forwards;
-        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
-        z-index: 1001;
-      }
-
-      @keyframes slideInNavbar {
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .navbar.hidden {
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .navbar .logo a {
-        font-family: 'Orbitron', sans-serif;
-        font-size: clamp(1rem, 3vw, 4rem);
-        
-        text-decoration: none;
-        font-weight: 600;
-        color: #00eeff;
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
-        transition: color 0.3s, text-shadow 0.3s;
-      }
-
-      .navbar .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
-        transform: scale(1.02);
-      }
-
-      .navbar ul {
-        display: flex;
-        list-style: none;
-        flex-shrink: 1;
-      }
-
-      .hamburger{
-        display:none;
-        opacity: 0;
-      }
-
       .intro-summary h1{
         color: rgb(0, 153, 255);
       }
@@ -97,45 +46,6 @@
       .intro-summary p{
         color: rgb(25, 25, 25);
       }
-
-      .navbar a{
-        position: relative;
-        color: #ffffff;
-        background: transparent;
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 600;
-        font-size: clamp(1rem, 1vw, 2rem);
-        letter-spacing: 0.03rem;
-        text-decoration: none;
-        margin: 0 1rem;
-        padding: clamp(0.1rem, 1vw, 1.5rem) 0;
-        transition: color 0.3s ease;
-      }
-
-      .navbar a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 100%;
-        background: linear-gradient(90deg, #00ffd000, #2de3ff9f , #59fcff);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-      }
-
-      .navbar a:hover {
-        color: #00f0ff;
-      }
-
-      .navbar a:hover::after {
-        transform: scaleX(1);
-      }
-
-      .navbar a.active{
-          color:#00eeff;
-        }
 
       @media screen and (max-width: 1024px){
         .navbar {
@@ -244,7 +154,7 @@
         transition: color 0.3s, text-shadow 0.3s;
       }
 
-      h1{
+      h1,h2,h3{
         color: rgb(0, 247, 255);
         text-align: center;
         font-family: 'Poppins', sans-serif;
@@ -579,7 +489,7 @@
 
         <div class="philosophy-list">
           <div class="philosophy-item">
-            <img src = "sad-face-icon.svg" class="bullet-icon">
+            <img src = "sad-face-icon.svg" class="bullet-icon" alt="Εικονίδιο λυπημένου προσώπου">
             <p>
               Η παραδοσιακή εκπαίδευση αποτυγχάνει να εξοπλίσει ουσιαστικά τους μαθητές για τη σύγχρονη πραγματικότητα μετά το σχολείο. 
               Η θεωρητική προσέγγιση χωρίς εφαρμογή δεν αρκεί.
@@ -587,7 +497,7 @@
           </div>
 
           <div class="philosophy-item">
-            <img src = "conclusion-icon.svg" class="bullet-icon">
+            <img src = "conclusion-icon.svg" class="bullet-icon" alt="Εικονίδιο μπερδεμένου μαθητή">
             <p>
               Πολλοί μαθητές με ταλέντο και δημιουργικότητα "χάνονται" σε ένα σύστημα που δεν τους εκφράζει. Εμείς τους δίνουμε χώρο να 
               ανθίσουν.
@@ -595,20 +505,20 @@
           </div>
 
           <div class="philosophy-item">
-            <img src = "happy-customer-icon.svg" class="bullet-icon">
+            <img src = "happy-customer-icon.svg" class="bullet-icon" alt="Εικονίδιο επιδοκιμασίας μαθητή">
             <p>
               Η βαθιά κατανόηση, η αναζήτηση και η δημιουργική σκέψη πρέπει να ενθαρρύνονται — όχι να τιμωρούνται επειδή δεν "χωρούν" στην 
               ύλη.
             </p>
           </div>
 
-        <p>
-          Ο στόχος μας είναι ξεκάθαρος: να δώσουμε στους μαθητές τα εφόδια να σκεφτούν, να δημιουργήσουν και να ηγηθούν. 
-          Όχι μόνο στις σπουδές — αλλά στη ζωή.
-        </p>
+          <p>
+            Ο στόχος μας είναι ξεκάθαρος: να δώσουμε στους μαθητές τα εφόδια να σκεφτούν, να δημιουργήσουν και να ηγηθούν. 
+            Όχι μόνο στις σπουδές — αλλά στη ζωή.
+          </p>
 
         <div>
-          <h1>Οι Τομές του Orion Scholars</h1>
+          <h2>Οι Τομές του Orion Scholars</h2>
           <p>
             Για την αντιμετώπιση των παραπάνω ζητημάτων, χρειάστηκε να αναθεωρήσουμε τη συνολική προσέγγιση στην εκπαίδευση. Το αποτέλεσμα είναι 
             μια σειρά από εκπαιδευτικές τομές που υλοποιούνται μέσα από το πρόγραμμα εξωσχολικής δραστηριότητας <strong>Orion Scholars</strong>.
@@ -699,7 +609,7 @@
 
         </div>
         <div>
-        <h1>Σκοπός</h1>
+        <h2>Σκοπός</h2>
           <p>
             ​Οι διαλέξεις των μαθημάτων συνεισφέρουν υποστηρικτικά, καθοδηγώντας τους μαθητές 
             στο να ανακαλύψουν την γνώση, να εξερευνήσουν τα ενδιαφέροντα τους και να εκτεθούν σε νέες ιδέες.
@@ -708,7 +618,7 @@
 
           <div class="philosophy-list">
             <div class="philosophy-item">
-              <img src = "bulb-light-icon.svg" class="bullet-icon"></span>
+              <img src = "bulb-light-icon.svg" class="bullet-icon" loading="lazy" alt="Εικονίδιο δημιουργικότητας μαθητή"></span>
               <p>
                 Να εμπνεύσουν, να καλλιεργήσουν την περιέργεια και τη φαντασία, ενθαρρύνοντας τους μαθητές να θέτουν ερωτήματα και 
                 να ερευνούν ενεργά.
@@ -716,7 +626,7 @@
             </div>
 
             <div class="philosophy-item">
-              <img src = "book-research-icon.svg" class="bullet-icon"></span>
+              <img src = "book-research-icon.svg" class="bullet-icon" loading="lazy" alt="Εικονίδιο μελέτης μαθητή"></span>
               <p>
                 Συνδέσουν τη θεωρία με την πράξη, δείχνοντας πώς οι επιστήμες εφαρμόζονται σε πραγματικά σενάρια για την υλοποίηση
                 περίπλοκων συστημάτων.
@@ -724,14 +634,14 @@
             </div>
 
             <div class="philosophy-item">
-              <img src = "puzzle-icon.svg" class="bullet-icon"></span>
+              <img src = "puzzle-icon.svg" class="bullet-icon" loading="lazy" alt="Εικονίδιο επίλυσης προβλημάτων"></span>
               <p>
                 Αναπτύξουν δεξιότητες επίλυσης προβλημάτων, μέσα από δημιουργικές και συνεργατικές προσεγγίσεις.
               </p>
             </div>
 
             <div class="philosophy-item">
-              <img src = "diy-do-it-yourself-icon.svg" class="bullet-icon"></span>
+              <img src = "diy-do-it-yourself-icon.svg" class="bullet-icon" loading ="lazy" alt="Εικονίδιο ανεξάρτητου μαθητή"></span>
               <p>
                 Ενισχύσουν την αυτοπεποίθηση, βοηθώντας τους μαθητές να παρουσιάζουν τις ιδέες τους, να σκέφτονται κριτικά και να δρουν αυτόνομα.
               </p>
@@ -742,71 +652,81 @@
 
     <footer>
 
-      <div>
+    <div class = "contact-info">
 
-        <div class = "contact-info">
-          <div class = "title">Βρείτε Μας Στα Social !</div>
-
-            <div class = social>
-              <div class = icon_selection>
-                <img src="LinkedIn_icon.png", width = 60%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="YouTube_icon.png", width = 100%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="fb_icon.png", width = 60%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="Instagram_icon.png", width = 60%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="Threads_icon.png", width = 60%>
-              </div>
-              <div style="margin-top: 2rem; margin-bottom: 2rem;"></div>
-            </div>
-              
-            <div>
-
-              <div class = "email">
-                <h1>email :</h1>
-                <p>orion@scholars.com</p>
-              </div>
-
-              <div class = "phone">
-                <h1>Τηλ. :</h1>
-                <p>69xxxxxxxx</p>
-              </div>
-
-            </div>
-
-          </div>
-
+      <div class = "title">Βρείτε Μας Στα Social !</div>
+      
+      <div class = social>
+        
+        <div class = icon_selection>
+          <img src="LinkedIn_icon.png" alt="Εικονίδιο LinkedIn του Orion Scholars" loading="lazy" width = 60%>
         </div>
 
-        <div class = "copyrights">
-          © 2025 Orion Scholars All Rights Reserved
+        <div class = icon_selection>
+          <img src="YouTube_icon.png" alt="Εικονίδιο YouTube του Orion Scholars" loading="lazy" width = 100%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="fb_icon.png" alt="Εικονίδιο Facebook του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="Instagram_icon.png" alt="Εικονίδιο Instagram του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="Threads_icon.png" alt="Εικονίδιο Threads του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+        
+      </div>
+            
+      <div>
+
+        <div class = "email">
+          <h3>email :</h3>
+          <p>orion@scholars.com</p>
+        </div>
+
+        <div class = "phone">
+          <h3>Τηλ. :</h3>
+          <p>69xxxxxxxx</p>
         </div>
 
       </div>
+    
+      <div class = "copyrights">© 2025 Orion Scholars All Rights Reserved</div>
+    </div>
+    
+  </footer>
         
-    </footer>
-        
-    <script src = "particles.js"></script>
-    <script src = "app.js"></script>
+  <script src = "particles.js"></script>
+  <script src = "app.js"></script>
 
-    <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const navbar = document.querySelector('.navbar');
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.querySelector('.navbar');
 
-      menuToggle.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-      });
-    </script>
-
-  </body>
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Orion Scholars",
+      "url": "https://orionscholars.gr",
+      "logo": "https://orionscholars.gr/logo.png",
+      "description": "Online μαθήματα STEM για εφήβους – Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική.",
+      "email": "orion@scholars.com",
+      "telephone": "+30 69xxxxxxxx",
+      "availableLanguage": "Greek",
+      "sameAs": [
+        "https://facebook.com/orionscholars",
+        "https://instagram.com/orionscholars",
+        "https://youtube.com/@orionscholars"
+      ]
+    }
+  </script>
+</body>
 </html>

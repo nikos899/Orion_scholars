@@ -1,0 +1,99 @@
+footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        text-align: center;
+
+        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+
+        background-color: #1a1a1a;
+        color: #e6e6e6;
+
+        border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
+        box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        z-index: 0;
+      }
+
+      footer:hover {
+        background-color: #222;
+        color: #fff;
+        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
+      }
+      
+      .contact-info {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        font-weight: 1000;
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        color: rgb(0, 247, 255);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(77,249,255,0.6);
+        padding-top: clamp(0.5rem, 1vw, 1.5rem);
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .contact-info .title {
+        font-size: clamp(0.9rem, 3vw, 2rem);
+      }
+
+      .email, .phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+      }
+
+      .contact-info .email h3, .contact-info .phone h3 {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        margin: 0;
+        padding-right: clamp(0.1rem, 1vw, 1.5rem);
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 0.03rem;
+      }
+
+      .contact-info .phone p, .contact-info .email p {
+        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: clamp(1rem, 3vw, 2rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+        height: clamp(2rem, 5vw, 5rem);
+        transition: transform 0.3s ease;
+      }
+
+      .social img {
+        width: clamp(1.2rem, 2vw, 3rem);
+        margin: 0 0.5rem;
+      }
+
+      .icon_selection {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.3s ease;
+      }
+
+      .icon_selection:hover {
+        cursor: pointer;
+        transform: translateY(-0.4rem) scale(1.05);
+        filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
+      }
+
+      .copyrights {
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        color: rgb(255, 255, 255);
+        letter-spacing: 0.03rem;
+        text-align: center;
+        margin-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
+      }

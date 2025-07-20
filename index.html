@@ -2,11 +2,22 @@
 <html lang="el">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <Title>Orion Scholars</Title>
+    <title>Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους</title>
+    <meta name="description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:image" content="https://orionscholars.gr/preview.jpg" />
+    <meta property="og:title" content="Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους">
+    <meta property="og:description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta property="og:url" content="https://orionscholars.gr">
+
+    <link rel="canonical" href="https://orionscholars.gr/" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
 
     <style>
       
@@ -30,68 +41,6 @@
         background-color: rgb(255, 255, 255);
       }
 
-      .navbar {
-        display: flex;
-        width: 100%;
-        position: absolute;
-        align-items: center;
-        justify-content: space-between;
-        font-family: 'Orbitron', sans-serif;
-        padding: 1rem;
-        top: 0;
-
-        background: rgba(0, 0, 0, 0);
-        transition: transform 0.4s ease-in, opacity 0.3s ease;
-        
-        opacity: 0;
-        transform: translateX(-100px);
-        animation: slideInNavbar 1s ease-out forwards;
-        animation-delay: 0.5s; /* μικρή καθυστέρηση για αισθητική */
-        z-index: 1001;
-      }
-
-      @keyframes slideInNavbar {
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .navbar.hidden {
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .navbar .logo a {
-        font-family: 'Orbitron', sans-serif;
-        font-size: clamp(1rem, 3vw, 4rem);
-        
-        text-decoration: none;
-        font-weight: 600;
-        color: #00eeff;
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
-        transition: color 0.3s, text-shadow 0.3s;
-      }
-
-      .navbar .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
-        transform: scale(1.02);
-      }
-
-      .navbar ul {
-        display: flex;
-        list-style: none;
-        flex-shrink: 1;
-      }
-
-      .hamburger{
-        display:none;
-        opacity: 0;
-      }
-
       .intro-summary h1{
         color: rgb(36, 153, 208);
       }
@@ -100,46 +49,7 @@
         color: rgb(25, 25, 25);
       }
 
-      .navbar a{
-        position: relative;
-        color: #ffffff;
-        background: transparent;
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 600;
-        font-size: clamp(1rem, 1vw, 2rem);
-        letter-spacing: 0.03rem;
-        text-decoration: none;
-        margin: 0 1rem;
-        padding: clamp(0.1rem, 1vw, 1.5rem) 0;
-        transition: color 0.3s ease;
-      }
-
-      .navbar a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 100%;
-        background: linear-gradient(90deg, #00ffd000, #2de3ff9f , #59fcff);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-      }
-
-      .navbar a:hover {
-        color: #00f0ff;
-      }
-
-      .navbar a:hover::after {
-        transform: scaleX(1);
-      }
-
-      .navbar a.active{
-          color:#00eeff;
-        }
-
-        .v-right{
+      .v-right{
         position: relative;
         padding: 3rem 2rem;
         z-index: 0;
@@ -265,7 +175,6 @@
         }
 
         .intro-paragraph{
-
           margin: 0 auto;
           margin-top: calc(50vh - 75px);
           margin-bottom: 40vh;
@@ -307,14 +216,14 @@
           transform-origin: top right;
           transform: skewY(-3deg);
           z-index: -1; 
+        }
       }
-    }
-    @media (min-width: 589px) and (max-width: 646px) {
-      .v-right{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
+      @media (min-width: 589px) and (max-width: 646px) {
+        .v-right{
+            position: relative;
+            padding: 3rem 2rem;
+            z-index: 0;
+          }
 
         .v-right::before {
           content: "";
@@ -328,63 +237,63 @@
           transform: skewY(10deg); 
           z-index: -1; 
         }
-    }
+      }
       
-    @media screen and (max-width: 588px){
+      @media screen and (max-width: 588px){
 
-      .v-right{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
+        .v-right{
+            position: relative;
+            padding: 3rem 2rem;
+            z-index: 0;
+          }
 
-        .v-right::before {
-          content: "";
-          position: absolute;
-          top: clamp(20rem, 25vw, 60rem);
-          left: 0;
-          width: 100dvw;
-          height: clamp(25rem, 200dvh, 80rem);
-          background: #58d8ff;
-          transform-origin: top left;
-          transform: skewY(10deg); 
-          z-index: -1; 
-        }
+          .v-right::before {
+            content: "";
+            position: absolute;
+            top: clamp(20rem, 25vw, 60rem);
+            left: 0;
+            width: 100dvw;
+            height: clamp(25rem, 200dvh, 80rem);
+            background: #58d8ff;
+            transform-origin: top left;
+            transform: skewY(10deg); 
+            z-index: -1; 
+          }
 
-        .v-left{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
+          .v-left{
+            position: relative;
+            padding: 3rem 2rem;
+            z-index: 0;
+          }
 
-        .v-left::before {
-          content: "";
-          position: absolute;
-          top: clamp(31rem, 35dvh, 50rem);
-          right: 0;
-          width: 100dvw;
-          height: clamp(22rem, 200dvh, 50rem);
-          background:#ff695e;
-          transform-origin: top right;
-          transform: skewY(-3deg);
-          z-index: -1; 
-    }
-  }
-      
-    .background-img {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100dvw;
-      height: 100dvh;
-      background-image: url('intro.png');
-      background-size: cover;
-      background-position: center;
-      z-index: -2;
-      will-change: transform, filter;
-      pointer-events: none;
-    }
-      
+          .v-left::before {
+            content: "";
+            position: absolute;
+            top: clamp(31rem, 35dvh, 50rem);
+            right: 0;
+            width: 100dvw;
+            height: clamp(22rem, 200dvh, 50rem);
+            background:#ff695e;
+            transform-origin: top right;
+            transform: skewY(-3deg);
+            z-index: -1; 
+          }
+      }
+  
+      .background-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        background-image: url('intro.png');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+        will-change: transform, filter;
+        pointer-events: none;
+      }
+        
       #particles-js {
         position: absolute;
         width: 100%;
@@ -413,6 +322,26 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 3rem);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      h2{
+        color: rgb(36, 153, 208);
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      h3{
+        color:  rgb(0, 247, 255);
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1rem, 1vw, 1.5rem);
         letter-spacing: 0.03rem;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
       }
@@ -568,106 +497,6 @@
         outline: none;
       }
 
-      footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(0.7rem, 1vw, 1rem);
-        text-align: center;
-
-        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
-
-        background-color: #1a1a1a;
-        color: #e6e6e6;
-
-        border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
-        box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
-        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        z-index: 0;
-      }
-
-      footer:hover {
-        background-color: #222;
-        color: #fff;
-        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
-      }
-      
-      .contact-info {
-        text-align: center;
-        font-family: 'Inter', sans-serif;
-        font-weight: 1000;
-        font-size: clamp(1rem, 5vw, 2.5rem);
-        color: rgb(0, 247, 255);
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 5px rgba(77,249,255,0.6);
-        padding-top: clamp(0.5rem, 1vw, 1.5rem);
-        transition: color 0.3s ease, text-shadow 0.3s ease;
-      }
-
-      .contact-info .title {
-        font-size: clamp(0.9rem, 3vw, 2rem);
-      }
-
-      .email, .phone {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-bottom: clamp(1rem, 3vw, 2rem);
-      }
-
-      .contact-info .email h1, .contact-info .phone h1 {
-        font-size: clamp(0.8rem, 1vw, 1.25rem);
-        margin: 0;
-        padding-right: clamp(0.1rem, 1vw, 1.5rem);
-        font-family: 'Poppins', sans-serif;
-        letter-spacing: 0.03rem;
-      }
-
-      .contact-info .phone p, .contact-info .email p {
-        font-size: clamp(0.8rem, 1vw, 1.25rem);
-        font-weight: normal;
-        margin: 0;
-      }
-
-      .social {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: clamp(1rem, 3vw, 2rem);
-        margin-bottom: clamp(1rem, 3vw, 2rem);
-        height: clamp(2rem, 5vw, 5rem);
-        transition: transform 0.3s ease;
-      }
-
-      .social img {
-        width: clamp(1.2rem, 2vw, 3rem);
-        margin: 0 0.5rem;
-      }
-
-      .icon_selection {
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    filter 0.3s ease;
-      }
-
-      .icon_selection:hover {
-        cursor: pointer;
-        transform: translateY(-0.4rem) scale(1.05);
-        filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
-      }
-
-      .copyrights {
-        font-size: clamp(0.7rem, 1vw, 1rem);
-        color: rgb(255, 255, 255);
-        letter-spacing: 0.03rem;
-        text-align: center;
-        margin-top: clamp(1rem, 3vw, 2rem);
-        padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
-      }
-
       /* Add this to your CSS */
       .intro-paragraph {
         opacity: 0;
@@ -718,58 +547,57 @@
 
   </head>
 
-  <body>
-      <div id="particles-js"></div>
+<body>
+  <div id="particles-js"></div>
       
-      <header>
+  <header>
 
-        <button id="menu-toggle" class="hamburger">&#9776;</button>
+    <button id="menu-toggle" class="hamburger">&#9776;</button>
 
-        <nav class="navbar">
-          <div class="logo">
-            <a href="index.html">Orion Scholars</a>
-          </div>
-          <ul>
-            <li><a href="index.html" class="active">Αρχική</a></li>
-            <li><a href="Μαθήματα.html">Μαθήματα</a></li>
-            <li><a href="φιλοσοφία.html">Φιλοσοφία</a></li>
-            <li><a href="Σχετικά.html">Σχετικά</a></li>
-            <li><a href="Συχνές_Ερωτήσεις.html">Συχνές Ερωτήσεις</a></li>
-            <li><a href="Επικοινωνία.html">Επικοινωνία</a></li>
-          </ul>
-        </nav>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">Orion Scholars</a>
+      </div>
+      <ul>
+        <li><a href="index.html" class="active">Αρχική</a></li>
+        <li><a href="Μαθήματα.html">Μαθήματα</a></li>
+        <li><a href="φιλοσοφία.html">Φιλοσοφία</a></li>
+        <li><a href="Σχετικά.html">Σχετικά</a></li>
+        <li><a href="Συχνές_Ερωτήσεις.html">Συχνές Ερωτήσεις</a></li>
+        <li><a href="Επικοινωνία.html">Επικοινωνία</a></li>
+      </ul>
+    </nav>
 
-      </header>
+  </header>
       
-      <main>
-         <section class="hero-section">
-          <div class = "overlay"></div>
-          <div class="background-img"></div> 
+  <main>
+    <section class="hero-section">
+      <div class = "overlay"></div>
+      <div class="background-img"></div> 
           
-
-          <section class="hero-content">
-            <div class="intro-paragraph">
+      <section class="hero-content">
+        <div class="intro-paragraph">
               
-              <h1>Μια Νέα Προσέγγιση Στην Εκπαίδευση !</h1>
+          <h1>Μια Νέα Προσέγγιση Στην Εκπαίδευση !</h1>
 
-              <p>
-                Χαρίστε στα παιδιά σας την ευκαιρία να εξερευνήσουν την επιστήμη και την τεχνολογία με ελευθερία και δημιουργικότητα μέσα από online διαλέξεις και προσωπικά projects σε προσιτό κόστος.
-              </p>
+          <p>
+            Χαρίστε στα παιδιά σας την ευκαιρία να εξερευνήσουν την επιστήμη και την τεχνολογία με ελευθερία και δημιουργικότητα μέσα από online διαλέξεις και προσωπικά projects σε προσιτό κόστος.
+          </p>
 
-              <p>
-                <strong>24 ώρες/μήνα | 60€/μήνα | Μαθηματικά · Φυσική · Πληροφορική · Ηλεκτρονική |</strong>
-              </p>
+          <p>
+            <strong>24 ώρες/μήνα | 60€/μήνα | Μαθηματικά · Φυσική · Πληροφορική · Ηλεκτρονική |</strong>
+          </p>
               
-              <div class="cta-button-container">
-                <a class="cta-button" href="Φορμα_Επικοινωνίας.html">
-                  Ξεκίνα Τώρα!
-                </a>
-              </div>
+          <div class="cta-button-container">
+            <a class="cta-button" href="Φορμα_Επικοινωνίας.html">
+              Ξεκίνα Τώρα!
+            </a>
+          </div>
 
-            </div>
-          </section>
+        </div>
+      </section>
 
-        </section>
+    </section>
             <!--
               <p>
                 <strong>Τηλ.: 69xxxxxxxx</strong>
@@ -779,222 +607,212 @@
               </p>
             -->
 
-        </div>
-          <section class = "intro-summary">
-            <div>
-              <h1>Με μια ματιά...</h1>
-              <p>
-                Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω projects. 
+    <section class = "intro-summary">
+      <div>
+        <h2>Με μια ματιά...</h2>
+        <p>
+          Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω projects. 
 
-              </p>
-              <span class = "cta-button-container">
-                <a class = "cta-button" href="φιλοσοφία.html">ΔΕΣ ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
-              </span>
-            </div>
-          </section>
+        </p>
+        <span class = "cta-button-container">
+          <a class = "cta-button" href="φιλοσοφία.html">ΔΕΣ ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
+        </span>
+      </div>
+    </section>
 
-          <div class = "v-right">
-            <section class="stem-feature-grid">
-              <h1>Χαρακτηριστικά Προγράμματος</h1>
-              <div class="grid-container">
-                <div class="grid-item">
-                  <img src="sand-clock-half-line-icon.svg" alt="calendar icon" />
-                  <h3>Διάρκεια</h3>
-                  <p>9 Μήνες</p>
-                </div>
-
-                <div class="grid-item">
-                  <img src="working-on-office-icon.svg" alt="online icon" />
-                  <h3>Διεξαγωγή</h3>
-                  <p>Online</p>
-                </div>
-
-                <div class="grid-item">
-                  <img src="slow-icon.svg" alt="clock icon" />
-                  <h3>Συχνότητα</h3>
-                  <p>Μια φορά την εβδομάδα για κάθε μάθημα</p>
-                </div>
-
-                <div class="grid-item">
-                  <img src="referral-customer-icon.svg" alt="group icon" />
-                  <h3>Τμήματα</h3>
-                  <p>Μέχρι 20 άτομα</p>
-                </div>
-
-                <div class="grid-item">
-                  <img src="age-icon.svg" alt="age icon" />
-                  <h3>Ηλικίες</h3>
-                  <p>14+ ετών</p>
-                </div>
-
-                <div class="grid-item">
-                  <img src="time-limit-icon.png" alt="duration icon" />
-                  <h3>Διδακτική ώρα</h3>
-                  <p>75 λεπτά</p>
-                </div>
-              </div>
-              <div class="cta-button-container">
-                <a href="Μαθήματα.html" class="cta-button">
-                  Δες Τα Μαθήματα
-                </a>
-              </div>
-
-            </section>
-          </div>
-
-          <div class = "v-left"></div>
-            <section class="stem-feature-grid">
-              <h1>ΠΡΟΣΦΟΡΕΣ</h1>
-              <p>
-                Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
-              </p>
-
-              <div class="grid-container">
-
-                <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
-                  <div>
-                    <h3>Πακέτο Τριών Μαθημάτων</h3>
-                    <img src = "buy-book-icon.svg">
-                    <p class="price">50€ / μήνα</p>
-                  </div>
-                </div>
-
-                <div class="grid-item">
-                  <div class="details">
-                    <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
-                    <img src = "surprise-icon.svg">
-                    <p class="price">60€ / μήνα</p>
-                  </div>
-                </div>
-
-                <div class="grid-item">
-                  <div class="details">
-                    <h3>Οικογενειακό Πακέτο</h3>
-                    <img src = "teamwork-together-icon.svg">
-                    <p>Μία συνδρομή για όλα τα αδέλφια !</p>
-                  </div>
-                </div>
-
-                <div class="grid-item">
-                  <div class="details">
-                    <h3>Δωρεάν Δοκιμή</h3>
-                    <img src = "one-free-icon.svg">
-                    <p>Μια εβδομάδα δωρεάν!</p>
-                  </div>
-                </div>
-
-              </div>
-            </section>
-          </div>
+    <div class = "v-right">
+      <section class="stem-feature-grid">
+        <h2>Χαρακτηριστικά Προγράμματος</h2>
           
+        <div class="grid-container">
+          <div class="grid-item">
+            <img src="sand-clock-half-line-icon.svg" loading="lazy" alt="Εικονίδιο διάρκειας εκπαιδευτικού προγράμματος STEM"/>
+            <h3>Διάρκεια</h3>
+            <p>9 Μήνες</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="working-on-office-icon.svg" loading="lazy" alt="Εικονίδιο εξ'αποστάσεως διδασκαλίας"/>
+            <h3>Διεξαγωγή</h3>
+            <p>Online</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="slow-icon.svg" loading="lazy" alt="Εικονίδιο συχνότητας μαθημάτων"/>
+            <h3>Συχνότητα</h3>
+            <p>Μια φορά την εβδομάδα για κάθε μάθημα</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="referral-customer-icon.svg" loading="lazy" alt="Εικονίδιο μεγέθους τμημάτων"/>
+            <h3>Τμήματα</h3>
+            <p>Μέχρι 20 άτομα</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="age-icon.svg" loading="lazy" alt="Εικονίδιο ηλικίας μαθητών"/>
+            <h3>Ηλικίες</h3>
+             <p>14+ ετών</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="time-limit-icon.png" loading="lazy" alt="Εικονίδιο διδακτικής ώρας"/>
+            <h3>Διδακτική ώρα</h3>
+            <p>75 λεπτά</p>
+          </div>
+              
+        </div>
+          
+        <div class="cta-button-container">
+          <a href="Μαθήματα.html" class="cta-button">
+            Δες Τα Μαθήματα
+          </a>
+        </div>
+
+      </section>
+    </div>
+
+    <div class = "v-left"></div>
+      <section class="stem-feature-grid">
+        <h2>ΠΡΟΣΦΟΡΕΣ</h2>
+        <p>
+          Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
+        </p>
+
+        <div class="grid-container">
+
+          <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
+            <div>
+              <h3>Πακέτο Τριών Μαθημάτων</h3>
+              <img src = "buy-book-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τριών μαθημάτων" loading="lazy">
+              <p class="price">50€ / μήνα</p>
+            </div>
+          </div>
+
+            <div class="grid-item">
+              <div class="details">
+                <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
+                <img src = "surprise-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τεσσάρων μαθημάτων" loading="lazy">
+                <p class="price">60€ / μήνα</p>
+              </div>
+            </div>
+
+            <div class="grid-item">
+              <div class="details">
+                <h3>Οικογενειακό Πακέτο</h3>
+                <img src = "teamwork-together-icon.svg" alt="Εικονίδιο οικογενειακού πακέτου προσφοράς" loading="lazy">
+                <p>Μία συνδρομή για όλα τα αδέλφια !</p>
+              </div>
+            </div>
+
+            <div class="grid-item">
+              <div class="details">
+                <h3>Δωρεάν Δοκιμή</h3>
+                <img src = "one-free-icon.svg" alt="Εικονίδιο δωρεάν πρώτης εβδομάδας" loading="lazy">
+                  <p>Μια εβδομάδα δωρεάν!</p>
+              </div>
+            </div>
 
         </div>
-      </main>
+      </section>
+    </div>
+  </main>
 
-    <footer>
+  <footer>
 
+    <div class = "contact-info">
+
+      <div class = "title">Βρείτε Μας Στα Social !</div>
+      
+      <div class = social>
+        
+        <div class = icon_selection>
+          <img src="LinkedIn_icon.png" alt="Εικονίδιο LinkedIn του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="YouTube_icon.png" alt="Εικονίδιο YouTube του Orion Scholars" loading="lazy" width = 100%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="fb_icon.png" alt="Εικονίδιο Facebook του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="Instagram_icon.png" alt="Εικονίδιο Instagram του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="Threads_icon.png" alt="Εικονίδιο Threads του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+        
+      </div>
+            
       <div>
 
-        <div class = "contact-info">
-          <div class = "title">Βρείτε Μας Στα Social !</div>
-
-            <div class = social>
-              <div class = icon_selection>
-                <img src="LinkedIn_icon.png", width = 60%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="YouTube_icon.png", width = 100%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="fb_icon.png", width = 60%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="Instagram_icon.png", width = 60%>
-              </div>
-
-              <div class = icon_selection>
-                <img src="Threads_icon.png", width = 60%>
-              </div>
-              <div style="margin-top: 2rem; margin-bottom: 2rem;"></div>
-            </div>
-              
-            <div>
-
-              <div class = "email">
-                <h1 style = "color: rgb(0, 247, 255);">email :</h1>
-                <p>orion@scholars.com</p>
-              </div>
-
-              <div class = "phone">
-                <h1 style = "color: rgb(0, 247, 255);">Τηλ. :</h1>
-                <p>69xxxxxxxx</p>
-              </div>
-
-            </div>
-
-          </div>
-
+        <div class = "email">
+          <h3>email :</h3>
+          <p>orion@scholars.com</p>
         </div>
-      
-        <div class = "copyrights">
-          © 2025 Orion Scholars All Rights Reserved
+
+        <div class = "phone">
+          <h3>Τηλ. :</h3>
+          <p>69xxxxxxxx</p>
         </div>
 
       </div>
-      
-        
-    </footer>
+    
+      <div class = "copyrights">© 2025 Orion Scholars All Rights Reserved</div>
+    </div>
+    
+  </footer>
 
-    <script src = "particles.js"></script>
-    <script src = "app.js"></script>
+  <script src = "particles.js"></script>
+  <script src = "app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.querySelector('.navbar');
 
-    <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const navbar = document.querySelector('.navbar');
-
-      menuToggle.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-      });
-    </script>
-
-    <script>
-      window.addEventListener('scroll', () => {
-      const hero = document.querySelector('.hero-content');
-      const bg = document.querySelector('.background-img');
-      const scrollY = window.scrollY;
-      const overlay = document.querySelector('.overlay');
-
-      // Fade + scale + blur
-      hero.style.opacity = 1 - scrollY / 800;
-      hero.style.transform = `scale(${1 - scrollY / 20000}) translateY(${scrollY * 0.5}px)`;
-      hero.style.filter = `blur(${scrollY / 750}px)`;
-
-      // Parallax background
-      bg.style.transform = `translateY(${scrollY * (-0.15)}px)`;
-      overlay.style.transform = `translateY(${scrollY * -0.15}px)`;
-
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
     });
-    </script>
-    <script>
-      gsap.utils.toArray('.stem-feature-grid').forEach(section => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 0,
-        duration: 3,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 95%',
-          toggleActions: 'play reverse play reverse',
-        }
-      });
+  </script>
+
+  <script>
+    window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-content');
+    const bg = document.querySelector('.background-img');
+    const scrollY = window.scrollY;
+    const overlay = document.querySelector('.overlay');
+
+    // Fade + scale + blur
+    hero.style.opacity = 1 - scrollY / 800;
+    hero.style.transform = `scale(${1 - scrollY / 20000}) translateY(${scrollY * 0.5}px)`;
+    hero.style.filter = `blur(${scrollY / 750}px)`;
+
+    // Parallax background
+    bg.style.transform = `translateY(${scrollY * (-0.15)}px)`;
+    overlay.style.transform = `translateY(${scrollY * -0.15}px)`;
+
+  });
+  </script>
+  <script>
+    gsap.utils.toArray('.stem-feature-grid').forEach(section => {
+    gsap.from(section, {
+      opacity: 0,
+      y: 0,
+      duration: 3,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 95%',
+        toggleActions: 'play reverse play reverse',
+      }
     });
+  });
 
     gsap.utils.toArray('.intro-summary').forEach(section => {
       gsap.from(section, {
@@ -1010,6 +828,7 @@
       });
     });
   </script>
+
   <script>
     const links = document.querySelectorAll('nav a');
     const currentPage = window.location.pathname.split('/').pop();
@@ -1022,5 +841,23 @@
     });
   </script>
 
-  </body>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Orion Scholars",
+      "url": "https://orionscholars.gr",
+      "logo": "https://orionscholars.gr/logo.png",
+      "description": "Online μαθήματα STEM για εφήβους – Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική.",
+      "email": "orion@scholars.com",
+      "telephone": "+30 69xxxxxxxx",
+      "availableLanguage": "Greek",
+      "sameAs": [
+        "https://facebook.com/orionscholars",
+        "https://instagram.com/orionscholars",
+        "https://youtube.com/@orionscholars"
+      ]
+    }
+  </script>
+</body>
 </html>
