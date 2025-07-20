@@ -574,7 +574,11 @@
   </footer>
 
     <script src="particles.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="scroll-team.js" defer></script>
+    <script src="team-opac.js" defer></script>
     
     <script>
       const menuToggle = document.getElementById("menu-toggle");
@@ -647,31 +651,7 @@
         retina_detect: true
       });
     </script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
 
-      gsap.from(".team-member", {
-        scrollTrigger: {
-          trigger: ".team-section",
-          start: "top 80%",
-          toggleActions: "play none none none"
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3, // εμφάνιση μία-μία
-        ease: "power2.out"
-      });
-    </script>
-    <script>
-      gsap.from(".team-member", {
-        y: 30,
-        opacity: 0,
-        duration: 5,
-        ease: "power2.out",
-        stagger: 1  // Εμφανίζονται η μία μετά την άλλη
-      });
-    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
