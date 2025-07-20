@@ -48,7 +48,15 @@
         background-repeat: repeat-y;
         position: fixed;
         filter: blur(0.3rem);
+        opacity: 0;
+        animation: about-opac 1s ease-out forwards;
       }
+
+      @keyframes about-opac {
+      to {
+        opacity: 1;
+      }
+    }
 
       .intro-paragraph{
         margin-top: clamp(10rem, 1vw, 20rem);

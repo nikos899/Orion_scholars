@@ -285,8 +285,15 @@
         padding: clamp(1rem, 5vw, 3rem) clamp(1rem, 5vw, 3rem);
         display: flex;
         justify-content: center;
+        background-color: rgb(0, 0, 0);
+        animation: scientists-opac 3s ease-out forwards;
+      }
+
+    @keyframes scientists-opac {
+      to {
         background-color: rgba(0, 0, 0, 0.7);
       }
+    }
 
       .philosophy-container {
         color: white;

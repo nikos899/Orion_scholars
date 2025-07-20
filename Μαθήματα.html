@@ -308,6 +308,7 @@
         margin-top: clamp(1rem, 1vw, 2rem);
         padding: clamp(0.5rem, 1vw, 1.5rem);
         
+        font-family: 'Poppins', sans-serif;
         font-size: clamp(0.75rem, 2vw, 1.8rem);
         color: rgb(221, 221, 221);
         background-color: rgb(9, 9, 9);
@@ -386,7 +387,7 @@
           filter 0.5s ease;
         
         border-radius: inherit;
-        filter: blur(0.8px) brightness(1.1);
+        filter: blur(0.8px);
 
         /* Transition */
         transition-property: opacity, transform, filter;
@@ -402,7 +403,6 @@
     .electronics .program:hover::before {
       opacity: 1;
       transform: scale(1);
-      filter: blur(0px);
 
       /* Κατά το hover αφαιρούμε το delay */
       transition-delay: 0s, 0s, 0s;
@@ -692,15 +692,18 @@
         overflow: hidden;
         border-right: 0.15em solid #ffffff; /* cursor */
         width: 0;
-        animation: typing_software 3s steps(8, end) infinite, blink_software 0.75s step-end infinite;
+         animation: typing_software 5s steps(5, end) infinite, blink_software 0.75s step-end infinite;
       }
 
       @keyframes typing_software {
-        from {
-          width: 0;
+        0% {
+          width: 0ch;
         }
-        to {
-          width: 30ch; /* number of chars */
+        50% {
+          width: 30ch; /* τέλος typing */
+        }
+        100% {
+          width: 30ch; /* pause εδώ */
         }
       }
 
@@ -900,9 +903,8 @@
                 σκέψη, θέτοντας τις βάσεις για την ανάπτυξη καινοτομίας και την καλλιέργεια επιστημονικής νοοτροπίας. Στο σύγχρονο 
                 ψηφιακό και επιστημονικό περιβάλλον, τα Μαθηματικά δεν είναι απλώς χρήσιμα – είναι απολύτως αναγκαία.
               </p>
-              <a href=""></a>
-                <button class = "program" style = "text-decoration: none;">
-                  Ύλη Μαθηματικών
+              <a href="" class = "program" style = "text-decoration: none;">
+                Υλη Μαθηματικών
               </a>
             </div>
 
@@ -926,10 +928,8 @@
                     τεχνολογικών κλάδων και είναι απαραίτητη για τη διαμόρφωση μιας σύγχρονης, ερευνητικής και καινοτόμας νοοτροπίας.
                   </p>
                   
-                  <a href="Υλη Φυσικής.pdf" style = "text-decoration: none;">
-                    <button class = "program">
-                      Υλη Φυσικής
-                    </button>
+                  <a href="Υλη Φυσικής.pdf" class = "program" style = "text-decoration: none;">
+                    Υλη Φυσικής
                   </a>
               </div>
             </div>
@@ -955,10 +955,8 @@
                   τη νέα ψηφιακή εποχή.
                 </p>
                 
-                <a href="Υλη Πληροφορικής.pdf" style = "text-decoration: none;">
-                  <button class = "program">
-                      Ύλη Πληροφορικής
-                  </button>
+                <a href="Υλη Πληροφορικής.pdf" class = "program" style = "text-decoration: none;">
+                    Υλη Πληροφορικής
                 </a>
               </div>
             </div>
@@ -986,11 +984,8 @@
                     οι κονσόλες παιχνιδών κτλπ. αλλά θέτει και απο νωρίς τα θεμέλια για την νοοτροπία του μηχανικού μαθαίνοντας πως
                     αξιοποιεί κανείς τις γνώσεις του απο τις βασικές επιστήμες για να λύσει πραγματικά προβλήματα.
                   </p>
-                  <a href="Υλη Ηλεκτρονικής.pdf" style = "text-decoration: none;">
-                    <button class = "program">
-                    
-                      Ύλη Ηλεκτρονικής
-                    </button>
+                  <a href="Υλη Ηλεκτρονικής.pdf" class = "program" style = "text-decoration: none;">
+                    Υλη Ηλεκτρονικής
                   </a>
               </div>
             </div>
