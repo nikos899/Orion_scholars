@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8">
+    <title>Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους</title>
+    <meta name="description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:image" content="https://orionscholars.gr/preview.jpg" />
+    <meta property="og:title" content="Orion Scholars – Online Μαθήματα STEM για Παιδιά και Εφήβους">
+    <meta property="og:description" content="Online μαθήματα STEM (Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική) για εφήβους με projects, διαδραστικά εργαλεία και προσωπική καθοδήγηση.">
+    <meta property="og:url" content="https://orionscholars.gr">
+
+    <link rel="canonical" href="https://orionscholars.gr/" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+      
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100dvh; /* ή άλλο ύψος */
+        position: relative;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .intro-summary h1{
+        color: rgb(36, 153, 208);
+      }
+
+      .intro-summary p{
+        color: rgb(25, 25, 25);
+      }
+
+      .v-right{
+        position: relative;
+        padding: 3rem 2rem;
+        z-index: 0;
+      }
+
+      .v-right::before {
+        content: "";
+        position: absolute;
+        top: clamp(18rem, 18dvh, 30rem);
+        left: 0;
+        width: 100dvw;
+        height: clamp(25rem, 43dvw, 48rem);
+        background: #58d8ff;
+        transform-origin: top left;
+        transform: skewY(3deg); /* or skewX(-15deg) */
+        z-index: -1; /* push it behind content */
+      }
+
+      .v-left{
+        position: relative;
+        padding: 3rem 2rem;
+        z-index: 0;
+      }
+
+      .v-left::before {
+        content: "";
+        position: absolute;
+        top: clamp(31rem, 35dvh, 50rem);
+        right: 0;
+        width: 100dvw;
+        height: clamp(22rem, 50dvw, 50rem);
+        background:#ff695e;
+        transform-origin: top right;
+        transform: skewY(-3deg); /* or skewX(-15deg) */
+        z-index: -1; /* push it behind content */
+      }
+
+      @media screen and (max-width: 1024px){
+        .navbar {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        .navbar.active {
+          display: block;
+          visibility: visible;
+          opacity: 1;
+          pointer-events: auto;
+          
+          background-image: linear-gradient(black 20%, rgba(255, 255, 255, 0));
+          position: fixed;
+          align-items: center;
+          padding: clamp(0.1rem, 1vw, 1.5rem);
+          width: 100%;
+          z-index: 1001;
+          transition: opacity 0.4s ease;
+          backdrop-filter: blur(0.3rem);
+        }
+
+        .hamburger {
+          display:inline;
+          position: fixed;
+          opacity: 1;
+          transform: translateY(0%);
+          top: 0;
+          margin: 1rem;
+
+          color: #00eeff;
+          font-size: clamp(1.5rem, 1vw, 3.5rem);
+          font-size: clamp(2rem, 1vw, 3rem);
+
+          background: none;
+          border: none;
+
+          pointer-events: auto;
+          cursor: pointer;
+          z-index: 1002;
+        }
+
+        .navbar .logo a {
+          font-family: 'Orbitron', sans-serif;
+          font-size: clamp(1rem, 3vw, 4rem);
+          
+          text-decoration: none;
+          font-weight: 600;
+          color: #00eeff;
+          letter-spacing: 0.03rem;
+          text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
+          padding: 1rem;
+
+          transition: color 0.3s, text-shadow 0.3s;
+          user-select: none;
+        }
+
+        .navbar ul {
+          display: block;
+          margin: auto;
+          list-style: none;
+        }
+
+        .navbar a {
+          display: block;
+          color: rgb(255, 255, 255);
+          background: transparent;
+          padding: clamp(1rem, 1vw, 2rem);
+          
+          font-size: clamp(1rem, 1vw, 2rem);
+          font-family: 'Intern', sans-serif;
+          font-weight: bold;
+          letter-spacing: 0.03rem;
+          text-align: center;
+          
+          text-decoration: underline;
+          text-underline-offset: 1rem;
+          text-decoration-color: transparent;
+          
+          padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+          
+          -webkit-tap-highlight-color: transparent; /* Αφαιρεί το μπλε highlight σε iOS */
+          
+          transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
+        }
+
+        .intro-paragraph{
+          margin: 0 auto;
+          margin-top: calc(50vh - 75px);
+          margin-bottom: 40vh;
+        }
+
+        .v-right{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-right::before {
+          content: "";
+          position: absolute;
+          top: clamp(14rem, 20dvw, 60rem);
+          left: 0;
+          width: 100dvw;
+          height: clamp(25rem, 60dvh, 100rem);
+          background: #58d8ff;
+          transform-origin: top left;
+          transform: skewY(10deg); 
+          z-index: -1; 
+        }
+
+        .v-left{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
+
+        .v-left::before {
+          content: "";
+          position: absolute;
+          top: clamp(31rem, 35dvh, 50rem);
+          right: 0;
+          width: 100dvw;
+          height: clamp(22rem, 50dvw, 50rem);
+          background:#ff695e;
+          transform-origin: top right;
+          transform: skewY(-3deg);
+          z-index: -1; 
+        }
+      }
+      @media (min-width: 589px) and (max-width: 646px) {
+        .v-right{
+            position: relative;
+            padding: 3rem 2rem;
+            z-index: 0;
+          }
+
+        .v-right::before {
+          content: "";
+          position: absolute;
+          top: clamp(20rem, 25vw, 60rem);
+          left: 0;
+          width: 100dvw;
+          height: clamp(25rem, 200dvh, 80rem);
+          background: #58d8ff;
+          transform-origin: top left;
+          transform: skewY(10deg); 
+          z-index: -1; 
+        }
+      }
+      
+      @media screen and (max-width: 588px){
+
+        .v-right{
+            position: relative;
+            padding: 3rem 2rem;
+            z-index: 0;
+          }
+
+          .v-right::before {
+            content: "";
+            position: absolute;
+            top: clamp(20rem, 25vw, 60rem);
+            left: 0;
+            width: 100dvw;
+            height: clamp(25rem, 200dvh, 80rem);
+            background: #58d8ff;
+            transform-origin: top left;
+            transform: skewY(10deg); 
+            z-index: -1; 
+          }
+
+          .v-left{
+            position: relative;
+            padding: 3rem 2rem;
+            z-index: 0;
+          }
+
+          .v-left::before {
+            content: "";
+            position: absolute;
+            top: clamp(31rem, 35dvh, 50rem);
+            right: 0;
+            width: 100dvw;
+            height: clamp(22rem, 200dvh, 50rem);
+            background:#ff695e;
+            transform-origin: top right;
+            transform: skewY(-3deg);
+            z-index: -1; 
+          }
+      }
+  
+      .background-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        background-image: url('intro.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+        will-change: transform, filter;
+        pointer-events: none;
+      }
+        
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100dvh;
+        top: 0;
+        left: 0;
+        z-index: 1; 
+        pointer-events: none;
+      }
+
+      p{
+        text-align: center;
+        margin: clamp(1rem, 3vw, 2rem);
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        font-family: 'Inter', sans-serif;
+        line-height: clamp(1.4rem, 2.2vw, 2.2rem);
+
+        color: rgb(230, 230, 230);
+        background: transparent;
+        transition: color 0.3s, text-shadow 0.3s;
+      }
+
+      h1{
+        color: rgb(36, 153, 208);
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      h2{
+        color: rgb(36, 153, 208);
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      h3{
+        color:  rgb(0, 247, 255);
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(1rem, 1vw, 1.5rem);
+        letter-spacing: 0.03rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .stem-feature-grid {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: 'Poppins', sans-serif;
+        justify-content: space-evenly;  /* Κεντράρει οριζόντια */
+        align-items: center;
+        gap: clamp(1rem, 2vw, 2.5rem);  /* Ωραίο spacing μεταξύ καρτών */
+
+        margin: clamp(2rem, 2vw, 5rem) auto; /* Κεντράρισμα και σωστή απόσταση */
+        padding: clamp(1rem, 5vw, 3rem);
+
+        max-width: 1500px;
+        box-sizing: border-box;
+
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: clamp(2rem, 3vw, 5rem);
+        border: none;
+      }
+
+      .stem-feature-grid p{
+        color: rgb(25, 25, 25);
+      }
+
+      .grid-item p {
+        color: rgb(255, 255, 255);
+        margin: auto;
+        padding: 0.3rem 0.6rem;
+        font-size: clamp(1.5rem, 1vw, 1.5rem);
+        letter-spacing: 0.03rem;
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        box-shadow: none;
+        user-select: none;
+      }
+
+      .stem-feature-grid h1 {
+        font-size: clamp(1.5rem, 5vw, 3rem);
+        text-align: center;
+        margin: clamp(1rem, 3vw, 2rem) 0;
+        color: rgb(36, 153, 208);
+        font-weight: 600;
+        letter-spacing: 0.03rem;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      .stem-feature-grid h2:hover {
+        cursor: default;
+      }
+
+      .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        gap: clamp(0.2rem, 2vw, 2rem);
+        max-width: 80rem;
+        margin: clamp(1rem, 5vw, 5rem);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        flex: 1 1 clamp(220px, 30%, 300px);
+        width: clamp(1rem, 10vw, 21rem);
+        max-width: 25rem;
+        height: clamp(15rem, 18vw, 20rem);
+        
+
+        background-color: rgb(20, 20, 20);
+        border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
+        border-radius: clamp(1.5rem, 1vw, 2rem);
+        padding: clamp(1rem, 1vw, 3rem);
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.2);
+      }
+
+      .grid-item img {
+        width: clamp(3rem, 3vw, 5rem);
+        margin: clamp(1rem, 3vw, 2rem);
+        filter: drop-shadow(0 0 4rem cyan);
+        filter: brightness(0) invert(1);
+      }
+
+      .grid-item h3 {
+        font-size: clamp(1rem, 1vw, 1.5rem);
+        color:   rgb(0, 247, 255);
+        margin: clamp(0.75rem, 1vw, 1rem);
+      }
+
+      .grid-item p {
+        font-size: clamp(1rem, 0.75vw, 1.5rem);
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        letter-spacing: 0.03rem;
+        line-height: clamp(1rem, 1vw, 1.5rem);
+        margin: clamp(0.5rem, 1vw, 3rem);
+      }
+
+      .cta-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: clamp(1rem, 3vw, 2rem);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+      }
+
+      .cta-button {
+        display: block;
+        background: #00ffbb; /* Φωτεινό τιρκουάζ */
+        color: #111; /* Σκούρο για αντίθεση */
+
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(0.8rem, 2vw, 1.8rem);
+        padding: clamp(1rem, 1vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
+        border-radius: 9999px; /* pill shape */
+        
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 0.25rem 0.6rem rgba(0, 255, 187, 0.5);
+        text-decoration: none;
+        
+        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.03rem;
+      }
+
+      .cta-button:hover, 
+      .cta-button:focus {
+        background: #00b386; /* Σκούροτερο τιρκουάζ */
+        color: #fff;
+        box-shadow: 0 6px 15px rgba(0, 179, 134, 0.7);
+        outline: none;
+      }
+
+      /* Add this to your CSS */
+      .intro-paragraph {
+        opacity: 0;
+        animation: fadeInHero 1.5s ease-out forwards;
+        animation-delay: 0.3s;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        will-change: opacity, transform;
+        position: relative;
+        z-index: 1000;
+      }
+
+      @keyframes fadeInHero {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-section{
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        
+      }
+
+      .hero-content {
+        position: relative;
+        text-align: center;
+        transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s;
+      }
+
+      .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(0.5rem);
+        z-index: -1;
+        pointer-events: none;
+      }
+    
+    </style>
+
+  </head>
+
+<body>
+  <div id="particles-js"></div>
+      
+  <header>
+
+    <button id="menu-toggle" class="hamburger">&#9776;</button>
+
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">Orion Scholars</a>
+      </div>
+      <ul>
+        <li><a href="index.html" class="active">Αρχική</a></li>
+        <li><a href="courses.html">Μαθήματα</a></li>
+        <li><a href="philosophy.html">Φιλοσοφία</a></li>
+        <li><a href="about.html">Σχετικά</a></li>
+        <li><a href="faq.html">Συχνές Ερωτήσεις</a></li>
+        <li><a href="contact.html">Επικοινωνία</a></li>
+      </ul>
+    </nav>
+
+  </header>
+      
+  <main>
+    <section class="hero-section">
+      <div class = "overlay"></div>
+      <div class="background-img"></div> 
+          
+      <section class="hero-content">
+        <div class="intro-paragraph">
+              
+          <h1>Μια Νέα Προσέγγιση Στην Εκπαίδευση !</h1>
+
+          <p>
+            Χαρίστε στα παιδιά σας την ευκαιρία να εξερευνήσουν την επιστήμη και την τεχνολογία με ελευθερία και δημιουργικότητα μέσα από online διαλέξεις και προσωπικά projects σε προσιτό κόστος.
+          </p>
+
+          <p>
+            <strong>24 ώρες/μήνα | 60€/μήνα | Μαθηματικά · Φυσική · Πληροφορική · Ηλεκτρονική |</strong>
+          </p>
+              
+          <div class="cta-button-container">
+            <a class="cta-button" href="registration.html">
+              Ξεκίνα Τώρα!
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+    </section>
+            <!--
+              <p>
+                <strong>Τηλ.: 69xxxxxxxx</strong>
+              </p>
+              <p>
+                <strong>email : orion@scholars.com</strong>
+              </p>
+            -->
+
+    <section class = "intro-summary">
+      <div>
+        <h2>Με μια ματιά...</h2>
+        <p>
+          Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω projects. 
+
+        </p>
+        <span class = "cta-button-container">
+          <a class = "cta-button" href="philosophy.html">ΔΕΣ ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</a>
+        </span>
+      </div>
+    </section>
+
+    <div class = "v-right">
+      <section class="stem-feature-grid">
+        <h2>Χαρακτηριστικά Προγράμματος</h2>
+          
+        <div class="grid-container">
+          <div class="grid-item">
+            <img src="sand-clock-half-line-icon.svg" loading="lazy" alt="Εικονίδιο διάρκειας εκπαιδευτικού προγράμματος STEM"/>
+            <h3>Διάρκεια</h3>
+            <p>9 Μήνες</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="working-on-office-icon.svg" loading="lazy" alt="Εικονίδιο εξ'αποστάσεως διδασκαλίας"/>
+            <h3>Διεξαγωγή</h3>
+            <p>Online</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="slow-icon.svg" loading="lazy" alt="Εικονίδιο συχνότητας μαθημάτων"/>
+            <h3>Συχνότητα</h3>
+            <p>Μια φορά την εβδομάδα για κάθε μάθημα</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="referral-customer-icon.svg" loading="lazy" alt="Εικονίδιο μεγέθους τμημάτων"/>
+            <h3>Τμήματα</h3>
+            <p>Μέχρι 20 άτομα</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="age-icon.svg" loading="lazy" alt="Εικονίδιο ηλικίας μαθητών"/>
+            <h3>Ηλικίες</h3>
+             <p>14+ ετών</p>
+          </div>
+
+          <div class="grid-item">
+            <img src="time-limit-icon.png" loading="lazy" alt="Εικονίδιο διδακτικής ώρας"/>
+            <h3>Διδακτική ώρα</h3>
+            <p>75 λεπτά</p>
+          </div>
+              
+        </div>
+          
+        <div class="cta-button-container">
+          <a href="courses.html" class="cta-button">
+            Δες Τα Μαθήματα
+          </a>
+        </div>
+
+      </section>
+    </div>
+
+    <div class = "v-left"></div>
+      <section class="stem-feature-grid">
+        <h2>ΠΡΟΣΦΟΡΕΣ</h2>
+        <p>
+          Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
+        </p>
+
+        <div class="grid-container">
+
+          <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
+            <div>
+              <h3>Πακέτο Τριών Μαθημάτων</h3>
+              <img src = "buy-book-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τριών μαθημάτων" loading="lazy">
+              <p class="price">50€ / μήνα</p>
+            </div>
+          </div>
+
+            <div class="grid-item">
+              <div class="details">
+                <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
+                <img src = "surprise-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τεσσάρων μαθημάτων" loading="lazy">
+                <p class="price">60€ / μήνα</p>
+              </div>
+            </div>
+
+            <div class="grid-item">
+              <div class="details">
+                <h3>Οικογενειακό Πακέτο</h3>
+                <img src = "teamwork-together-icon.svg" alt="Εικονίδιο οικογενειακού πακέτου προσφοράς" loading="lazy">
+                <p>Μία συνδρομή για όλα τα αδέλφια !</p>
+              </div>
+            </div>
+
+            <div class="grid-item">
+              <div class="details">
+                <h3>Δωρεάν Δοκιμή</h3>
+                <img src = "one-free-icon.svg" alt="Εικονίδιο δωρεάν πρώτης εβδομάδας" loading="lazy">
+                  <p>Μια εβδομάδα δωρεάν!</p>
+              </div>
+            </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+
+    <div class = "contact-info">
+
+      <div class = "title">Βρείτε Μας Στα Social !</div>
+      
+      <div class = social>
+        
+        <div class = icon_selection>
+          <img src="LinkedIn_icon.png" alt="Εικονίδιο LinkedIn του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="YouTube_icon.png" alt="Εικονίδιο YouTube του Orion Scholars" loading="lazy" width = 100%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="fb_icon.png" alt="Εικονίδιο Facebook του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="Instagram_icon.png" alt="Εικονίδιο Instagram του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+
+        <div class = icon_selection>
+          <img src="Threads_icon.png" alt="Εικονίδιο Threads του Orion Scholars" loading="lazy" width = 60%>
+        </div>
+        
+      </div>
+            
+      <div>
+
+        <div class = "email">
+          <h3>email :</h3>
+          <p>orion@scholars.com</p>
+        </div>
+
+        <div class = "phone">
+          <h3>Τηλ. :</h3>
+          <p>69xxxxxxxx</p>
+        </div>
+
+      </div>
+    
+      <div class = "copyrights">© 2025 Orion Scholars All Rights Reserved</div>
+    </div>
+    
+  </footer>
+
+  <script src = "particles.js"></script>
+  <script src = "app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.querySelector('.navbar');
+
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
+  </script>
+
+  <script>
+    window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-content');
+    const bg = document.querySelector('.background-img');
+    const scrollY = window.scrollY;
+    const overlay = document.querySelector('.overlay');
+
+    // Fade + scale + blur
+    hero.style.opacity = 1 - scrollY / 800;
+    hero.style.transform = `scale(${1 - scrollY / 20000}) translateY(${scrollY * 0.5}px)`;
+    hero.style.filter = `blur(${scrollY / 750}px)`;
+
+    // Parallax background
+    bg.style.transform = `translateY(${scrollY * (-0.15)}px)`;
+    overlay.style.transform = `translateY(${scrollY * -0.15}px)`;
+
+  });
+  </script>
+  <script>
+    gsap.utils.toArray('.stem-feature-grid').forEach(section => {
+    gsap.from(section, {
+      opacity: 0,
+      y: 0,
+      duration: 3,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 95%',
+        toggleActions: 'play reverse play reverse',
+      }
+    });
+  });
+
+    gsap.utils.toArray('.intro-summary').forEach(section => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 0,
+        duration: 3,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 95%',
+          toggleActions: 'play reverse play reverse',
+        }
+      });
+    });
+  </script>
+
+  <script>
+    const links = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      const linkPage = link.getAttribute('href');
+      if (linkPage === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Orion Scholars",
+      "url": "https://orionscholars.gr",
+      "logo": "https://orionscholars.gr/logo.png",
+      "description": "Online μαθήματα STEM για εφήβους – Μαθηματικά, Φυσική, Πληροφορική, Ηλεκτρονική.",
+      "email": "orion@scholars.com",
+      "telephone": "+30 69xxxxxxxx",
+      "availableLanguage": "Greek",
+      "sameAs": [
+        "https://facebook.com/orionscholars",
+        "https://instagram.com/orionscholars",
+        "https://youtube.com/@orionscholars"
+      ]
+    }
+  </script>
+</body>
+</html>
