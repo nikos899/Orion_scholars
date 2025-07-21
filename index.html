@@ -50,6 +50,7 @@
 
       .intro-summary p{
         color: rgb(25, 25, 25);
+        text-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
       }
 
       .v-right{
@@ -67,6 +68,7 @@
         height: clamp(25rem, 43dvw, 48rem);
         background: #58d8ff;
         transform-origin: top left;
+        box-shadow: 0rem 0.1rem 2rem #22abad;
         transform: skewY(3deg); /* or skewX(-15deg) */
         z-index: -1; /* push it behind content */
       }
@@ -85,6 +87,8 @@
         width: 100dvw;
         height: clamp(22rem, 50dvw, 50rem);
         background:#ff695e;
+        transform-origin: top left;
+        box-shadow: 0rem 0rem 2rem #b91111a6;
         transform-origin: top right;
         transform: skewY(-3deg); /* or skewX(-15deg) */
         z-index: -1; /* push it behind content */
@@ -171,9 +175,7 @@
           text-decoration-color: transparent;
           
           padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
-          
           -webkit-tap-highlight-color: transparent; /* Αφαιρεί το μπλε highlight σε iOS */
-          
           transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
         }
 
@@ -223,10 +225,10 @@
       }
       @media (min-width: 589px) and (max-width: 646px) {
         .v-right{
-            position: relative;
-            padding: 3rem 2rem;
-            z-index: 0;
-          }
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
 
         .v-right::before {
           content: "";
@@ -245,42 +247,42 @@
       @media screen and (max-width: 588px){
 
         .v-right{
-            position: relative;
-            padding: 3rem 2rem;
-            z-index: 0;
-          }
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
 
-          .v-right::before {
-            content: "";
-            position: absolute;
-            top: clamp(20rem, 25vw, 60rem);
-            left: 0;
-            width: 100dvw;
-            height: clamp(25rem, 200dvh, 80rem);
-            background: #58d8ff;
-            transform-origin: top left;
-            transform: skewY(10deg); 
-            z-index: -1; 
-          }
+        .v-right::before {
+          content: "";
+          position: absolute;
+          top: clamp(20rem, 25vw, 60rem);
+          left: 0;
+          width: 100dvw;
+          height: clamp(25rem, 200dvh, 80rem);
+          background: #58d8ff;
+          transform-origin: top left;
+          transform: skewY(10deg); 
+          z-index: -1; 
+        }
 
-          .v-left{
-            position: relative;
-            padding: 3rem 2rem;
-            z-index: 0;
-          }
+        .v-left{
+          position: relative;
+          padding: 3rem 2rem;
+          z-index: 0;
+        }
 
-          .v-left::before {
-            content: "";
-            position: absolute;
-            top: clamp(31rem, 35dvh, 50rem);
-            right: 0;
-            width: 100dvw;
-            height: clamp(22rem, 200dvh, 50rem);
-            background:#ff695e;
-            transform-origin: top right;
-            transform: skewY(-3deg);
-            z-index: -1; 
-          }
+        .v-left::before {
+          content: "";
+          position: absolute;
+          top: clamp(31rem, 35dvh, 50rem);
+          right: 0;
+          width: 100dvw;
+          height: clamp(22rem, 200dvh, 50rem);
+          background:#ff695e;
+          transform-origin: top right;
+          transform: skewY(-3deg);
+          z-index: -1; 
+        }
       }
   
       .background-img {
@@ -288,12 +290,13 @@
         top: 0;
         left: 0;
         width: 100dvw;
-        height: 100dvh;
+        height: 100%;
         background-image: url('intro.jpg');
         background-size: cover;
         background-position: center;
         z-index: -2;
         will-change: transform, filter;
+        box-shadow: 0rem 1rem 3rem rgb(51, 161, 161);
         pointer-events: none;
       }
         
@@ -319,28 +322,18 @@
         transition: color 0.3s, text-shadow 0.3s;
       }
 
-      h1{
+      h1, h2{
         color: rgb(36, 153, 208);
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 3rem);
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-      }
-
-      h2{
-        color: rgb(36, 153, 208);
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.5rem, 4vw, 3rem);
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 0.5rem 1rem rgba(8, 89, 118, 0.4);
       }
 
       h3{
-        color:  rgb(0, 247, 255);
+        color: rgb(0, 247, 255);
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
@@ -370,6 +363,7 @@
 
       .stem-feature-grid p{
         color: rgb(25, 25, 25);
+        text-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
       }
 
       .grid-item p {
@@ -420,13 +414,12 @@
         width: clamp(1rem, 10vw, 21rem);
         max-width: 25rem;
         height: clamp(15rem, 18vw, 20rem);
-        
 
         background-color: rgb(20, 20, 20);
         border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
         border-radius: clamp(1.5rem, 1vw, 2rem);
         padding: clamp(1rem, 1vw, 3rem);
-
+        box-shadow: 0.1rem 0.1rem 1rem #151515;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
@@ -451,7 +444,7 @@
 
       .grid-item h3 {
         font-size: clamp(1rem, 1vw, 1.5rem);
-        color:   rgb(0, 247, 255);
+        color: rgb(74, 112, 139);
         margin: clamp(0.75rem, 1vw, 1rem);
       }
 
@@ -544,6 +537,21 @@
         backdrop-filter: blur(0.5rem);
         z-index: -1;
         pointer-events: none;
+      }
+
+      svg {
+        position: fixed;
+        bottom: 0; left: 0;
+        width: 100vw;
+        height: 200px;
+        pointer-events: none;
+        z-index: 1;
+        filter: url(#blurGlow);
+      }
+      path {
+        fill: #096b4eae;
+        stroke: #00f0ff;
+        stroke-width: 2;
       }
     
     </style>
@@ -774,6 +782,7 @@
   <script src="app.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/flubber@0.4.2/dist/flubber.min.js"></script>
 
   <script>
     const menuToggle = document.getElementById("menu-toggle");
