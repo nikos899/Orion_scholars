@@ -170,16 +170,17 @@
 
         padding: clamp(1rem, 1vw, 2rem);
 
-        background-color: rgba(59, 59, 59, 0.8);
+        background-color: rgba(59, 59, 59, 0.7);
         border-radius: clamp(0.5rem, 1vw, 2rem);
         backdrop-filter: blur(0.5rem);
-        box-shadow: 0 0 20px rgba(38, 38, 38, 0.1);
+        filter: drop-shadow(0rem 0rem 0.2rem rgba(10, 10, 10, 0.9));
         color:white;
         letter-spacing: 0.03rem;
       }
 
       details {
         background-color: rgba(35, 35, 35, 0.5);
+        filter: drop-shadow(0rem 0rem 0.2rem rgba(10, 10, 10, 0.4));
         margin-bottom: clamp(0.5rem, 1vw, 1.25rem);
         padding: clamp(0.5rem, 1vw, 1.25rem);
         border-radius: 12px;
@@ -188,7 +189,7 @@
       }
 
       details[open] {
-        background-color: rgba(18, 18, 18, 0.8);
+        background-color: rgba(18, 18, 18, 0.5);
         border-left-color: #8a2be2;
         text-align: left;
       }
@@ -201,6 +202,7 @@
         cursor: pointer;
         outline: none;
         color: #ffffff;
+        text-shadow: 0rem 0.2rem 0.1rem rgba(0, 18, 22, 0.4);
         font-weight: bold;
       }
 
@@ -217,6 +219,7 @@
 
       .back-button a {
         color: #00f7ff;
+        filter: drop-shadow(0rem 0rem 0.2rem rgba(10, 10, 10, 0.9));
         text-decoration: none;
         font-size: clamp(0.2rem, 1vw, 1.1rem);
         letter-spacing: 0.03rem;
@@ -228,6 +231,7 @@
 
       .faq-container p{
         color:white;
+        text-shadow: 0rem 0.05rem 0.1rem rgba(255, 255, 255, 0.4);
         font-size: clamp(0.5rem, 1vw, 1.25rem);
         line-height: clamp(1rem, 2vw, 2rem);
         letter-spacing: 0.03rem;
@@ -254,7 +258,7 @@
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 3rem);
         letter-spacing: 0.03rem;
-        text-shadow: 0px 0px 0.5rem rgba(0, 255, 187, 0.35);
+        text-shadow: 0rem 0rem 0.1rem rgba(41, 123, 141, 0.5);
         margin-bottom: clamp(2rem, 1vw, 5rem);
       }
 
