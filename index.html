@@ -471,7 +471,7 @@
         justify-content: center;
         align-items: center;
         perspective: 1000px;
-        background-image: linear-gradient(rgba(0, 247, 255, 0.1) 70%, rgba(20, 20, 20, 0) 90%);
+        background-image: linear-gradient(rgba(0, 247, 255, 0.177) 50%, rgba(0, 0, 0, 0) 100%);
         
       }
 
@@ -789,7 +789,7 @@
 </script>
 
 
-  <script>
+<script>
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
 
@@ -808,11 +808,11 @@
   const tintColors = ['rgba(0,255,255,1)'];
   let lastScrollTime = Date.now();
 
-  function drawImageCover(ctx, img, canvas) {
+  function drawImageCover(ctx, img, canvasCSSWidth, canvasCSSHeight) {
     const iw = img.width;
     const ih = img.height;
-    const cw = canvas.width;
-    const ch = canvas.height;
+    const cw = canvasCSSWidth;
+    const ch = canvasCSSHeight;
 
     const ir = iw / ih;
     const cr = cw / ch;
@@ -836,31 +836,45 @@
   }
 
   function updateCanvasResolution() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    const dpr = window.devicePixelRatio || 1;
+
+    const cssWidth = canvas.offsetWidth;
+    const cssHeight = canvas.offsetHeight;
+
+    canvas.width = cssWidth * dpr;
+    canvas.height = cssHeight * dpr;
+
+    canvas.style.width = cssWidth + 'px';
+    canvas.style.height = cssHeight + 'px';
+
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr); // keep logic in CSS pixels
+
+    const w = cssWidth;
+    const h = cssHeight;
 
     if (points.length === 0) {
       const count = 300;
       for (let i = 0; i < count; i++) {
         points.push([
-          Math.random() * canvas.width,
-          Math.random() * canvas.height
+          Math.random() * w,
+          Math.random() * h
         ]);
       }
 
       const delaunay = d3.Delaunay.from(points);
-      voronoi = delaunay.voronoi([0, 0, canvas.width, canvas.height]);
+      voronoi = delaunay.voronoi([0, 0, w, h]);
 
       pieces = points.map((p, i) => ({
         index: i,
-        speed: 0.1 * canvas.height + Math.random() * 1,
+        speed: 0.1 * h + Math.random() * 1,
         rotation: (Math.random() - 0.5) * 0.5,
         tint: tintColors[Math.floor(Math.random() * tintColors.length)],
         edgeAlpha: 0,
         floatPhase: Math.random() * Math.PI * 2
       }));
     } else {
-      voronoi = d3.Delaunay.from(points).voronoi([0, 0, canvas.width, canvas.height]);
+      voronoi = d3.Delaunay.from(points).voronoi([0, 0, w, h]);
     }
 
     draw(true);
@@ -869,7 +883,6 @@
   img.onload = () => {
     updateCanvasResolution();
     animate();
-    console.log("Image loaded successfully and canvas initialized.");
   };
 
   img.onerror = () => {
@@ -881,7 +894,7 @@
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    targetProgress = Math.min(scrollTop / maxScroll, 100);
+    targetProgress = Math.min(scrollTop / maxScroll, 1);
     lastScrollTime = Date.now();
   });
 
@@ -909,9 +922,9 @@
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
-      const dissolveY = Math.max(0, canvas.height * (1 - progress * 1.5));
+      const dissolveY = canvas.offsetHeight * (1 - progress * 1.5);
       const localProgress = Math.min(Math.max(
-        (points[piece.index][1] - dissolveY) / (canvas.height * progress || 1), 0), 1);
+        (points[piece.index][1] - dissolveY) / (canvas.offsetHeight * progress || 1), 0), 1);
 
       const targetAlpha = Math.min(localProgress * 1.5, 1);
       piece.edgeAlpha += (targetAlpha - piece.edgeAlpha) * 0.1;
@@ -922,12 +935,12 @@
   }
 
   function draw(scrollingDown) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
 
-    if (!img.complete || img.naturalWidth === 0) {
-      console.warn("Image not yet loaded or is invalid, skipping draw.");
-      return;
-    }
+    ctx.clearRect(0, 0, w, h);
+
+    if (!img.complete || img.naturalWidth === 0) return;
 
     // Clipping pass
     ctx.save();
@@ -936,7 +949,7 @@
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
-      const dissolveY = canvas.height * (1 - progress);
+      const dissolveY = h * (1 - progress);
       if (points[piece.index][1] < dissolveY) {
         polygon.forEach(([x, y], idx) =>
           idx === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y));
@@ -944,7 +957,7 @@
       }
     });
     ctx.clip();
-    drawImageCover(ctx, img, canvas);
+    drawImageCover(ctx, img, w, h);
     ctx.restore();
 
     // Remove outside cells
@@ -953,7 +966,7 @@
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
-      const dissolveY = canvas.height * (1 - progress);
+      const dissolveY = h * (1 - progress);
       if (points[piece.index][1] >= dissolveY) {
         ctx.beginPath();
         polygon.forEach(([x, y], idx) =>
@@ -972,15 +985,15 @@
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
-      const dissolveY = canvas.height * (1 - progress);
+      const dissolveY = h * (1 - progress);
       const localProgress = Math.min(Math.max(
-        (points[piece.index][1] - dissolveY) / (canvas.height * progress || 1), 0), 1);
+        (points[piece.index][1] - dissolveY) / (h * progress || 1), 0), 1);
 
       if (localProgress <= 0 && piece.edgeAlpha < 0.01) return;
 
-      const floatAmplitude = canvas.height * 0.005;
+      const floatAmplitude = h * 0.005;
       const float = Math.sin((now / 500) + piece.floatPhase) * floatAmplitude * (idleTime / 5);
-      const yOffset = -localProgress * piece.speed * canvas.height * 0.4 * progress + float;
+      const yOffset = -localProgress * piece.speed * h * 0.4 * progress + float;
 
       let scrollRotation = piece.rotation * localProgress * 10;
       if (!scrollingDown) scrollRotation = 0;
@@ -1009,19 +1022,19 @@
       ctx.closePath();
       ctx.clip();
 
-      drawImageCover(ctx, img, canvas);
+      drawImageCover(ctx, img, w, h);
 
       const ea = piece.edgeAlpha;
       ctx.lineJoin = 'miter';
 
       ctx.shadowColor = piece.tint.replace('1)', `${ea})`);
-      ctx.shadowBlur = 0.03 * canvas.height * ea;
-      ctx.lineWidth = 0.002 * canvas.width;
+      ctx.shadowBlur = 0.03 * h * ea;
+      ctx.lineWidth = 0.002 * w;
       ctx.strokeStyle = piece.tint.replace('1)', `${0.7 * ea})`);
       ctx.stroke();
 
       ctx.shadowBlur = 0;
-      ctx.lineWidth = 0.0001 * canvas.width;
+      ctx.lineWidth = 0.0001 * w;
       ctx.strokeStyle = piece.tint.replace('1)', `${ea})`);
       ctx.stroke();
 
