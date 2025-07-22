@@ -38,63 +38,35 @@
         display: flex;
         flex-direction: column;
         min-height: 100dvh; /* ή άλλο ύψος */
-        position: relative;
-        overflow-x: hidden;
+        position: absolute;
         scroll-behavior: smooth;
-        background-color: rgb(255, 255, 255);
+        background-color: #0a0a0a; /* Base dark */
+        background-image:
+          linear-gradient(135deg, rgba(0, 251, 255, 0.2) 1px, transparent 1px),
+          linear-gradient(135deg, rgba(149, 0, 255, 0.2) 1px, transparent 1px),
+          radial-gradient(circle at 50% 50%, rgba(0, 247, 255, 0.05), transparent 70%);
+        background-size:
+          10px 10px, /* Grid density: smaller = denser */
+          3px 3px,   /* Adds micro-glow detail */
+          100% 100%; /* Overlay gradient */
+        color: #00f7ff;
+        font-family: 'Orbitron', sans-serif;
+        overflow-x: hidden;
+      }
+
+      main{
+        flex:1;
       }
 
       .intro-summary h1{
-        color: rgb(36, 153, 208);
+        color: rgb(36, 208, 142);
         filter: drop-shadow(0rem 0rem 0.2rem rgba(10, 10, 10, 0.9));
       }
 
       .intro-summary p{
-        color: rgb(25, 25, 25);
+        color: rgb(255, 255, 255);
         text-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
       }
-
-      .v-right{
-        position: relative;
-        padding: 3rem 2rem;
-        z-index: 0;
-      }
-
-      .v-right::before {
-        content: "";
-        position: absolute;
-        top: clamp(18rem, 18dvh, 30rem);
-        left: 0;
-        width: 100dvw;
-        height: clamp(25rem, 43dvw, 48rem);
-        background: #58d8ff;
-        transform-origin: top left;
-        box-shadow: 0rem 0.1rem 2rem #22abad;
-        transform: skewY(3deg); /* or skewX(-15deg) */
-        z-index: -1; /* push it behind content */
-      }
-
-      .v-left{
-        position: relative;
-        padding: 3rem 2rem;
-        z-index: 0;
-      }
-
-      .v-left::before {
-        content: "";
-        position: absolute;
-        top: clamp(31rem, 35dvh, 50rem);
-        right: 0;
-        width: 100dvw;
-        height: clamp(22rem, 50dvw, 50rem);
-        background:#ff695e;
-        transform-origin: top left;
-        box-shadow: 0rem 0rem 2rem #b91111a6;
-        transform-origin: top right;
-        transform: skewY(-3deg); /* or skewX(-15deg) */
-        z-index: -1; /* push it behind content */
-      }
-
       @media screen and (max-width: 1024px){
         .navbar {
           opacity: 0;
@@ -115,6 +87,7 @@
           width: 100%;
           z-index: 1001;
           transition: opacity 0.4s ease;
+          backdrop-filter: blur(0.3rem);
         }
 
         .hamburger {
@@ -175,115 +148,19 @@
           text-decoration-color: transparent;
           
           padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+          
           -webkit-tap-highlight-color: transparent; /* Αφαιρεί το μπλε highlight σε iOS */
+          
           transition: font-size 0.3s, color 0.3s, background-color 0.3s, text-decoration-color 0.3s;
         }
 
         .intro-paragraph{
-          margin: 0 auto;
-          margin-top: calc(50vh - 75px);
-          margin-bottom: 40vh;
-        }
-
-        .v-right{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
-
-        .v-right::before {
-          content: "";
-          position: absolute;
-          top: clamp(14rem, 20dvw, 60rem);
-          left: 0;
-          width: 100dvw;
-          height: clamp(25rem, 60dvh, 100rem);
-          background: #58d8ff;
-          transform-origin: top left;
-          transform: skewY(10deg); 
-          z-index: -1; 
-        }
-
-        .v-left{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
-
-        .v-left::before {
-          content: "";
-          position: absolute;
-          top: clamp(31rem, 35dvh, 50rem);
-          right: 0;
-          width: 100dvw;
-          height: clamp(22rem, 50dvw, 50rem);
-          background:#ff695e;
-          transform-origin: top right;
-          transform: skewY(-3deg);
-          z-index: -1; 
-        }
-      }
-      @media (min-width: 589px) and (max-width: 646px) {
-        .v-right{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
-
-        .v-right::before {
-          content: "";
-          position: absolute;
-          top: clamp(20rem, 25vw, 60rem);
-          left: 0;
-          width: 100dvw;
-          height: clamp(25rem, 200dvh, 80rem);
-          background: #58d8ff;
-          transform-origin: top left;
-          transform: skewY(10deg); 
-          z-index: -1; 
-        }
+          margin-top: clamp(5rem, 1vw, 30rem);
+          margin-bottom: clamp(5rem, 1vw, 30rem);
+          padding: clamp(0.5rem, 1vw, 1.5rem);
       }
       
-      @media screen and (max-width: 588px){
-
-        .v-right{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
-
-        .v-right::before {
-          content: "";
-          position: absolute;
-          top: clamp(20rem, 25vw, 60rem);
-          left: 0;
-          width: 100dvw;
-          height: clamp(25rem, 200dvh, 80rem);
-          background: #58d8ff;
-          transform-origin: top left;
-          transform: skewY(10deg); 
-          z-index: -1; 
-        }
-
-        .v-left{
-          position: relative;
-          padding: 3rem 2rem;
-          z-index: 0;
-        }
-
-        .v-left::before {
-          content: "";
-          position: absolute;
-          top: clamp(31rem, 35dvh, 50rem);
-          right: 0;
-          width: 100dvw;
-          height: clamp(22rem, 200dvh, 50rem);
-          background:#ff695e;
-          transform-origin: top right;
-          transform: skewY(-3deg);
-          z-index: -1; 
-        }
-      }
+    }
   
       .background-img {
         position: fixed;
@@ -315,39 +192,40 @@
         font-family: 'Inter', sans-serif;
         line-height: clamp(1.4rem, 2.2vw, 2.2rem);
 
-        color: rgb(230, 230, 230);
+        color: rgb(255, 255, 255);
         background: transparent;
         transition: color 0.3s, text-shadow 0.3s;
       }
 
       h1{
-        color: rgb(36, 153, 208);
+        color: #00eeff;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 3rem);
         letter-spacing: 0.03rem;
-        filter: drop-shadow(0rem 0.1rem 0.05rem rgba(0, 255, 145, 0.8));
+        filter: drop-shadow(0rem 0.1rem 0.05rem #00eeff);
       }
 
       h2{
-        color: rgb(36, 153, 208);
+        color: #00c5b8 ;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 3rem);
         letter-spacing: 0.03rem;
-        filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 32, 62, 0.5));
+        text-shadow: 0rem 0rem 1rem #00fff299;
+        filter: drop-shadow(0.1rem 0.1rem 0.1rem rgb(0, 0, 0) );
       }
 
       h3{
-        color: rgb(0, 247, 255);
+        color: #00eeff;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1rem, 1vw, 1.5rem);
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 0 0.3rem #00eeff;
       }
 
       .stem-feature-grid {
@@ -358,20 +236,21 @@
         align-items: center;
         gap: clamp(1rem, 2vw, 2.5rem);  /* Ωραίο spacing μεταξύ καρτών */
 
-        margin: clamp(2rem, 2vw, 5rem) auto; /* Κεντράρισμα και σωστή απόσταση */
-        padding: clamp(1rem, 5vw, 3rem);
+        margin: clamp(2rem, 4vw, 5rem) auto; /* Κεντράρισμα και σωστή απόσταση */
+        margin: clamp(2rem, 4vw, 5rem) auto;
+        margin-top: clamp(5rem, 20vw, 20rem);
 
         max-width: 1500px;
         box-sizing: border-box;
 
         background-color: rgba(0, 0, 0, 0);
         border-radius: clamp(2rem, 3vw, 5rem);
-        border: none;
+        
       }
 
       .stem-feature-grid p{
-        color: rgb(25, 25, 25);
-        text-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
+        color: rgb(255, 255, 255);
+        text-shadow: 0rem 0.5rem 0.5rem rgba(255, 255, 255, 0.15);
       }
 
       .grid-item p {
@@ -384,16 +263,6 @@
         text-align: center;
         box-shadow: none;
         user-select: none;
-      }
-
-      .stem-feature-grid h1 {
-        font-size: clamp(1.5rem, 5vw, 3rem);
-        text-align: center;
-        margin: clamp(1rem, 3vw, 2rem) 0;
-        color: rgb(36, 153, 208);
-        font-weight: 600;
-        letter-spacing: 0.03rem;
-        transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
       .stem-feature-grid h2:hover {
@@ -423,12 +292,23 @@
         max-width: 25rem;
         height: clamp(15rem, 18vw, 20rem);
 
-        background-color: rgb(20, 20, 20);
-        border: clamp(0.02rem, 0.1vw, 0.2rem) solid rgba(91, 255, 225, 0);
+        background-color: rgba(38, 70, 65, 0.1);
         border-radius: clamp(1.5rem, 1vw, 2rem);
         padding: clamp(1rem, 1vw, 3rem);
-        box-shadow: 0.1rem 0.1rem 1rem #151515;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        
+        box-shadow: 
+        0.2rem 0.2rem 0.02rem rgba(140, 0, 255, 0.4), 
+        0.6rem 0.6rem 0.5rem rgba(24, 0, 44, 0.15),
+        0.6rem 0.6rem 1rem rgba(255, 42, 0, 0.15),
+        -0.2rem -0.2rem 0.02rem rgba(15, 224, 182, 0.4),
+        -0.6rem -0.6rem 1rem rgba(17, 0, 255, 0.15),
+        -0.6rem -0.6rem 0.5rem rgba(4, 54, 44, 0.15),
+
+        -0.5rem 0.1rem rgba(11, 11, 11, 0.3);
+        
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        will-change: transform, opacity, box-shadow;
       }
 
       .details{
@@ -439,8 +319,7 @@
       }
 
       .grid-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.2);
+        transform: translateY(-10px);
       }
 
       .grid-item img {
@@ -452,8 +331,8 @@
 
       .grid-item h3 {
         font-size: clamp(1rem, 1vw, 1.5rem);
-        color: rgb(74, 112, 139);
-        text-shadow: 0.05rem 0.05rem 0.03rem rgba(0, 132, 255, 0.5);
+        color: #AAA    ;
+        text-shadow: 0.05rem 0.05rem 0.03rem #AAA    ;
         margin: clamp(0.75rem, 1vw, 1rem);
       }
 
@@ -469,14 +348,14 @@
       .cta-button-container {
         display: flex;
         justify-content: center;
-        margin-top: clamp(1rem, 3vw, 2rem);
-        margin-bottom: clamp(1rem, 3vw, 2rem);
+        margin-top: clamp(1rem, 5vw, 5rem);
+        margin-bottom: clamp(1rem, 5vw, 5rem);
       }
 
       .cta-button {
         display: block;
-        background: #00ffbb; /* Φωτεινό τιρκουάζ */
-        color: #111; /* Σκούρο για αντίθεση */
+        background: #0fe0b6; 
+        color: #111;
 
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
@@ -486,7 +365,7 @@
         
         border: none;
         cursor: pointer;
-        box-shadow: 0 0.25rem 0.6rem rgba(0, 255, 187, 0.5);
+        box-shadow: 0 0.25rem 0.6rem #0099a4;
         text-shadow: 0.1rem 0.1rem 0.05rem rgba(0, 32, 62, 0.2);
         text-decoration: none;
         
@@ -529,7 +408,7 @@
         justify-content: center;
         align-items: center;
         perspective: 1000px;
-        background-image: linear-gradient(rgba(0, 247, 255, 0.3) 70%, white 90%);
+        background-image: linear-gradient(rgba(0, 247, 255, 0.1) 70%, rgba(20, 20, 20, 0) 90%);
         
       }
 
@@ -539,41 +418,17 @@
         transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s;
       }
 
-      .overlay{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      svg {
-        position: fixed;
-        bottom: 0; left: 0;
-        width: 100vw;
-        height: 200px;
-        pointer-events: none;
-        z-index: 1;
-        filter: url(#blurGlow);
-      }
-      path {
-        fill: #096b4eae;
-        stroke: #00f0ff;
-        stroke-width: 2;
-      }
-
       canvas {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-size: cover;
-        background-position: center;
+        width: 100vw;   /* Change to 100% of viewport width */
+        height: 100vh;  /* Change to 100% of viewport height */
+        /* background-size: cover; */ /* No longer needed for canvas content */
+        /* background-position: center; */ /* No longer needed for canvas content */
         background-color:rgba(255, 255, 255, 0);
-      }
+        z-index: -1; /* Keep this if you want it behind other content */
+    }
     
     </style>
 
@@ -602,13 +457,12 @@
       
   <main>
     <section class="hero-section">
-      <div class = "overlay"></div>
       <div class="background-img">
         <div id="particles-js"></div>
         <canvas id="canvas" style="position:absolute; top:0; left:0; z-index:-1;"></canvas>
       </div> 
           
-      <section class="hero-content">
+      <div class="hero-content">
         <div class="intro-paragraph">
               
           <h1>Μια Νέα Προσέγγιση Στην Εκπαίδευση !</h1>
@@ -628,17 +482,9 @@
           </div>
 
         </div>
-      </section>
+      </div>
 
     </section>
-            <!--
-              <p>
-                <strong>Τηλ.: 69xxxxxxxx</strong>
-              </p>
-              <p>
-                <strong>email : orion@scholars.com</strong>
-              </p>
-            -->
 
     <section class = "intro-summary">
       <div>
@@ -653,8 +499,10 @@
       </div>
     </section>
 
-    <div class = "v-right">
-      <section class="stem-feature-grid">
+    
+    <section class="stem-feature-grid">
+      <div>
+
         <h2>Χαρακτηριστικά Προγράμματος</h2>
           
         <div class="grid-container">
@@ -702,53 +550,51 @@
           </a>
         </div>
 
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <div class = "v-left"></div>
-      <section class="stem-feature-grid">
-        <h2>ΠΡΟΣΦΟΡΕΣ</h2>
-        <p>
-          Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
-        </p>
+    <section class="stem-feature-grid">
+      <h2>ΠΡΟΣΦΟΡΕΣ</h2>
+      <p>
+        Κάθε μάθημα μπορεί να επιλεχθεί μεμονωμένα, με το κόστος συμμετοχής ανέρχεται να στα <strong>20€ τον μήνα</strong> για πλήρη πρόσβαση σε όλες τις υπηρεσίες του προγράμματος. Επίσης είναι διαθέσιμες οι εξής προσφορές :
+      </p>
 
-        <div class="grid-container">
+      <div class="grid-container">
 
-          <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
-            <div>
-              <h3>Πακέτο Τριών Μαθημάτων</h3>
-              <img src = "buy-book-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τριών μαθημάτων" loading="lazy">
-              <p class="price">50€ / μήνα</p>
+        <div class="grid-item" style = "width: clamp(15rem, 15vw, 40rem)">
+          <div>
+            <h3>Πακέτο Τριών Μαθημάτων</h3>
+            <img src = "buy-book-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τριών μαθημάτων" loading="lazy">
+            <p class="price">50€ / μήνα</p>
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="details">
+            <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
+            <img src = "surprise-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τεσσάρων μαθημάτων" loading="lazy">
+            <p class="price">60€ / μήνα</p>
+          </div>
+        </div>
+
+          <div class="grid-item">
+            <div class="details">
+              <h3>Οικογενειακό Πακέτο</h3>
+              <img src = "teamwork-together-icon.svg" alt="Εικονίδιο οικογενειακού πακέτου προσφοράς" loading="lazy">
+              <p>Μία συνδρομή για όλα τα αδέλφια !</p>
             </div>
           </div>
 
-            <div class="grid-item">
-              <div class="details">
-                <h3>Πακέτο Τεσσάρων Μαθημάτων</h3>
-                <img src = "surprise-icon.svg" alt="Εικονίδιο πακέτου προσφοράς τεσσάρων μαθημάτων" loading="lazy">
-                <p class="price">60€ / μήνα</p>
-              </div>
+          <div class="grid-item">
+            <div class="details">
+              <h3>Δωρεάν Δοκιμή</h3>
+              <img src = "one-free-icon.svg" alt="Εικονίδιο δωρεάν πρώτης εβδομάδας" loading="lazy">
+                <p>Μια εβδομάδα δωρεάν!</p>
             </div>
+          </div>
 
-            <div class="grid-item">
-              <div class="details">
-                <h3>Οικογενειακό Πακέτο</h3>
-                <img src = "teamwork-together-icon.svg" alt="Εικονίδιο οικογενειακού πακέτου προσφοράς" loading="lazy">
-                <p>Μία συνδρομή για όλα τα αδέλφια !</p>
-              </div>
-            </div>
-
-            <div class="grid-item">
-              <div class="details">
-                <h3>Δωρεάν Δοκιμή</h3>
-                <img src = "one-free-icon.svg" alt="Εικονίδιο δωρεάν πρώτης εβδομάδας" loading="lazy">
-                  <p>Μια εβδομάδα δωρεάν!</p>
-              </div>
-            </div>
-
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -804,7 +650,7 @@
   <script src="app.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/flubber@0.4.2/dist/flubber.min.js"></script>ript>
+  <script src="https://unpkg.com/flubber@0.4.2/dist/flubber.min.js"></script>
   <script src="https://d3js.org/d3-delaunay.v6.min.js"></script>
 
 
@@ -822,53 +668,19 @@
     const hero = document.querySelector('.hero-content');
     const bg = document.querySelector('.background-img');
     const scrollY = window.scrollY;
-    const overlay = document.querySelector('.overlay');
 
     // Fade + scale + blur
-    hero.style.opacity = 1 - scrollY / 800;
-    hero.style.transform = `scale(${1 - scrollY / 20000}) translateY(${scrollY * 0.5}px)`;
-    hero.style.filter = `blur(${scrollY / 750}px)`;
+    hero.style.opacity = Math.max(0, 1 - scrollY / 500);
+    hero.style.transform = `scale(${Math.max(0.8, 1 - scrollY / 20)}) translateY(${scrollY * 0.025}rem)`;
+    hero.style.filter = `blur(${Math.min(scrollY / 750, 5)}px)`;  // max blur 5px
 
     // Parallax background
-    bg.style.transform = `translateY(${scrollY * (-0.15)}px)`;
-    overlay.style.transform = `translateY(${scrollY * -0.15}px)`;
+    bg.style.transform = `translateY(${scrollY * (-0.01)}rem)`;
 
   });
   </script>
+
   <script>
-    gsap.utils.toArray('.stem-feature-grid').forEach(section => {
-    gsap.from(section, {
-      opacity: 0,
-      y: 0,
-      duration: 3,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 95%',
-        toggleActions: 'play reverse play reverse',
-      }
-    });
-  });
-
-    gsap.utils.toArray('.intro-summary').forEach(section => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 0,
-        duration: 3,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 95%',
-          toggleActions: 'play reverse play reverse',
-        }
-      });
-    });
-  </script>
-
-<canvas id="canvas" style="position:absolute; top:0; left:0; z-index:-1;"></canvas>
-
-
-<script>
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
 
@@ -880,49 +692,69 @@
   let pieces = [];
   let voronoi;
 
-  let progress = 0;       
-  let targetProgress = 0; 
+  let progress = 0;
+  let targetProgress = 0;
+  let prevTargetProgress = 0;
 
   const tintColors = ['rgba(0,255,255,1)'];
 
-  img.onload = () => {
-    canvas.width = img.width;
-    canvas.height = img.height;
+  let lastScrollTime = Date.now();
 
-    const count = 150;
-    for (let i = 0; i < count; i++) {
-      points.push([
-        Math.random() * img.width,
-        Math.random() * img.height
-      ]);
+  function updateCanvasResolution() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    if (points.length === 0) {
+      const count = 300;
+      for (let i = 0; i < count; i++) {
+        points.push([
+          Math.random() * canvas.width,
+          Math.random() * canvas.height
+        ]);
+      }
+
+      const delaunay = d3.Delaunay.from(points);
+      voronoi = delaunay.voronoi([0, 0, canvas.width, canvas.height]);
+
+      pieces = points.map((p, i) => ({
+        index: i,
+        speed: 0.1*canvas.height + Math.random() * 1,
+        rotation: (Math.random() - 0.5) * 0.5,
+        tint: tintColors[Math.floor(Math.random() * tintColors.length)],
+        edgeAlpha: 0,
+        floatPhase: Math.random() * Math.PI * 2
+      }));
+    } else {
+      voronoi = d3.Delaunay.from(points).voronoi([0, 0, canvas.width, canvas.height]);
     }
 
-    const delaunay = d3.Delaunay.from(points);
-    voronoi = delaunay.voronoi([0, 0, img.width, img.height]);
+    draw(true);
+  }
 
-    pieces = points.map((p, i) => ({
-      index: i,
-      speed: 2 + Math.random() * 1,
-      rotation: (Math.random() - 0.5) * 0.5,
-      tint: tintColors[Math.floor(Math.random() * tintColors.length)],
-      edgeAlpha: 0 // For smooth opacity animation
-    }));
-
-    draw();
+  img.onload = () => {
+    updateCanvasResolution();
     animate();
+    console.log("Image loaded successfully and canvas initialized.");
   };
+
+  img.onerror = () => {
+    console.error("Failed to load image at: " + img.src);
+  };
+
+  window.addEventListener('resize', updateCanvasResolution);
 
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
-    const maxScroll = 1200;
-    targetProgress = Math.min(scrollTop / maxScroll, 1);
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    targetProgress = Math.min(scrollTop / maxScroll, 100);
+    lastScrollTime = Date.now();
   });
 
   let isVisible = true;
   const observer = new IntersectionObserver(
     ([entry]) => {
       isVisible = entry.isIntersecting;
-      if (isVisible) animate(); // ξαναξεκινά αν μπήκε ξανά
+      if (isVisible) animate();
     },
     { threshold: 0.1 }
   );
@@ -935,44 +767,48 @@
     const lerpFactor = 0.1;
     progress += (targetProgress - progress) * lerpFactor;
 
+    const scrollingDown = targetProgress >= prevTargetProgress;
+    prevTargetProgress = targetProgress;
+
     pieces.forEach(piece => {
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
+      const dissolveY = Math.max(0, canvas.height * (1 - progress * 1.5));
       const localProgress = Math.min(Math.max(
-        (points[piece.index][1] - canvas.height * (1 - progress)) /
-        (canvas.height * progress || 1), 0), 1);
+        (points[piece.index][1] - dissolveY) / (canvas.height * progress || 1), 0), 1);
 
       const targetAlpha = Math.min(localProgress * 1.5, 1);
       piece.edgeAlpha += (targetAlpha - piece.edgeAlpha) * 0.1;
     });
 
-    draw();
+    draw(scrollingDown);
     requestAnimationFrame(animate);
   }
 
-  function draw() {
+  function draw(scrollingDown) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Ζωγράφισε ΜΟΝΟ τα static μέρη
+    if (!img.complete || img.naturalWidth === 0) {
+      console.warn("Image not yet loaded or is invalid, skipping draw.");
+      return;
+    }
+
     ctx.save();
     ctx.beginPath();
     pieces.forEach(piece => {
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
-      const localProgress = Math.min(Math.max(
-        (points[piece.index][1] - canvas.height * (1 - progress)) /
-        (canvas.height * progress || 1), 0), 1);
-
-      if (localProgress <= 0) {
+      const dissolveY = canvas.height * (1 - progress);
+      if (points[piece.index][1] < dissolveY) {
         polygon.forEach(([x, y], idx) =>
           idx === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y));
         ctx.closePath();
       }
     });
     ctx.clip();
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     ctx.restore();
 
     ctx.globalCompositeOperation = 'destination-out';
@@ -992,18 +828,42 @@
 
     ctx.globalCompositeOperation = 'source-over';
 
+    const now = Date.now();
+    const idleTime = Math.min((now - lastScrollTime) / 1000, 5);
+
     pieces.forEach(piece => {
       const polygon = voronoi.cellPolygon(piece.index);
       if (!polygon) return;
 
+      const dissolveY = canvas.height * (1 - progress);
       const localProgress = Math.min(Math.max(
-        (points[piece.index][1] - canvas.height * (1 - progress)) /
-        (canvas.height * progress || 1), 0), 1);
+        (points[piece.index][1] - dissolveY) / (canvas.height * progress || 1), 0), 1);
 
       if (localProgress <= 0 && piece.edgeAlpha < 0.01) return;
 
-      const yOffset = -localProgress * piece.speed * 100;
-      const rotation = piece.rotation * localProgress * 10;
+      const floatAmplitude = canvas.height * 0.005;  // 1% of canvas height
+      const float = Math.sin((now / 500) + piece.floatPhase) * floatAmplitude * (idleTime / 5);
+
+      // yOffset scales with canvas height and progress
+      const yOffset = -localProgress * piece.speed * canvas.height * 0.4 * progress + float;
+
+      // Rotation logic with full stop of rotation when scrolling UP
+      let scrollRotation = piece.rotation * localProgress * 10;
+      if (!scrollingDown) {
+        scrollRotation = 0; // Stop scroll-induced rotation when scrolling up
+      }
+
+      // Time-based subtle rotation (mod 2π)
+      let idleRotationRaw = Math.sin((now / 3000) + piece.floatPhase) * 0.1 * (idleTime / 5);
+      // Normalize idleRotationRaw to 0-2π range (mod 2π)
+      const twoPi = Math.PI * 2;
+      idleRotationRaw = ((idleRotationRaw % twoPi) + twoPi) % twoPi;
+
+      // Apply inverse idle rotation when scrolling up to cancel it smoothly
+      const idleRotation = scrollingDown ? idleRotationRaw : 0;
+
+      const rotation = scrollRotation + idleRotation;
+
       const alpha = 1 - localProgress / 20;
 
       ctx.save();
@@ -1016,27 +876,25 @@
       ctx.rotate(rotation);
       ctx.translate(-center[0], -center[1]);
 
-      // Clip to polygon shape
       ctx.beginPath();
       polygon.forEach(([x, y], idx) =>
         idx === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y));
       ctx.closePath();
       ctx.clip();
 
-      ctx.drawImage(img, 0, 0);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // Smoothly animated edge alpha
       const ea = piece.edgeAlpha;
+      ctx.lineJoin = 'miter';
 
-      ctx.shadowColor = `rgba(255, 255, 255, ${0.8 * ea})`;
-      ctx.shadowBlur = 0.1 * ea;
-
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = `rgba(255,255,255,${0.2 * ea})`;
+      ctx.shadowColor = piece.tint.replace('1)', `${ea})`);
+      ctx.shadowBlur = 0.03 * canvas.height * ea; // scale shadowBlur with canvas height
+      ctx.lineWidth = 0.002 * canvas.width;  // stroke width relative to canvas width
+      ctx.strokeStyle = piece.tint.replace('1)', `${0.7 * ea})`);
       ctx.stroke();
 
-      ctx.shadowBlur = 1;
-      ctx.lineWidth = 2;
+      ctx.shadowBlur = 0;
+      ctx.lineWidth = 0.0001 * canvas.width;
       ctx.strokeStyle = piece.tint.replace('1)', `${ea})`);
       ctx.stroke();
 
@@ -1044,18 +902,6 @@
     });
   }
 </script>
-
-  <script>
-    const links = document.querySelectorAll('nav a');
-    const currentPage = window.location.pathname.split('/').pop();
-
-    links.forEach(link => {
-      const linkPage = link.getAttribute('href');
-      if (linkPage === currentPage) {
-        link.classList.add('active');
-      }
-    });
-  </script>
 
   <script type="application/ld+json">
     {
