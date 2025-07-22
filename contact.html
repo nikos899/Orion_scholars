@@ -273,6 +273,19 @@
         left: 0;
       }
 
+      .fade-in {
+        opacity: 0;
+        transform: translateY(2rem);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        transition-delay: var(--delay, 0s);
+        will-change: opacity, transform;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     </style>
   </head>
   <body>
@@ -298,7 +311,7 @@
 
     </header>
     <main>
-      <div class="contact-container">
+      <div class="contact-container fade-in">
         <h1 style ="margin-bottom: clamp(1rem, 1vw, 2rem);">Επικοινωνία</h1>
         <form action="mailto:orion@scholars.com" method="post" enctype="text/plain">
           <input type="text" name="name" placeholder="Ονοματεπώνυμο" required>
@@ -375,6 +388,39 @@
     </script>
     <script src = "particles.js"></script>
     <script src = "app.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+      const delayInt = 0.1;
+
+      const reveal = (el) => {
+        el.classList.remove("visible");
+        void el.offsetWidth; // Trigger reflow για transition
+        requestAnimationFrame(() => {
+          el.classList.add("visible");
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const target = entry.target;
+          if (entry.isIntersecting) {
+            reveal(target);
+          } else {
+            target.classList.remove("visible");
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Παρακολούθηση fade-in
+      const fadeIns = document.querySelectorAll(".fade-in");
+      fadeIns.forEach((el, index) => {
+        el.style.setProperty('--delay', `${index * 0.1}s`);
+        observer.observe(el);
+      });
+      });
+    </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
