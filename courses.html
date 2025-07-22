@@ -68,7 +68,6 @@
       z-index: 1;
       padding: 2%;
       backdrop-filter: blur(0.04rem) saturate(105%);
-      -webkit-backdrop-filter: blur(0.04rem) saturate(105%);
       border: 1px solid rgba(0, 255, 255, 0.1);
       box-shadow: 0 0 0.625rem rgba(0,255,255,0.1);
       overflow: hidden;
@@ -187,41 +186,29 @@
       
     }
 
-      .μαθήματα{
-          background-color: rgba(128, 128, 128, 0.236);
-        }
+    p{
+      text-align: center;
+      margin: clamp(1rem, 3vw, 2rem);
+      font-size: clamp(1rem, 1vw, 2rem);
+      font-family: 'Inter', sans-serif;
+      line-height: clamp(1.6rem, 2.25vw, 4rem);
 
-      .πρόγραμμα{
-        display: flex;
-        justify-content: space-evenly;
-        font-family: "Inter", sans-serif;
-        color: white;
-        font-size: 24px;
-      }
+      color: rgb(237, 237, 237);
+      background: transparent;
+      text-shadow:0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+      transition: color 0.3s, text-shadow 0.3s;
+    }
 
-      p{
-        text-align: center;
-        margin: clamp(1rem, 3vw, 2rem);
-        font-size: clamp(1rem, 1vw, 2rem);
-        font-family: 'Inter', sans-serif;
-        line-height: clamp(1.6rem, 2.25vw, 4rem);
-
-        color: rgb(237, 237, 237);
-        background: transparent;
-        text-shadow:0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
-        transition: color 0.3s, text-shadow 0.3s;
-      }
-
-      h1, h2, h3{
-        color: rgb(0, 247, 255);
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.5rem, 4vw, 3rem);
-        
-        letter-spacing: 0.03rem;
-        text-shadow: 0rem 0.5rem 0.5rem rgba(0, 255, 187, 0.1);
-      }
+    h1, h2, h3{
+      color: rgb(0, 247, 255);
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      
+      letter-spacing: 0.03rem;
+      text-shadow: 0rem 0.5rem 0.5rem rgba(0, 255, 187, 0.1);
+    }
 
       .math .program, .physics .program, .computer_science .program, .electronics .program {
         position: relative;
@@ -331,7 +318,6 @@
       opacity: 1;
       transform: scale(1);
 
-      /* Κατά το hover αφαιρούμε το delay */
       transition-delay: 0s, 0s, 0s;
     }
 
@@ -655,6 +641,23 @@
         pointer-events: none;
         opacity: 0.2;
       }
+
+      .lesson-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        will-change: opacity, transform;
+      }
+
+      .lesson-card.visible {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+      }
+
+      .lesson-card:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+      }
     
     </style>
   </head>
@@ -691,7 +694,7 @@
     </div>
     
     <div class="lessons-wrapper">
-      <div class = "math">
+      <div class = "math lesson-card">
         <div class = "math-svg">
           <svg class="curve" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <defs>
@@ -736,7 +739,7 @@
         </div>
 
         <div>
-          <div class = "physics">
+          <div class = "physics lesson-card">
             <div id = "atom" class="scale-wrapper">
               <img src="atom-laboratory-science-icon.svg" class="physics-img" loading ="lazy" alt="Εικονίδιο ατόμου σε κίνηση" />
             </div>
@@ -762,7 +765,7 @@
         </div>
 
         <div>
-          <div class = "computer_science">
+          <div class = "computer_science lesson-card">
             <div class="code-typing-software">std::cout << "Hello Parents!";</div>
             <img src = "cmd-terminal-icon.svg" loading="lazy" alt="Εικονίδιο κονσόλας πληροφορικής">
             <h2>Πληροφορική</h2>
@@ -789,7 +792,7 @@
         </div>
 
         <div>
-          <div class = "electronics">
+          <div class = "electronics lesson-card">
               <div class="chip-container">
               <img src="processor-icon.svg" loading="lazy" alt="Εικονίδιο ολοκληρωμένου κυκλώματος"/>
               <div class="chip-traces">
@@ -880,6 +883,45 @@
     });
   </script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.lesson-card');
+
+    const reveal = (el) => {
+      requestAnimationFrame(() => {
+        el.classList.add('visible');
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            reveal(entry.target);
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      }
+    );
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (inView) {
+        reveal(card); // άμεση εμφάνιση
+      }
+
+      observer.observe(card);
+    });
+  });
+  </script>
   
   <script>
     const atom = document.getElementById('atom');
@@ -907,66 +949,68 @@
 
     atom.style.opacity = opac;
 
-  }, 100);
+    }, 100);
   </script>
-  <script>
-      const canvas = document.getElementById("mist-canvas");
-      const ctx = canvas.getContext("2d");
 
+  <script>
+    const canvas = document.getElementById("mist-canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+    });
 
-      window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    const blobs = [];
+    const blobCount = 20;
+
+    for (let i = 0; i < blobCount; i++) {
+      blobs.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: 10 + Math.random() * 100,
+        dx: (Math.random() - 0.5) * 5,
+        dy: (Math.random() - 0.5) * 5,
+        opacity: Math.random() * 0.1
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      blobs.forEach(blob => {
+        ctx.beginPath();
+        const gradient = ctx.createRadialGradient(blob.x, blob.y, blob.r * 0.2, blob.x, blob.y, blob.r);
+        // Αρχικό χρώμα πιο ανοιχτό πράσινο με διαφάνεια:
+        gradient.addColorStop(0, `rgba(144, 238, 144, ${blob.opacity})`); // light green (LightGreen)
+        // Τελικό χρώμα διαφανές πράσινο:
+        gradient.addColorStop(1, "rgba(144, 238, 144, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.arc(blob.x, blob.y, blob.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // update position
+        blob.x += blob.dx;
+        blob.y += blob.dy;
+
+        // wrap around screen
+        if (blob.x - blob.r > canvas.width) blob.x = -blob.r;
+        if (blob.x + blob.r < 0) blob.x = canvas.width + blob.r;
+        if (blob.y - blob.r > canvas.height) blob.y = -blob.r;
+        if (blob.y + blob.r < 0) blob.y = canvas.height + blob.r;
       });
 
-      const blobs = [];
-      const blobCount = 20;
+      requestAnimationFrame(draw);
+    }
 
-      for (let i = 0; i < blobCount; i++) {
-        blobs.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: 10 + Math.random() * 100,
-          dx: (Math.random() - 0.5) * 5,
-          dy: (Math.random() - 0.5) * 5,
-          opacity: Math.random() * 0.1
-        });
-      }
+    draw();
+  </script>
 
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        blobs.forEach(blob => {
-          ctx.beginPath();
-          const gradient = ctx.createRadialGradient(blob.x, blob.y, blob.r * 0.2, blob.x, blob.y, blob.r);
-          // Αρχικό χρώμα πιο ανοιχτό πράσινο με διαφάνεια:
-          gradient.addColorStop(0, `rgba(144, 238, 144, ${blob.opacity})`); // light green (LightGreen)
-          // Τελικό χρώμα διαφανές πράσινο:
-          gradient.addColorStop(1, "rgba(144, 238, 144, 0)");
-
-          ctx.fillStyle = gradient;
-          ctx.arc(blob.x, blob.y, blob.r, 0, Math.PI * 2);
-          ctx.fill();
-
-          // update position
-          blob.x += blob.dx;
-          blob.y += blob.dy;
-
-          // wrap around screen
-          if (blob.x - blob.r > canvas.width) blob.x = -blob.r;
-          if (blob.x + blob.r < 0) blob.x = canvas.width + blob.r;
-          if (blob.y - blob.r > canvas.height) blob.y = -blob.r;
-          if (blob.y + blob.r < 0) blob.y = canvas.height + blob.r;
-        });
-
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-    </script>
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
