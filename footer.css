@@ -1,28 +1,30 @@
 footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 
-        font-family: 'Inter', sans-serif;
-        font-size: clamp(0.7rem, 1vw, 1rem);
-        text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    text-align: center;
 
-        padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
+    padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 5vw, 3rem);
+    background: linear-gradient(to top, rgba(15, 15, 15, 0.85), rgb(10, 10, 10));
+    backdrop-filter: blur(0.5rem);
+    color: #e8e8e8;
 
-        background-color: #1a1a1a;
-        color: #e6e6e6;
+    border-top: 1px solid #00ffff ;
+    box-shadow: 0 -4px 25px #0079792f ;
+    transition:
+      background 0.4s ease,
+      color 0.3s ease,
+      box-shadow 0.4s ease;
 
-        border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
-        box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
-        transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        z-index: 0;
-      }
-
+    z-index: 1;
+}
       footer:hover {
-        background-color: #222;
         color: #fff;
-        box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
+        box-shadow: 0 -3px 30px #00797941;
       }
       
       .contact-info {
@@ -30,15 +32,15 @@ footer {
         font-family: 'Inter', sans-serif;
         font-weight: 1000;
         font-size: clamp(1rem, 5vw, 2.5rem);
-        color: rgb(0, 247, 255);
+        color: #00f7ff;
         letter-spacing: 0.03rem;
-        text-shadow: 0 0 5px rgba(77,249,255,0.6);
-        padding-top: clamp(0.5rem, 1vw, 1.5rem);
+        text-shadow: 0 0 5px #007074;
+        padding-top: clamp(1rem, 1vw, 1.5rem);
         transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
       .contact-info .title {
-        font-size: clamp(0.9rem, 3vw, 2rem);
+        font-size: clamp(1.2rem, 2.5vw, 2.5rem);
       }
 
       .email, .phone {
@@ -46,11 +48,11 @@ footer {
         align-items: center;
         justify-content: center;
         font-weight: bold;
-        margin-bottom: clamp(1rem, 3vw, 2rem);
+        margin: 0.5rem;
       }
 
       .contact-info .email h3, .contact-info .phone h3 {
-        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        font-size: clamp(0.6rem, 0.75vw, 1.25rem);
         margin: 0;
         padding-right: clamp(0.1rem, 1vw, 1.5rem);
         font-family: 'Poppins', sans-serif;
@@ -58,7 +60,7 @@ footer {
       }
 
       .contact-info .phone p, .contact-info .email p {
-        font-size: clamp(0.8rem, 1vw, 1.25rem);
+        font-size: clamp(0.5rem, 0.75vw, 1.25rem);
         font-weight: normal;
         margin: 0;
       }
@@ -68,7 +70,6 @@ footer {
         align-items: center;
         justify-content: center;
         margin-top: clamp(1rem, 3vw, 2rem);
-        margin-bottom: clamp(1rem, 3vw, 2rem);
         height: clamp(2rem, 5vw, 5rem);
         transition: transform 0.3s ease;
       }
@@ -90,7 +91,7 @@ footer {
       }
 
       .copyrights {
-        font-size: clamp(0.7rem, 1vw, 1rem);
+        font-size: clamp(0.5rem, 1vw, 0.75rem);
         color: rgb(255, 255, 255);
         letter-spacing: 0.03rem;
         text-align: center;

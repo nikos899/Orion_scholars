@@ -33,19 +33,24 @@
 
       .navbar .logo a {
         font-family: 'Orbitron', sans-serif;
-        font-size: clamp(1rem, 3vw, 4rem);
-        
+        font-size: clamp(1.2rem, 3vw, 4rem);
         text-decoration: none;
-        font-weight: 600;
-        color: #00eeff;
-        letter-spacing: 0.03rem;
-        text-shadow: 0 0 0.5rem #00eeff, 0 0 2rem #00a9b5;
-        transition: color 0.3s, text-shadow 0.3s;
+        font-weight: 700;
+        color: #27eafc; /* Bold cyan */
+
+        text-shadow:
+          0 0 0.75rem rgba(0, 255, 238, 0.4),
+          0 0 1.5rem rgba(10, 255, 247, 0.6);
+
+        letter-spacing: 0.02rem;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
       .navbar .logo a:hover {
-        color: #50f3ff;
-        text-shadow: 0 0 1rem #1ff0ff, 0 0 2rem #1dffd5;
+        color: #2aedff;
+        text-shadow:
+          0 0 0.9rem rgba(0, 255, 255, 0.45),
+          0 0 1.75rem rgba(0, 180, 255, 0.7);
         transform: scale(1.02);
       }
 
