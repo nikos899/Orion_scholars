@@ -524,6 +524,52 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      .scroll-indicator {
+        position: fixed;
+        bottom: clamp(1rem, 3vw, 2rem);
+        right: clamp(1rem, 3vw, 2rem);
+        width: clamp(50px, 5vw, 70px);
+        height: clamp(50px, 5vw, 70px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .scroll-indicator svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+      }
+
+      .scroll-indicator .track {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.05);
+        stroke-width: 4;
+      }
+
+      .scroll-indicator .progress {
+        fill: none;
+        stroke: #00ffe0;
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-dasharray: 163.36;
+        stroke-dashoffset: 163.36;
+        filter: drop-shadow(0 0 6px #00ffe0);
+        transition: stroke-dashoffset 0.2s ease;
+      }
+
+      .scroll-percent {
+        color: white;
+        font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+        font-weight: 600;
+        text-shadow: 0 0 5px #00ffe0;
+        user-select: none;
+        pointer-events: none;
+      }
     
     </style>
 
@@ -580,12 +626,21 @@
       </div>
 
     </section>
+    <div class="scroll-indicator">
+      <svg viewBox="0 0 60 60">
+        <circle class="track" cx="30" cy="30" r="26"></circle>
+        <circle class="progress" cx="30" cy="30" r="26"></circle>
+      </svg>
+      <div class="scroll-percent" id="scroll-percent">0%</div>
+    </div>
+
 
     <section class = "intro-summary fade-in">
       <div>
         <h2>Με μια ματιά...</h2>
         <p>
-          Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω ατομικών και ομαδικών projects. 
+          Το Orion Scholars είναι ένα εξωσχολικό STEM εκπαιδευτικό πρόγραμμα που στοχεύει στην ενίσχυση της περιέργειας, της κριτικής σκέψης και της δημιουργικότητας των μαθητών μέσω online διαλέξεων και εργαστηρίων σε τομείς όπως τα <strong>Μαθηματικά</strong>, η <strong>Φυσική</strong>, η <strong>Πληροφορική</strong> και η <strong>Ηλεκτρονική</strong>. Η μέθοδος διδασκαλίας ενσωματώνει τη μαιευτική προσέγγιση, χρησιμοποιεί οπτικά και διαδραστικά εργαλεία, και προάγει τη σύνδεση θεωρίας και πράξης μέσω ατομικών και ομαδικών projects. Περισσότερο από ένα πρόγραμμα, το Orion Scholars είναι ένας χώρος πνευματικής ανάπτυξης: <strong>ένα μικρό οικοσύστημα για παιδιά που διψούν να μάθουν, να σκεφτούν, να δημιουργήσουν και να συνδεθούν με άλλους που σκέφτονται σαν κι αυτά.</strong>
+
 
         </p>
         <span class="fade-in">
@@ -626,7 +681,7 @@
           <div class="grid-item">
             <img src="referral-customer-icon.svg" loading="lazy" alt="Εικονίδιο μεγέθους τμημάτων"/>
             <h3>Τμήματα</h3>
-            <p>Μέχρι 20 άτομα</p>
+            <p>Μέχρι 10 άτομα</p>
           </div>
 
           <div class="grid-item">
@@ -638,7 +693,7 @@
           <div class="grid-item">
             <img src="time-limit-icon.png" loading="lazy" alt="Εικονίδιο διδακτικής ώρας"/>
             <h3>Διδακτική ώρα</h3>
-            <p>75 λεπτά</p>
+            <p>90 λεπτά</p>
           </div>
               
         </div>
@@ -776,6 +831,22 @@
     bg.style.transform = `translateY(${scrollY * (-0.01)}rem)`;
 
   });
+  </script>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollTop / docHeight;
+      const strokeLength = 2 * Math.PI * 26;
+      const offset = strokeLength - (progress * strokeLength);
+
+      const circle = document.querySelector('.progress');
+      const percent = document.getElementById('scroll-percent');
+
+      circle.style.strokeDashoffset = offset;
+      percent.textContent = `${Math.round(progress * 100)}%`;
+    });
   </script>
 
   <script>

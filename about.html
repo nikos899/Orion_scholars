@@ -393,6 +393,52 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .scroll-indicator {
+      position: fixed;
+      bottom: clamp(1rem, 3vw, 2rem);
+      right: clamp(1rem, 3vw, 2rem);
+      width: clamp(50px, 5vw, 70px);
+      height: clamp(50px, 5vw, 70px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .scroll-indicator svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .scroll-indicator .track {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.05);
+      stroke-width: 4;
+    }
+
+    .scroll-indicator .progress {
+      fill: none;
+      stroke: #00ffe0;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 163.36;
+      stroke-dashoffset: 163.36;
+      filter: drop-shadow(0 0 6px #00ffe0);
+      transition: stroke-dashoffset 0.2s ease;
+    }
+
+    .scroll-percent {
+      color: white;
+      font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+      font-weight: 600;
+      text-shadow: 0 0 5px #00ffe0;
+      user-select: none;
+      pointer-events: none;
+    }
     
   </style>
 </head>
@@ -417,14 +463,33 @@
         <li><a href="contact.html">Επικοινωνία</a></li>
       </ul>
     </nav>
+
+    <div class="scroll-indicator">
+      <svg viewBox="0 0 60 60">
+        <circle class="track" cx="30" cy="30" r="26"></circle>
+        <circle class="progress" cx="30" cy="30" r="26"></circle>
+      </svg>
+      <div class="scroll-percent" id="scroll-percent">0%</div>
+    </div>
+
   </header>
   
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 60 60">
+      <circle class="track" cx="30" cy="30" r="26"></circle>
+      <circle class="progress" cx="30" cy="30" r="26"></circle>
+    </svg>
+    <div class="scroll-percent" id="scroll-percent">0%</div>
+  </div>
+  
   <main>
+
     <canvas id="mist-canvas"></canvas>
-    <div class = "intro-paragraph">
-      <h1 class ="fade-in">Η Ομάδα Μας</h1>
-      <p class ="fade-in">
-        Αποτελείται απο παθιασμένους ανθρώπους με αγάπη για την μάθηση<strong>,</strong> την επιστήμη και ιδιαίτερα μάλιστα για την μετάδοση της γνώσης προς τις νεότερες γενιές<strong>.</strong> Ακριβώς επειδή πιστεύουμε ακράδαντα πως οι νεότερες γενιές αποτελούν πάντα το κλειδί για ένα καλύτερο αύριο<strong>,</strong> πήραμε την απόφαση να δημιουργήσουμε το παρών πρόγραμμα καθώς αναγνωρίσαμε το πόσα θα κερδίζαμε και πόσο θα θέλαμε να υπήρχε όταν ήμασταν και οι ίδιοι ακόμα μαθητές<strong>.</strong> Οι φιλοδοξίες μας είναι υψηλές.
+
+    <div class = "intro-paragraph fade-in">
+      <h1>Η Ομάδα Μας</h1>
+      <p>
+        Αποτελείται απο παθιασμένους ανθρώπους με αγάπη για την μάθηση<strong>,</strong> την επιστήμη και ιδιαίτερα μάλιστα για την μετάδοση της γνώσης προς τις νεότερες γενιές<strong>.</strong> Ακριβώς επειδή πιστεύουμε ακράδαντα πως οι νεότερες γενιές αποτελούν πάντα το κλειδί για ένα καλύτερο αύριο<strong>,</strong> πήραμε την απόφαση να δημιουργήσουμε το παρών πρόγραμμα καθώς αναγνωρίσαμε το πόσα θα κερδίζαμε και πόσο θα θέλαμε να υπήρχε όταν ήμασταν και οι ίδιοι ακόμα μαθητές<strong>.</strong>
       </p>
     </div>
 
@@ -605,6 +670,23 @@
 
       menuToggle.addEventListener("click", () => {
         navbar.classList.toggle("active");
+      });
+    </script>
+
+    <script>
+      window.addEventListener('scroll', () => 
+      {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollTop / docHeight;
+        const strokeLength = 2 * Math.PI * 26;
+        const offset = strokeLength - (progress * strokeLength);
+
+        const circle = document.querySelector('.progress');
+        const percent = document.getElementById('scroll-percent');
+
+        circle.style.strokeDashoffset = offset;
+        percent.textContent = `${Math.round(progress * 100)}%`;
       });
     </script>
 
