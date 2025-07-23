@@ -914,7 +914,7 @@
     function updateCanvasResolution(force = false) {
       const dpr = window.devicePixelRatio || 1;
       const cssWidth = window.visualViewport?.width || window.innerWidth;
-      const cssHeight = window.visualViewport?.height || window.innerHeight;
+      const cssHeight = window.innerHeight; // ← FIXED: avoid UI bar height flickering
 
       if (!force && cssWidth === lastCanvasWidth && cssHeight === lastCanvasHeight) return;
 
@@ -967,9 +967,18 @@
       console.error("Failed to load image at: " + img.src);
     };
 
-    // Handle all relevant resizes
-    window.addEventListener('resize', () => updateCanvasResolution(true));
-    window.visualViewport?.addEventListener('resize', () => updateCanvasResolution(true));
+    // Resize handlers with debounce
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => updateCanvasResolution(true), 200);
+    });
+
+    window.visualViewport?.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => updateCanvasResolution(true), 200);
+    });
+
     window.addEventListener('orientationchange', () => {
       setTimeout(() => updateCanvasResolution(true), 300);
     });
