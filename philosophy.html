@@ -51,7 +51,7 @@
       }
 
       .intro-summary h1{
-        color: rgb(0, 153, 255);
+        color: #00f7ff;
       }
 
       .intro-summary p{
@@ -89,7 +89,7 @@
           top: 0;
           margin: 1rem;
 
-          color: #00eeff;
+          color: #00f7ff;
           font-size: clamp(1.5rem, 1vw, 3.5rem);
           font-size: clamp(2rem, 1vw, 3rem);
 
@@ -107,7 +107,7 @@
           
           text-decoration: none;
           font-weight: 600;
-          color: #00eeff;
+          color: #36fffc;
           letter-spacing: 0.03rem;
           text-shadow: 0 0 0.2rem #00eeff, 0 0 4rem #00a9b5;
           padding: 1rem;
@@ -152,7 +152,6 @@
       
     }
       
-
       p{
         text-align: center;
         margin: clamp(1rem, 3vw, 2rem);
@@ -166,13 +165,13 @@
       }
 
       h1,h2,h3{
-        color: rgb(0, 247, 255);
+        color: #16fff3;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: clamp(1.5rem, 4vw, 3rem);
         letter-spacing: 0.03rem;
-        text-shadow: 0rem 0rem 0.1rem rgba(41, 123, 141, 0.5);
+        text-shadow: 0rem 0rem 0.1rem rgba(60, 184, 212, 0.2);
         margin: clamp(1rem, 1vw, 2rem);
 
       }
@@ -230,7 +229,7 @@
       }
 
       .philosophy-container p {
-        font-size: clamp(0.5rem, 1vw, 1.5rem);
+        font-size: clamp(1.1rem, 1vw, 1.5rem);
         line-height: clamp(1rem, 2.2vw, 2.2rem);
         letter-spacing: 0.03rem;
 
@@ -256,9 +255,9 @@
         border-style:solid;
         border-width: 0rem;
         border-bottom-width: 0.1rem;
-        border-bottom-color: rgb(0, 120, 141);
+        border-bottom-color: rgb(0, 141, 139);
         margin-left: 0;
-        font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
         font-weight: bold;
       }
 
@@ -269,11 +268,11 @@
 
         color: white;
         background-color: rgba(15, 15, 15, 0.6);
-        font-size: clamp(0.5rem, 1vw, 1.5rem);
+        font-size: clamp(0.75rem, 1vw, 1.5rem);
         line-height: clamp(1rem, 2.2vw, 2.2rem);
         letter-spacing: 0.03rem;
         filter: drop-shadow(0rem 0.3rem 0.2rem rgba(10, 10, 10, 0.9));
-        border-left: clamp(0.1rem, 1vw, 0.375rem) solid rgb(0, 247, 255);
+        border-left: clamp(0.1rem, 1vw, 0.375rem) solid #00f7ff;
         border-radius: 12px;
 
         transition: border-color 0.3s, background-color 0.3s;
@@ -281,7 +280,7 @@
 
       .philosophy-item p, .philosophy-list p{
         color: white;
-        font-size: clamp(0.5rem, 1vw, 1.5rem);
+        font-size: clamp(1.1rem, 1vw, 1.5rem);
         line-height: clamp(1rem, 2.2vw, 2.2rem);
         letter-spacing: 0.03rem;
         z-index: 1;
@@ -311,7 +310,7 @@
       }
 
       .philosophy-section{
-        font-size: 32px;
+        font-size: 2rem;
         color: #00f7ff;
         font-family: "Inter", sans-serif;
         padding: clamp(1rem, 5vw, 3rem);
@@ -327,9 +326,10 @@
       .breakthrough-item {
         display: flex;
         align-items: center;
+        justify-content: space-evenly;
         z-index: 1;
 
-        font-size: clamp(0.5rem, 1vw, 1.5rem);
+        font-size: clamp(1.1rem, 1vw, 1.5rem);
         gap: clamp(0.1rem, 1vw, 1.5rem);
         background-color: rgba(22, 22, 22, 0.8);
         padding: clamp(1rem, 5vw, 3rem);
@@ -352,9 +352,9 @@
         flex-shrink: 0;
         margin-right: clamp(1rem, 1vw, 2rem);
 
-        font-size: clamp(0.5rem, 1vw, 1.5rem);
+        font-size: clamp(1.1rem, 1vw, 1.5rem);
         font-weight: bold;
-        background-color: #00f7ff;
+        background-color: #00ffd9;
         color: #000;
         
         width: clamp(1rem, 2vw, 3rem);
@@ -366,111 +366,11 @@
 
       .breakthrough-item p {
         color: #ffffff;
-        font-size: clamp(0.5rem, 1vw, 2rem);
+        font-size: clamp(1.1rem, 1vw, 2rem);
         line-height: clamp(1rem, 2.2vw, 2.2rem);
         letter-spacing: 0.01rem;
         margin: 0;
       }
-
-      footer {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
-
-          font-family: 'Inter', sans-serif;
-          font-size: clamp(0.7rem, 1vw, 1rem);
-          text-align: center;
-
-          padding: clamp(0.1rem, 1vw, 1.5rem) clamp(0.1rem, 1vw, 1.5rem);
-
-          background-color: #1a1a1a;
-          color: #e6e6e6;
-
-          border-top: clamp(0.05rem, 0.2vw, 0.3rem) solid rgb(140, 0, 255);
-          box-shadow: 0 -2px 15px rgba(140, 0, 255, 0.2);
-          transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-          z-index: 1;
-        }
-
-        footer:hover {
-          background-color: #222;
-          color: #fff;
-          box-shadow: 0 -3px 20px rgba(140, 0, 255, 0.3);
-        }
-        
-        .contact-info {
-          text-align: center;
-          font-family: 'Inter', sans-serif;
-          font-weight: 1000;
-          font-size: clamp(1rem, 5vw, 2.5rem);
-          color: rgb(0, 247, 255);
-          letter-spacing: 0.03rem;
-          text-shadow: 0 0 5px rgba(77,249,255,0.6);
-          padding-top: clamp(0.5rem, 1vw, 1.5rem);
-          transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-
-        .contact-info .title {
-          font-size: clamp(0.9rem, 3vw, 2rem);
-        }
-
-        .email, .phone {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          margin-bottom: clamp(1rem, 3vw, 2rem);
-        }
-
-        .contact-info .email h1, .contact-info .phone h1 {
-          font-size: clamp(0.8rem, 1vw, 1.25rem);
-          margin: 0;
-          padding-right: clamp(0.1rem, 1vw, 1.5rem);
-          font-family: 'Poppins', sans-serif;
-          letter-spacing: 0.03rem;
-        }
-
-        .contact-info .phone p, .contact-info .email p {
-          font-size: clamp(0.8rem, 1vw, 1.25rem);
-          font-weight: normal;
-          margin: 0;
-        }
-
-        .social {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: clamp(1rem, 3vw, 2rem);
-          margin-bottom: clamp(1rem, 3vw, 2rem);
-          height: clamp(2rem, 5vw, 5rem);
-          transition: transform 0.3s ease;
-        }
-
-        .social img {
-          width: clamp(1.2rem, 2vw, 3rem);
-          margin: 0 0.5rem;
-        }
-
-        .icon_selection {
-          transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                      filter 0.3s ease;
-        }
-
-        .icon_selection:hover {
-          cursor: pointer;
-          transform: translateY(-0.4rem) scale(1.05);
-          filter: drop-shadow(0 0 0.5rem rgba(0, 255, 255, 0.6));
-        }
-
-        .copyrights {
-          font-size: clamp(0.7rem, 1vw, 1rem);
-          color: rgb(255, 255, 255);
-          letter-spacing: 0.03rem;
-          text-align: center;
-          margin-top: clamp(1rem, 3vw, 2rem);
-          padding-bottom: clamp(0.1rem, 1vw, 1.5rem);
-        }
 
     </style>
   </head>
@@ -501,7 +401,7 @@
           Στο <strong>Orion Scholars</strong>, οραματιζόμαστε μια εκπαίδευση που εμπνέει, καλλιεργεί και προετοιμάζει τους μαθητές για έναν κόσμο 
           γεμάτο προκλήσεις αλλά και δυνατότητες. Δημιουργούμε έναν χώρο όπου η εκπαίδευση δεν αποτελεί μέσο για την επίτευξη ενός βαθμού, 
           αλλά μια διασκεδαστική διαδρομή προς την προσωπική ολοκλήρωση και την συλλογή εμπειριών που θα αποδειχθούν χρήσιμες στην ζωή του ατόμου 
-          ποικιλλοτρόπως, άλλοτε με αναμενόμενο τρόπο και άλλοτε απροσδόκητο. Το πρόγραμμα βασίζεται στις εξής τρείς παρατηρήσεις:
+          ποικιλλοτρόπως, άλλοτε με αναμενόμενο τρόπο και άλλοτε με απροσδόκητο. Το πρόγραμμα βασίζεται στις εξής τρείς παρατηρήσεις:
         </p>
 
         <div class="philosophy-list">
